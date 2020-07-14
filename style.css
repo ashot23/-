@@ -1,0 +1,102 @@
+body{
+    background-image: url("./img/back.jpg");
+background-size: cover;
+background-repeat: round;
+background-attachment: fixed;
+height: -webkit-fill-available;
+width: -webkit-fill-available;
+position: fixed;
+display: flex;
+align-items: center;
+
+}
+
+
+
+.verev{
+
+display: flex;
+justify-content: space-between
+}
+h1{
+    font-size: 20px
+}
+/* html{
+    position: fixed
+} */
+.new{
+width: 200px;
+height: 60px;
+
+}
+.nor{
+    color: white;
+    display: inline-block;
+    font-size: x-large;
+}
+.xoshor{
+    height: 60px;
+    width: 60px;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+.podelica{
+    margin-right: 8px;
+}
+
+.dost{
+    height: 60px;
+    width: 60px;
+margin-right: 8px;
+margin-top: 6px;
+}
+.sksel{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.dastijenia{
+    display: flex;
+    margin-bottom: 10px;
+}
+.taracel{
+    display: flex;
+    margin-bottom: 10px;
+}
+.cont{
+    height: 60px;
+    width: 60px;
+    margin-right: 8px;
+    margin-top: 13px;
+
+
+}
+.sharun{
+    display: flex;
+    margin-bottom: 10px;
+}
+.zvuk,.harc{
+    width: 50px;
+    height: 50px;
+}
+.bod{
+    width: -webkit-fill-available;
+
+}
+.futer{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    /* margin-top: 26vh; */
+    width: -webkit-fill-available;
+    align-items: flex-end;
+    height: 90px;
+}
+.drosh{
+
+    width: 64px;
+    height: 48px;
+}
+
+
+}
