@@ -7,8 +7,8 @@ height: -webkit-fill-available;
 width: -webkit-fill-available;
 position: fixed;
 display: flex;
-align-items: center;
-
+flex-direction: column;
+    justify-content: space-between;
 }
 
 
@@ -86,11 +86,12 @@ margin-top: 6px;
 .futer{
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    /* position!: absolute; */
     /* margin-top: 26vh; */
     width: -webkit-fill-available;
     align-items: flex-end;
-    height: 90px;
+    margin-bottom: 10px;
+
 }
 .drosh{
 
@@ -98,17 +99,8 @@ margin-top: 6px;
     height: 48px;
 }
 
-/* 
-{
-    flex-direction:column-reverse;
-justify-content:space-between
 
-justify-content
-align-items
-flex-direction
-order
-align-self
-flex-wrap
-flex-flow
-align-content
-} */
+.h1{
+    margin-bottom: 64px;
+}
+
