@@ -3,24 +3,39 @@ body{
 background-size: cover;
 background-repeat: round;
 background-attachment: fixed;
-height: -webkit-fill-available;
+margin: 0;
+padding: 0;
+/* height: -webkit-fill-available;
 width: -webkit-fill-available;
 position: fixed;
 display: flex;
 flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
+/* *{
+    margin: 0;
+    padding: 0
+} */
 
+.opshi{
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+        justify-content: space-between;
+
+}
 
 .verev{
 
 display: flex;
 justify-content: space-between
 }
-h1{
+/* h1{
     font-size: 20px
-}
+} */
 /* html{
     position: fixed
 } */
@@ -33,6 +48,7 @@ height: 60px;
     color: white;
     display: inline-block;
     font-size: x-large;
+    font-family: 'Dancing Script', cursive;
 }
 .xoshor{
     height: 60px;
@@ -90,8 +106,9 @@ margin-top: 6px;
     /* margin-top: 26vh; */
     width: -webkit-fill-available;
     align-items: flex-end;
-    margin-bottom: 10px;
-
+    margin-bottom: 5px;
+    /* margin-bottom: 10px;
+    margin-right: 16px; */
 }
 .drosh{
 
@@ -100,7 +117,49 @@ margin-top: 6px;
 }
 
 
-.h1{
-    margin-bottom: 64px;
-}
 
+.s{
+    color: transparent
+}
+.h1p{
+
+    color: white;
+}
+.levels{
+    width: 60px;
+    height: 60px;
+    border: 1px solid  white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 13px;
+    margin-bottom: 13px;
+    border-radius: 17px;
+}
+.pner{
+    color: cyan;
+    font-size: 28px;
+    font-family: 'Dancing Script', cursive;
+}
+.levelner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.hlev{
+    justify-content: center;
+    display: flex;
+}
+.h1p{
+    color: crimson;
+    font-size: x-large;
+    font-family: 'Dancing Script', cursive;
+}
+.leveldiv{
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

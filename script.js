@@ -9,11 +9,121 @@ var fl = 0
 var  x = localStorage.getItem("game",game)
 var fla = localStorage.getItem("flay",fl)
 var drosh = document.getElementsByClassName("drosh")
-var tarhy = ["Նոր խաղ","Տարածել","Նվաճումներ","Շարունակել"]
-var tarru = ["Новая игра","Поделиться","Достижение","Продолжать"]
+var opshi = document.getElementsByClassName("opshi")
+
+var tarhy = ["Նոր խաղ","Տարածել","Նվաճումներ","Շարունակել","Մակարդակ"]
+var tarru = ["Новая игра","Поделиться","Достижение","Продолжать","Уровень"]
 
 
-console.log(document.body.style);
+
+
+sksel.onclick = function () {
+    
+    game = 1
+    localStorage.setItem("game",game)
+     
+        document.body.removeChild(opshi[0])  
+        var leveldiv = document.createElement("div")
+        document.body.append(leveldiv)
+        leveldiv.setAttribute("class","leveldiv")
+        var h1 = document.createElement("div") 
+        leveldiv.append(h1)
+        h1.setAttribute("class","hlev")
+        var h1p = document.createElement("h1")
+        h1.append(h1p)
+        h1p.setAttribute("class","h1p")
+        if (fla==0) {
+            h1p.innerHTML = tarhy[4]
+        } 
+        else{
+            h1p.innerHTML = tarru[4] 
+        }
+
+var levelner = document.createElement("div")
+leveldiv.append(levelner)
+levelner.setAttribute("class","levelner")
+
+
+for (let i = 0; i < 12; i++) {
+    var level = document.createElement("div")
+    levelner.append(level)
+    level.setAttribute("id",i)
+    level.setAttribute("class","levels")
+    var p = document.createElement("p")
+    p.setAttribute("class","pner")
+    p.innerHTML = i
+    level.append(p)
+}
+
+var futer = document.createElement("div")
+leveldiv.append(futer)
+futer.setAttribute("class","futer")
+var zv = document.createElement("img")
+futer.append(zv)
+zv.setAttribute("class","zvuk")
+zv.src = "img/zvuk.png"
+
+var dr = document.createElement("img")
+futer.append(dr)
+dr.setAttribute("class","drosh")
+if (localStorage.getItem("tetev",tetev)==0) {
+    dr.src = "img/rus.png"
+console.log(5);
+
+}
+else  {
+    
+
+    dr.src = "img/arm.png"
+    dr.style.width = "47px"  
+    dr.style.height = "47px"  
+}
+
+dr.addEventListener("click",drash)
+var harcs = document.createElement("img")
+futer.append(harcs)
+harcs.setAttribute("class","harc")
+harcs.src = "img/harc.png"
+
+
+}
+
+function drash(params) {
+    console.log(4);
+    var hn = document.getElementsByClassName("h1p")
+    var dr = document.getElementsByClassName("drosh")
+    if (localStorage.getItem("tetev",tetev)==0) {
+     
+ 
+        hn[0].innerHTML = tarru[4]
+          dr[0].src = "img/arm.png"
+          dr[0].style.width = "47px"  
+          dr[0].style.height = "47px"
+          fl = 1
+          fla =1
+          localStorage.setItem("flay",fl)
+          tetev = 1
+          localStorage.setItem("tetev",tetev) 
+      }
+      else{
+          dr[0].src = "img/rus.png"
+    
+          hn[0].innerHTML = tarhy[4]
+          dr[0].style.width = "65px"  
+          dr[0].style.height = "50px"
+          
+      
+          fl = 0
+          fla =0
+          localStorage.setItem("flay",fl)
+          tetev = 0
+          localStorage.setItem("tetev",tetev) 
+      }
+      
+    
+      
+}
+
 
 drosh[0].onclick = function () {
 
@@ -101,12 +211,6 @@ flag()
 
 // localStorage.setItem("game",game)
 
-sksel.onclick = function (params) {
-    
-    game = 1
-    localStorage.setItem("game",game)
-    
-}
 
 function contineo(params) {
     if (x == 1) {
@@ -116,7 +220,8 @@ function contineo(params) {
             sharq.removeChild(sksel)
             sharq.removeChild(taracel)
             sharq.removeChild(dastijenia)
-
+var h1 = document.getElementsByClassName("h1")
+h1[0].style.marginBottom = "64px"
 
             var shr = document.createElement("div")
             sharq.append(shr)
