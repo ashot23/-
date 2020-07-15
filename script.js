@@ -12,6 +12,9 @@ var drosh = document.getElementsByClassName("drosh")
 var tarhy = ["Նոր խաղ","Տարածել","Նվաճումներ","Շարունակել"]
 var tarru = ["Новая игра","Поделиться","Достижение","Продолжать"]
 
+
+console.log(document.body.style);
+
 drosh[0].onclick = function () {
 
     var p1 = document.getElementById("p1")

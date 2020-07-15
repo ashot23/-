@@ -98,5 +98,17 @@ margin-top: 6px;
     height: 48px;
 }
 
+/* 
+{
+    flex-direction:column-reverse;
+justify-content:space-between
 
-}
+justify-content
+align-items
+flex-direction
+order
+align-self
+flex-wrap
+flex-flow
+align-content
+} */
