@@ -27,6 +27,10 @@ flex-direction: column;
         justify-content: space-between;
 
 }
+a{
+display: inline-flex;
+    text-decoration: none
+}
 
 .verev{
 
@@ -67,28 +71,28 @@ margin-right: 8px;
 margin-top: 6px;
 }
 .sksel{
-    display: flex;
+    display: inline-flex;
     margin-bottom: 10px;
 }
 
 .dastijenia{
-    display: flex;
+    display: inline-flex;
     margin-bottom: 10px;
 }
 .taracel{
-    display: flex;
+    display: inline-flex;
     margin-bottom: 10px;
 }
 .cont{
     height: 60px;
     width: 60px;
     margin-right: 8px;
-    margin-top: 13px;
+    margin-top: 17px;
 
 
 }
 .sharun{
-    display: flex;
+    display: inline-flex;
     margin-bottom: 10px;
 }
 .zvuk,.harc{
@@ -128,16 +132,21 @@ margin-top: 6px;
 .levels{
     width: 60px;
     height: 60px;
-    border: 1px solid  white;
+    border: 2px solid  ;
+    border-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 13px;
     margin-bottom: 13px;
     border-radius: 17px;
+    background-image: url("./img/l6.png");
+    background-size: cover;
+    background-color: black;
 }
 .pner{
-    color: cyan;
+    /* color: cyan; */
+    color: floralwhite;
     font-size: 28px;
     font-family: 'Dancing Script', cursive;
 }
@@ -151,7 +160,7 @@ margin-top: 6px;
     display: flex;
 }
 .h1p{
-    color: crimson;
+    color: cornflowerblue;
     font-size: x-large;
     font-family: 'Dancing Script', cursive;
 }
@@ -162,4 +171,12 @@ margin-top: 6px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.xax{
+    display: flex;
+    flex-direction: column;
+}
+.h1{
+    margin-bottom: 0px;
 }

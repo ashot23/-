@@ -2,6 +2,9 @@ var tetev = 0
 var himn = document.getElementsByClassName("but")
 var sharq = document.getElementById("xax")
 var sksel = document.getElementById("skizb")
+var xosh = document.getElementsByClassName("xoshor")
+var p1s = document.getElementById("p1")
+var p2s = document.getElementById("p2")
 var taracel  = document.getElementById("taracel")
 var dastijenia= document.getElementById("dastijenia")
 var game = 0
@@ -17,7 +20,7 @@ var tarru = ["Новая игра","Поделиться","Достижение"
 
 
 
-sksel.onclick = function () {
+p1s.onclick = function () {
     
     game = 1
     localStorage.setItem("game",game)
@@ -49,6 +52,7 @@ for (let i = 0; i < 12; i++) {
     levelner.append(level)
     level.setAttribute("id",i)
     level.setAttribute("class","levels")
+    
     var p = document.createElement("p")
     p.setAttribute("class","pner")
     p.innerHTML = i
@@ -87,6 +91,12 @@ harcs.src = "img/harc.png"
 
 
 }
+// p2s.onclick = function () {
+    
+// window.open("www.facebook.com","blank")
+
+// } 
+
 
 function drash(params) {
     console.log(4);
@@ -221,7 +231,7 @@ function contineo(params) {
             sharq.removeChild(taracel)
             sharq.removeChild(dastijenia)
 var h1 = document.getElementsByClassName("h1")
-h1[0].style.marginBottom = "64px"
+// h1[0].style.marginBottom = "64px"
 
             var shr = document.createElement("div")
             sharq.append(shr)
@@ -274,12 +284,16 @@ h1[0].style.marginBottom = "64px"
               sharq.append(norx1)
               norx1.setAttribute("class","taracel")
             //   norx1.setAttribute("id","taracel")
+            var a = document.createElement("a")
+            norx1.append(a)
+            a.setAttribute("href","facebook")
+            a.setAttribute("target","_blank")
                var sharim2 = document.createElement("img")
-               norx1.append(sharim2)
+               a.append(sharim2)
                sharim2.setAttribute("src","img/pod.png")
                sharim2.setAttribute("class","dost")
                var p2 = document.createElement("p")
-               norx1.append(p2)
+               a.append(p2)
                p2.setAttribute("class","nor")
                p2.setAttribute("id","p2")
                if (fla==0) {
