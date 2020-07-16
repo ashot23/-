@@ -158,6 +158,22 @@ margin-top: 6px;
     background-size: cover;
     background-color: black;
 }
+.levels2{
+
+    width: 82px;
+    height: 82px;
+    border: 2px solid  ;
+    border-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 13px;
+    margin-bottom: 13px;
+    border-radius: 17px;
+    background-image: url("./img/l6.png");
+    background-size: cover;
+    background-color: black;
+}
 .pner{
     /* color: cyan; */
     color: floralwhite;
