@@ -16,7 +16,8 @@ var opshi = document.getElementsByClassName("opshi")
 
 var tarhy = ["Նոր խաղ","Տարածել","Նվաճումներ","Շարունակել","Մակարդակ"]
 var tarru = ["Новая игра","Поделиться","Достижение","Продолжать","Уровень"]
-
+var h1ru = "Найди кота"
+var h1hy = "Գտի՛ր կատվին"
 
 
 
@@ -24,8 +25,8 @@ p1s.onclick = function () {
     
     game = 1
     localStorage.setItem("game",game)
-     
-        document.body.removeChild(opshi[0])  
+                                            
+        document.body.removeChild(opshi[0]) //են առաջի էջը կորավ 
         var leveldiv = document.createElement("div")
         document.body.append(leveldiv)
         leveldiv.setAttribute("class","leveldiv")
@@ -67,23 +68,14 @@ futer.append(zv)
 zv.setAttribute("class","zvuk")
 zv.src = "img/zvuk.png"
 
-var dr = document.createElement("img")
-futer.append(dr)
-dr.setAttribute("class","drosh")
-if (localStorage.getItem("tetev",tetev)==0) {
-    dr.src = "img/rus.png"
-console.log(5);
+var tun = document.createElement("img")
+futer.append(tun)
+tun.setAttribute("class","tun")
+tun.src = "img/home.png"
 
-}
-else  {
-    
 
-    dr.src = "img/arm.png"
-    dr.style.width = "47px"  
-    dr.style.height = "47px"  
-}
 
-dr.addEventListener("click",drash)
+
 var harcs = document.createElement("img")
 futer.append(harcs)
 harcs.setAttribute("class","harc")
@@ -98,41 +90,7 @@ harcs.src = "img/harc.png"
 // } 
 
 
-function drash(params) {
-    console.log(4);
-    var hn = document.getElementsByClassName("h1p")
-    var dr = document.getElementsByClassName("drosh")
-    if (localStorage.getItem("tetev",tetev)==0) {
-     
- 
-        hn[0].innerHTML = tarru[4]
-          dr[0].src = "img/arm.png"
-          dr[0].style.width = "47px"  
-          dr[0].style.height = "47px"
-          fl = 1
-          fla =1
-          localStorage.setItem("flay",fl)
-          tetev = 1
-          localStorage.setItem("tetev",tetev) 
-      }
-      else{
-          dr[0].src = "img/rus.png"
-    
-          hn[0].innerHTML = tarhy[4]
-          dr[0].style.width = "65px"  
-          dr[0].style.height = "50px"
-          
-      
-          fl = 0
-          fla =0
-          localStorage.setItem("flay",fl)
-          tetev = 0
-          localStorage.setItem("tetev",tetev) 
-      }
-      
-    
-      
-}
+
 
 
 drosh[0].onclick = function () {
@@ -141,7 +99,7 @@ drosh[0].onclick = function () {
     var p2 = document.getElementById("p2")
     var p3 = document.getElementById("p3")
     var p4 = document.getElementById("p4")
-
+    var hner = document.getElementsByClassName("s")
     if (localStorage.getItem("tetev",tetev) == 0) {
         fl  =1
         localStorage.setItem("flay",fl)
@@ -157,6 +115,7 @@ drosh[0].onclick = function () {
         p1.innerHTML = tarru[0]
         p2.innerHTML = tarru[1]
         p3.innerHTML = tarru[2] 
+        hner[0].innerHTML = h1ru
         if (p4) {
             p4.innerHTML = tarru[3]
            }
@@ -181,6 +140,7 @@ else if (localStorage.getItem("tetev",tetev) == 1) {
            p1.innerHTML = tarhy[0]
            p2.innerHTML = tarhy[1]
            p3.innerHTML = tarhy[2]
+           hner[0].innerHTML = h1hy
               if (p4) {
                p4.innerHTML = tarhy[3]
               }
@@ -200,13 +160,16 @@ function flag(params) {
     var p2 = document.getElementById("p2")
     var p3 = document.getElementById("p3")
     var p4 = document.getElementById("p4")
+    var hner = document.getElementsByClassName("s")
     if (fla==0) {
       p1.innerHTML = tarhy[0]
       p2.innerHTML = tarhy[1]
       p3.innerHTML = tarhy[2]
+      hner[0].innerHTML = h1hy
       drosh[0].src = "img/rus.png"
     }
 else if (fla==1) {
+    hner[0].innerHTML = h1ru
     p1.innerHTML = tarru[0]
       p2.innerHTML = tarru[1]
       p3.innerHTML = tarru[2] 
@@ -336,3 +299,15 @@ else if (fla==1) {
 }
 contineo()
 
+if (window.innerWidth >=400) {
+    console.log(true);
+    
+}
+else{
+    console.log(false);
+    
+}
+
+
+//innerHeight: 736
+//innerWidth: 414
