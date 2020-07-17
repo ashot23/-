@@ -11,6 +11,10 @@ var game = 0
 var fl = 0
 var x = localStorage.getItem("game", game)
 var fla = localStorage.getItem("flay", fl)
+var gamelev = 0
+localStorage.setItem("lev",gamelev)
+var lev = localStorage.getItem("lev",gamelev)
+
 var drosh = document.getElementsByClassName("drosh")
 var opshi = document.getElementsByClassName("opshi")
 
@@ -48,7 +52,8 @@ p1s.onclick = function () {
     levelner.setAttribute("class", "levelner")
 
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i <= 10; i++) 
+    {
         var level = document.createElement("div")
         levelner.append(level)
         level.setAttribute("id", i)
@@ -65,6 +70,17 @@ p1s.onclick = function () {
         p.innerHTML = i
         level.append(p)
     }
+
+    var levs = document.getElementsByClassName("levels")
+
+
+    if (levs[0]) {
+       levs[0].addEventListener("click",levl1)
+    }
+
+var slak  = document.createElement("div")
+levelner.append(slak)
+slak.setAttribute("class","slak")
 
     var futer = document.createElement("div")
     leveldiv.append(futer)
@@ -305,14 +321,177 @@ function contineo(params) {
 }
 contineo()
 
-if (window.innerWidth >= 400) {
-    console.log(true);
+
+
+
+
+
+
+
+  
+
+
+function levl1 () {
+    console.log(4);
+    if (lev==0) {
+       var ids = 0
+        
+       var levsa  = document.getElementsByClassName("leveldiv")
+document.body.removeChild(levsa[0])
+          
+var xaxayin = document.createElement("div")
+document.body.append(xaxayin)
+xaxayin.setAttribute("class","xaxayin")
+
+var verev = document.createElement("div")
+verev.setAttribute("class","vererv")
+xaxayin.append(verev)
+
+var brldiv = document.createElement("div")
+brldiv.setAttribute("class","brldiv")
+verev.append(brldiv)
+
+var brlplus = document.createElement("img")
+brlplus.setAttribute("src","img/plus.png")
+brlplus.setAttribute("class","plus")
+brldiv.append(brlplus)   
+
+
+var brl = document.createElement("img")
+brl.setAttribute("src","img/brliand.png")
+brl.setAttribute("class","brl")
+brldiv.append(brl)   
+
+var brlp = document.createElement("p")
+brlp.setAttribute("class","brlp")
+brlp.innerHTML = 0
+brldiv.append(brlp)
+
+var levdiv = document.createElement("div")
+levdiv.setAttribute("class","levdiv")
+verev.append(levdiv)
+
+
+var levin = document.createElement("h1")
+levin.setAttribute("class","levin")
+levdiv.append(levin)
+if (fla==0) {
+    levin.innerHTML = tarhy[4]
+    levin.style.fontSize = "17px"
+}
+else{
+    levin.innerHTML = tarru[4]
+
 
 }
-else {
-    console.log(false);
+var levp = document.createElement("p")
+levp.setAttribute("class","levp")
+levp.innerHTML = 0
+levdiv.append(levp)
+levp.setAttribute("align","center")
 
+
+var poxdiv = document.createElement("div")
+poxdiv.setAttribute("class","poxdiv")
+verev.append(poxdiv)
+
+var poxp = document.createElement("p")
+poxp.setAttribute("class","poxp")
+poxp.innerHTML = 0
+poxdiv.append(poxp)
+
+
+
+var pox = document.createElement("img")
+pox.setAttribute("src","img/pox.png")
+pox.setAttribute("class","pox")
+poxdiv.append(pox) 
+var poxplus = document.createElement("img")
+poxplus.setAttribute("src","img/poxplus.png")
+poxplus.setAttribute("class","poxplus")
+poxdiv.append(poxplus)   
+
+
+
+var gamediv = document.createElement("div")
+gamediv.setAttribute("class","gamediv")
+xaxayin.append(gamediv)
+
+
+
+var tbl = document.createElement('table')
+gamediv.appendChild(tbl)
+tbl.setAttribute("class","table")
+// tbl.style.margin = 'auto'
+var tbd = document.createElement('tbody')
+
+tbl.appendChild(tbd)
+var m = 10
+var n = 10
+for (let i = 0; i < m; i++) {
+    var tr = document.createElement('tr')
+    tbd.appendChild(tr)
+    tr.setAttribute("id",i)
+ 
+
+
+    for (let j = 0; j < n; j++) {
+        var td = document.createElement('td')
+        tr.appendChild(td)
+        td.setAttribute("class","td")
+        td.setAttribute("id",j)
+        td.style.backgroundColor = "transparent"
+        // td.style.width = 50 + 'px'
+        // td.style.height = 50 + 'px'
+        td.onclick = function (params) {
+      
+            
+if (this.id==3&&this.parentElement.id==2) {
+    console.log("4");
+    
 }
+
+        }
+
+    }
+}
+
+
+
+var futerdiv = document.createElement("div")
+futerdiv.setAttribute("class","futerdiv")
+xaxayin.append(futerdiv)
+
+
+
+var zvuk = document.createElement('img')
+futerdiv.appendChild(zvuk)
+zvuk.setAttribute("class","zvuk")
+zvuk.src = "img/zvuk.png"
+
+
+var ogndiv = document.createElement('div')
+futerdiv.appendChild(ogndiv)
+ogndiv.setAttribute("class","ogndiv")
+
+
+var ogn1 = document.createElement('img')
+ogndiv.appendChild(ogn1)
+ogn1.setAttribute("class","ogn1")
+ogn1.src = "img/ogn.png"
+
+var ogn2 = document.createElement('img')
+ogndiv.appendChild(ogn2)
+ogn2.setAttribute("class","sos")
+ogn2.src = "img/sos.png"
+
+
+
+
+    }
+
+} 
+
 
 
 //innerHeight: 736
