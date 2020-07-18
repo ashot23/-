@@ -56,12 +56,20 @@ p1s.onclick = function (params) {
         var level = document.createElement("div")
         levelner.append(level)
         level.setAttribute("id", i)
-        if (window.innerWidth >=400 ) {
-            level.setAttribute("class", "levels2")
-        }
-        else{
-            level.setAttribute("class", "levels")
-        }
+        // if (window.innerWidth >=400 ) {
+        //     level.setAttribute("class", "levels2")
+        // }
+        // else{
+
+               
+            //   if (lev!=0&&(lev-1)==i) {
+                level.setAttribute("class", "levels")
+           //    }     
+            //    else{
+            //     level.setAttribute("class", "levels1")
+            //    }
+           
+      //  }
    
               
         var p = document.createElement("p")
@@ -261,14 +269,10 @@ function contineo(params) {
                 var level = document.createElement("div")
                 levelner.append(level)
                 level.setAttribute("id", i)
-                if (window.innerWidth >=400 ) {
-                    level.setAttribute("class", "levels2")
-                }
-                else{
-                    level.setAttribute("class", "levels")
-                }
+              
+
+                level.setAttribute("class", "levels")
            
-                      
                 var p = document.createElement("p")
                 p.setAttribute("class", "pner")
                 p.innerHTML = i
@@ -276,7 +280,23 @@ function contineo(params) {
             }
         
             var levs = document.getElementsByClassName("levels")
-        
+             levs[0].style.backgroundImage = "url(img/l6.png)"
+             
+            for (let x = 1; x < 10; x++) {
+                
+                if (lev == x) {
+                    
+                    levs[x-1].style.backgroundImage = "url(img/l6.png)"
+                    levs[x].style.backgroundImage = "url(img/l6.png)"
+                    for (let i = x+1; i < levs.length; i++) {
+                       levs[i].style.backgroundImage = "url(img/l7.png)"
+                        
+                    }
+                }    
+            }
+            
+
+
             levs[0].addEventListener("click",l0)
             levs[1].addEventListener("click",l1)
         
