@@ -12,7 +12,7 @@ var fl = 0
 var x = localStorage.getItem("game", game)
 var fla = localStorage.getItem("flay", fl)
 var gamelev = 0
-localStorage.setItem("lev",gamelev)
+// localStorage.setItem("lev",gamelev)
 var lev = localStorage.getItem("lev",gamelev)
 
 var drosh = document.getElementsByClassName("drosh")
@@ -24,9 +24,8 @@ var h1ru = "Найди кота"
 var h1hy = "Գտի՛ր կատվին"
 
 
-
-p1s.onclick = function () {
-
+p1s.onclick = function (params) {
+    
     game = 1
     localStorage.setItem("game", game)
 
@@ -73,10 +72,8 @@ p1s.onclick = function () {
 
     var levs = document.getElementsByClassName("levels")
 
-
-    if (levs[0]) {
-       levs[0].addEventListener("click",levl1)
-    }
+    levs[0].addEventListener("click",l0)
+    levs[1].addEventListener("click",l1)
 
 var slak  = document.createElement("div")
 levelner.append(slak)
@@ -102,9 +99,11 @@ slak.setAttribute("class","slak")
     futer.append(harcs)
     harcs.setAttribute("class", "harc")
     harcs.src = "img/harc.png"
-
-
 }
+
+
+
+
 // p2s.onclick = function () {
 
 // window.open("www.facebook.com","blank")
@@ -220,22 +219,101 @@ function contineo(params) {
 
             var shr = document.createElement("div")
             sharq.append(shr)
+            
             shr.setAttribute("class", "sharun")
             var sharim = document.createElement("img")
             shr.append(sharim)
             sharim.setAttribute("src", "img/shar.png")
             sharim.setAttribute("class", "cont")
+            
             var p = document.createElement("p")
             shr.append(p)
             p.setAttribute("class", "nor")
             p.setAttribute("id", "p4")
+           p.onclick = function (params) {
+            game = 1
+            localStorage.setItem("game", game)
+        
+            document.body.removeChild(opshi[0]) //են առաջի էջը կորավ 
+            var leveldiv = document.createElement("div")
+            document.body.append(leveldiv)
+            leveldiv.setAttribute("class", "leveldiv")
+            var h1 = document.createElement("div")
+            leveldiv.append(h1)
+            h1.setAttribute("class", "hlev")
+            var h1p = document.createElement("h1")
+            h1.append(h1p)
+            h1p.setAttribute("class", "h1p")
+            if (fla == 0) {
+                h1p.innerHTML = tarhy[4]
+            }
+            else {
+                h1p.innerHTML = tarru[4]
+            }
+        
+            var levelner = document.createElement("div")
+            leveldiv.append(levelner)
+            levelner.setAttribute("class", "levelner")
+        
+        
+            for (let i = 0; i <= 10; i++) 
+            {
+                var level = document.createElement("div")
+                levelner.append(level)
+                level.setAttribute("id", i)
+                if (window.innerWidth >=400 ) {
+                    level.setAttribute("class", "levels2")
+                }
+                else{
+                    level.setAttribute("class", "levels")
+                }
+           
+                      
+                var p = document.createElement("p")
+                p.setAttribute("class", "pner")
+                p.innerHTML = i
+                level.append(p)
+            }
+        
+            var levs = document.getElementsByClassName("levels")
+        
+            levs[0].addEventListener("click",l0)
+            levs[1].addEventListener("click",l1)
+        
+        var slak  = document.createElement("div")
+        levelner.append(slak)
+        slak.setAttribute("class","slak")
+        
+            var futer = document.createElement("div")
+            leveldiv.append(futer)
+            futer.setAttribute("class", "futer")
+            var zv = document.createElement("img")
+            futer.append(zv)
+            zv.setAttribute("class", "zvuk")
+            zv.src = "img/zvuk.png"
+        
+            var tun = document.createElement("img")
+            futer.append(tun)
+            tun.setAttribute("class", "tun")
+            tun.src = "img/home.png"
+        
+        
+        
+        
+            var harcs = document.createElement("img")
+            futer.append(harcs)
+            harcs.setAttribute("class", "harc")
+            harcs.src = "img/harc.png"
+              
+          }
+
             if (fla == 0) {
                 p.innerHTML = tarhy[3]
             }
             else if (fla == 1) {
                 p.innerHTML = tarru[3]
             }
-
+           
 
 
             var norx = document.createElement("div")
@@ -262,7 +340,10 @@ function contineo(params) {
                 game = 0
                 x = 0
                 localStorage.setItem("game", x)
-
+             lev =0
+             gamelev = 0
+             localStorage.setItem("lev", gamelev)
+                 
             }
 
             var norx1 = document.createElement("div")
@@ -310,7 +391,7 @@ function contineo(params) {
                 p3.innerHTML = tarru[2]
             }
 
-
+          
 
         }
 
@@ -331,21 +412,255 @@ contineo()
   
 
 
-function levl1 () {
-    console.log(4);
+
+function l0(params) {
+
+           
+    var table  = document.getElementsByClassName("table")
+    var gamediv = document.getElementsByClassName("gamediv")
+   
     if (lev==0) {
-       var ids = 0
+
+     var xaxayin = document.createElement("div")
+     document.body.append(xaxayin)
+        xaxayin.setAttribute("class","xaxayin")
+            
+
+    if (gamediv[0]) {
+        gamediv[0].removeChild(table[0])
+    }
+    else{
         
-       var levsa  = document.getElementsByClassName("leveldiv")
+   ver()
+    }
+
+
+
+    var gamediv = document.createElement("div")
+    gamediv.setAttribute("class","gamediv")
+    xaxayin.append(gamediv)
+
+
+var tbl = document.createElement('table')
+gamediv.appendChild(tbl)
+tbl.setAttribute("class","table")
+tbl.style.backgroundImage = "url(img/level/0.jpg)"
+
+
+// tbl.style.margin = 'auto'
+var tbd = document.createElement('tbody')
+
+tbl.appendChild(tbd)
+var m = 10
+var n = 10
+for (let i = 0; i < m; i++) {
+ var tr = document.createElement('tr')
+ tbd.appendChild(tr)
+ tr.setAttribute("id",i)
+
+
+
+ for (let j = 0; j < n; j++) {
+     var td = document.createElement('td')
+     tr.appendChild(td)
+     td.setAttribute("class","td")
+     td.setAttribute("id",j)
+     td.style.backgroundColor = "transparent"
+     td.style.width = 50 + 'px'
+     td.style.height = 42 + 'px'
+     td.onclick = function (params) {
+   
+         
+if (this.id==3&&this.parentElement.id==2||this.id==4&&this.parentElement.id==2||this.id==2&&this.parentElement.id==3||this.id==3&&this.parentElement.id==3||this.id==4&&this.parentElement.id==3||this.id==5&&this.parentElement.id==3||this.id==2&&this.parentElement.id==4||this.id==3&&this.parentElement.id==4||this.id==4&&this.parentElement.id==4||this.id==5&&this.parentElement.id==4||this.id==6&&this.parentElement.id==4||this.id==2&&this.parentElement.id==5||this.id==3&&this.parentElement.id==5||this.id==4&&this.parentElement.id==5||this.id==5&&this.parentElement.id==5||this.id==3&&this.parentElement.id==6) {
+ tbl.setAttribute("class","comp")
+
+ //    setTimeout(() => {
+     tbl.style.backgroundImage = "url(img/compl/1.png)"
+     gamelev = 1
+     lev = 1 
+     localStorage.setItem("lev",gamelev)
+              
+setTimeout(() => {
+    l1()
+}, 2000);
+
+
+ //    }, 1);
+
+}
+else{
+console.log(5);
+
+}
+
+     }
+
+ }
+}
+if (!gamediv[0]) {
+    futer()
+}
+
+    }
+
+
+}
+
+
+function l1(params) {
+    var a = 0
+        
+    var table  = document.getElementsByClassName("comp")
+    var gamedivs = document.getElementsByClassName("gamediv")
+  var xaxs= document.getElementsByClassName("xaxayin")
+            
+    if (lev==1) {
+        
+   
+    if (gamedivs[0]) {
+        gamedivs[0].removeChild(table[0])
+
+    var tbl = document.createElement('table')
+    gamedivs[0].appendChild(tbl)
+    tbl.setAttribute("class","table")
+    tbl.style.backgroundImage = "url(img/level/1.jpg)"
+    // tbl.style.margin = 'auto'
+    var tbd = document.createElement('tbody')
+    
+    tbl.appendChild(tbd)
+    var m = 20
+    var n = 20
+    for (let i = 0; i < m; i++) {
+     var tr = document.createElement('tr')
+     tbd.appendChild(tr)
+     tr.setAttribute("id",i)
+    
+    
+    
+     for (let j = 0; j < n; j++) {
+         var td = document.createElement('td')
+         tr.appendChild(td)
+         td.setAttribute("class","td")
+         td.setAttribute("id",j)
+         td.style.backgroundColor = "transparent"
+         td.style.width = 14 + 'px'
+     td.style.height = 19 + 'px'
+         td.onclick = function (params) {
+            if (this.id==13&&this.parentElement.id ==7||this.id==14&&this.parentElement.id ==7||this.id==14&&this.parentElement.id ==8||this.id==15&&this.parentElement.id ==8||this.id==16&&this.parentElement.id ==8||this.id==17&&this.parentElement.id ==8) {
+                tbl.setAttribute("class","comp")
+            
+            
+                tbl.style.backgroundImage = "url(img/compl/7.png)"
+                gamelev = 2
+                lev = 2
+                localStorage.setItem("lev",gamelev)
+           
+               }
+             
+
+    
+    }
+    
+    
+         }
+        }
+        if (a==1) {
+            futer() 
+         }
+    }
+    else {
+        var xaxayin = document.createElement("div")
+        document.body.append(xaxayin)
+           xaxayin.setAttribute("class","xaxayin")
+   ver()
+   a=1
+   var gamediv = document.createElement("div")
+   gamediv.setAttribute("class","gamediv")
+   xaxayin.append(gamediv)
+   
+
+var tbl = document.createElement('table')
+gamediv.appendChild(tbl)
+tbl.setAttribute("class","table")
+tbl.style.backgroundImage = "url(img/level/1.jpg)"
+// tbl.style.margin = 'auto'
+var tbd = document.createElement('tbody')
+
+tbl.appendChild(tbd)
+var m = 20
+var n = 20
+for (let i = 0; i < m; i++) {
+var tr = document.createElement('tr')
+tbd.appendChild(tr)
+tr.setAttribute("id",i)
+
+
+
+for (let j = 0; j < n; j++) {
+    var td = document.createElement('td')
+    tr.appendChild(td)
+    td.setAttribute("class","td")
+    td.setAttribute("id",j)
+    td.style.backgroundColor = "transparent"
+     td.style.width = 14 + 'px'
+     td.style.height = 19 + 'px'
+    td.onclick = function (params) {
+//   if (this) {
+      
+//   }
+        
+if (this.id==13&&this.parentElement.id ==7||this.id==14&&this.parentElement.id ==7||this.id==14&&this.parentElement.id ==8||this.id==15&&this.parentElement.id ==8||this.id==16&&this.parentElement.id ==8||this.id==17&&this.parentElement.id ==8) {
+    tbl.setAttribute("class","comp")
+
+
+    tbl.style.backgroundImage = "url(img/compl/7.png)"
+    gamelev = 2
+    lev = 2
+    localStorage.setItem("lev",gamelev)
+
+   }
+
+
+
+}
+
+
+    }
+   }
+   if (a==1) {
+       futer() 
+    }
+
+
+    }
+   
+   
+
+ }
+
+
+
+}
+
+
+
+
+
+function ver(params) {
+    
+    var ids = 0
+        
+    var levsa  = document.getElementsByClassName("leveldiv")
 document.body.removeChild(levsa[0])
-          
-var xaxayin = document.createElement("div")
-document.body.append(xaxayin)
-xaxayin.setAttribute("class","xaxayin")
+       
+
+var xaxayin = document.getElementsByClassName("xaxayin")
+
+
 
 var verev = document.createElement("div")
 verev.setAttribute("class","vererv")
-xaxayin.append(verev)
+xaxayin[0].append(verev)
 
 var brldiv = document.createElement("div")
 brldiv.setAttribute("class","brldiv")
@@ -376,11 +691,11 @@ var levin = document.createElement("h1")
 levin.setAttribute("class","levin")
 levdiv.append(levin)
 if (fla==0) {
-    levin.innerHTML = tarhy[4]
-    levin.style.fontSize = "17px"
+ levin.innerHTML = tarhy[4]
+ levin.style.fontSize = "17px"
 }
 else{
-    levin.innerHTML = tarru[4]
+ levin.innerHTML = tarru[4]
 
 
 }
@@ -412,55 +727,15 @@ poxplus.setAttribute("class","poxplus")
 poxdiv.append(poxplus)   
 
 
-
-var gamediv = document.createElement("div")
-gamediv.setAttribute("class","gamediv")
-xaxayin.append(gamediv)
-
-
-
-var tbl = document.createElement('table')
-gamediv.appendChild(tbl)
-tbl.setAttribute("class","table")
-// tbl.style.margin = 'auto'
-var tbd = document.createElement('tbody')
-
-tbl.appendChild(tbd)
-var m = 10
-var n = 10
-for (let i = 0; i < m; i++) {
-    var tr = document.createElement('tr')
-    tbd.appendChild(tr)
-    tr.setAttribute("id",i)
- 
-
-
-    for (let j = 0; j < n; j++) {
-        var td = document.createElement('td')
-        tr.appendChild(td)
-        td.setAttribute("class","td")
-        td.setAttribute("id",j)
-        td.style.backgroundColor = "transparent"
-        // td.style.width = 50 + 'px'
-        // td.style.height = 50 + 'px'
-        td.onclick = function (params) {
-      
-            
-if (this.id==3&&this.parentElement.id==2) {
-    console.log("4");
-    
-}
-
-        }
-
-    }
 }
 
 
 
-var futerdiv = document.createElement("div")
+function futer(params) {
+    var xaxayin = document.getElementsByClassName("xaxayin")
+    var futerdiv = document.createElement("div")
 futerdiv.setAttribute("class","futerdiv")
-xaxayin.append(futerdiv)
+xaxayin[0].append(futerdiv)
 
 
 
@@ -485,14 +760,7 @@ ogndiv.appendChild(ogn2)
 ogn2.setAttribute("class","sos")
 ogn2.src = "img/sos.png"
 
-
-
-
-    }
-
-} 
-
-
+}
 
 //innerHeight: 736
 //innerWidth: 414

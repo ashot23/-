@@ -285,16 +285,16 @@ margin-top: 6px;
     background-repeat: round;
     /* background-attachment: fixed; */
     border-collapse: collapse;
-    background-image: url(img/level/0.jpg);
+    /* background-image: url(img/level/0.jpg); */
     background-size: cover;
     /* width: 306px; */
     margin: auto;
     border: 2px solid black;
 }
-.td{
+/* .td{
     width: 50px;
     height: 42px;
-}
+} */
 
 .futerdiv{
     display: flex;
@@ -316,3 +316,22 @@ margin-top: 6px;
     flex-direction: column;
     justify-content: space-between;
 }
+.comp{
+
+    background-repeat: round;
+    /* background-attachment: fixed; */
+    background-image: url(img/level/0.jpg);
+    border-collapse: collapse;
+    background-size: cover;
+    /* width: 306px; */
+    margin: auto;
+    border: 2px solid black;
+
+transform: rotateY(360deg);
+transition-duration: 1s;
+
+
+
+}
+
+
