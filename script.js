@@ -56,20 +56,9 @@ p1s.onclick = function (params) {
         var level = document.createElement("div")
         levelner.append(level)
         level.setAttribute("id", i)
-        // if (window.innerWidth >=400 ) {
-        //     level.setAttribute("class", "levels2")
-        // }
-        // else{
-
-               
-            //   if (lev!=0&&(lev-1)==i) {
+  
                 level.setAttribute("class", "levels")
-           //    }     
-            //    else{
-            //     level.setAttribute("class", "levels1")
-            //    }
-           
-      //  }
+      
    
               
         var p = document.createElement("p")
@@ -79,9 +68,43 @@ p1s.onclick = function (params) {
     }
 
     var levs = document.getElementsByClassName("levels")
+   
+    
+if (lev ==0) {
+    levs[0].style.backgroundImage = "url(img/l6.png)"
+    for (let i = 1; i < levs.length; i++) {
+        levs[i].style.backgroundImage = "url(img/l7.png)"
+         
+     }
+}
+else{
+    levs[0].style.backgroundImage = "url(img/l6.png)"
+    for (let x = 1; x < 10; x++) {
+       
+        if (lev == x) {
+        
+            levs[x].style.backgroundImage = "url(img/l6.png)"
+            for (let l = 0; l < levs.length; l++) {
+                levs[x-l].style.backgroundImage = "url(img/l6.png)"
+                
+            }
+      
+            for (let i = x+1; i < levs.length; i++) {
+               levs[i].style.backgroundImage = "url(img/l7.png)"
+                
+            }
+        }    
+    }
+    
+}
+
+
+    
+
 
     levs[0].addEventListener("click",l0)
     levs[1].addEventListener("click",l1)
+    levs[2].addEventListener("click",l3)
 
 var slak  = document.createElement("div")
 levelner.append(slak)
@@ -280,26 +303,41 @@ function contineo(params) {
             }
         
             var levs = document.getElementsByClassName("levels")
-             levs[0].style.backgroundImage = "url(img/l6.png)"
+            if (lev ==0) {
+                levs[0].style.backgroundImage = "url(img/l6.png)"
+                for (let i = 1; i < levs.length; i++) {
+                    levs[i].style.backgroundImage = "url(img/l7.png)"
+                     
+                 }
+            }
+            else{
+                levs[0].style.backgroundImage = "url(img/l6.png)"
+                for (let x = 1; x < 10; x++) {
+                   
+                    if (lev == x) {
              
-            for (let x = 1; x < 10; x++) {
+                        levs[x].style.backgroundImage = "url(img/l6.png)"
+                                 
+                     
+                        for (let i = x+1; i < levs.length; i++) {
+                                       
+                       
+                           levs[i].style.backgroundImage = "url(img/l7.png)"
+                            
+                        }
+                    }    
+                 else if (lev>x) {
+                        levs[lev-x].style.backgroundImage = "url(img/l6.png)"
+                       }
+                }
                 
-                if (lev == x) {
-                    
-                    levs[x-1].style.backgroundImage = "url(img/l6.png)"
-                    levs[x].style.backgroundImage = "url(img/l6.png)"
-                    for (let i = x+1; i < levs.length; i++) {
-                       levs[i].style.backgroundImage = "url(img/l7.png)"
-                        
-                    }
-                }    
             }
             
 
 
             levs[0].addEventListener("click",l0)
             levs[1].addEventListener("click",l1)
-        
+            levs[2].addEventListener("click",l3)
         var slak  = document.createElement("div")
         levelner.append(slak)
         slak.setAttribute("class","slak")
@@ -575,6 +613,11 @@ function l1(params) {
                 lev = 2
                 localStorage.setItem("lev",gamelev)
            
+               setTimeout(() => {
+                   l3()
+               }, 2000);
+                   
+
                }
              
 
@@ -638,6 +681,10 @@ if (this.id==13&&this.parentElement.id ==7||this.id==14&&this.parentElement.id =
     lev = 2
     localStorage.setItem("lev",gamelev)
 
+setTimeout(() => {
+    l3()
+}, 2000);
+
    }
 
 
@@ -661,6 +708,149 @@ if (this.id==13&&this.parentElement.id ==7||this.id==14&&this.parentElement.id =
 
 
 }
+
+function l3() {
+    var a = 0
+    var w = "52px"    
+var h = "42px"
+var m = 10
+var n = 10
+    var table  = document.getElementsByClassName("comp")
+    var gamedivs = document.getElementsByClassName("gamediv")
+  var xaxs= document.getElementsByClassName("xaxayin")
+            
+    if (lev==2) {
+        
+   
+    if (gamedivs[0]) {
+        gamedivs[0].removeChild(table[0])
+
+    var tbl = document.createElement('table')
+    gamedivs[0].appendChild(tbl)
+    tbl.setAttribute("class","table")
+    tbl.style.backgroundImage = "url(img/level/3.jpg)"
+    // tbl.style.margin = 'auto'
+    var tbd = document.createElement('tbody')
+    
+    tbl.appendChild(tbd)
+ 
+    for (let i = 0; i < m; i++) {
+     var tr = document.createElement('tr')
+     tbd.appendChild(tr)
+     tr.setAttribute("id",i)
+    
+    
+    
+     for (let j = 0; j < n; j++) {
+         var td = document.createElement('td')
+         tr.appendChild(td)
+         td.setAttribute("class","td")
+         td.setAttribute("id",j)
+         td.style.backgroundColor = "transparent"
+         td.style.width = w
+     td.style.height = h
+         td.onclick = function (params) {
+            if (this.id==4&&this.parentElement.id ==4) {
+                tbl.setAttribute("class","comp")
+            
+            
+                tbl.style.backgroundImage = "url(img/compl/5.png)"
+                gamelev = 3
+                lev = 3
+                localStorage.setItem("lev",gamelev)
+           
+               }
+             
+
+    
+    }
+    
+    
+         }
+        }
+        if (a==1) {
+            futer() 
+         }
+    }
+    else {
+        var xaxayin = document.createElement("div")
+        document.body.append(xaxayin)
+           xaxayin.setAttribute("class","xaxayin")
+   ver()
+   a=1
+   var gamediv = document.createElement("div")
+   gamediv.setAttribute("class","gamediv")
+   xaxayin.append(gamediv)
+   
+
+var tbl = document.createElement('table')
+gamediv.appendChild(tbl)
+tbl.setAttribute("class","table")
+tbl.style.backgroundImage = "url(img/level/3.jpg)"
+// tbl.style.margin = 'auto'
+var tbd = document.createElement('tbody')
+
+tbl.appendChild(tbd)
+
+for (let i = 0; i < m; i++) {
+var tr = document.createElement('tr')
+tbd.appendChild(tr)
+tr.setAttribute("id",i)
+
+
+
+for (let j = 0; j < n; j++) {
+    var td = document.createElement('td')
+    tr.appendChild(td)
+    td.setAttribute("class","td")
+    td.setAttribute("id",j)
+    td.style.backgroundColor = "transparent"
+     td.style.width = w
+     td.style.height = h
+    td.onclick = function (params) {
+//   if (this) {
+      
+//   }
+        
+if (this.id==4&&this.parentElement.id ==4) {
+    tbl.setAttribute("class","comp")
+
+
+    tbl.style.backgroundImage = "url(img/compl/5.png)"
+    gamelev = 3
+    lev = 3
+    localStorage.setItem("lev",gamelev)
+
+   }
+
+// setTimeout(() => {
+//     l4()
+// }, 2000);
+
+   
+
+
+
+}
+
+
+    }
+   }
+   if (a==1) {
+       futer() 
+    }
+
+
+    }
+   
+   
+
+ }
+   
+
+
+}
+
 
 
 
@@ -721,7 +911,7 @@ else{
 }
 var levp = document.createElement("p")
 levp.setAttribute("class","levp")
-levp.innerHTML = 0
+levp.innerHTML = lev
 levdiv.append(levp)
 levp.setAttribute("align","center")
 
