@@ -64,14 +64,33 @@ height: 60px;
     font-size: x-large;
     font-family: 'Dancing Script', cursive;
 }
+.nor:active{
+
+color: red
+
+}
+
 .xoshor{
     height: 60px;
     width: 60px;
     margin-top: 8px;
     margin-right: 8px;
 }
+
+.xoshor:active{
+    zoom: 1.2;
+}
+
+.cont:active{
+
+zoom: 1.2;
+
+}
 .podelica{
     margin-right: 8px;
+}
+.dost:active{
+    zoom: 1.2; 
 }
 
 .dost{
@@ -217,8 +236,10 @@ margin-top: 6px;
     display: flex;
 }
 .h1p{
+    margin: 0;
+    margin-top: 5px;
     color: cornflowerblue;
-    /* font-size: x-large; */
+    font-size: x-large;
     font-family: 'Dancing Script', cursive;
 }
 .leveldiv{
@@ -346,7 +367,7 @@ margin-top: 6px;
 
     background-repeat: round;
     /* background-attachment: fixed; */
-    background-image: url(img/level/0.jpg);
+    /* background-image: url(img/level/0.jpg); */
     border-collapse: collapse;
     background-size: cover;
     /* width: 306px; */
@@ -361,3 +382,88 @@ transition-duration: 1s;
 }
 
 
+.klor{
+    background-repeat: round;
+    /* background-attachment: fixed; */
+    /* background-image: url(img/level/0.jpg); */
+    border-collapse: collapse;
+    background-size: cover;
+    /* width: 306px; */
+    margin: auto;
+    border: 2px solid black;
+
+transform: rotateY(360deg);
+transition-duration: 1s;
+  
+}
+
+
+
+
+
+.delp{
+    display: inline;
+    color: red;
+    font-size: 16px;
+}
+.deli{
+    width: 25px;
+    height: 25px;
+}
+.ancnel{
+
+     background-repeat: round;
+     border-collapse: collapse;
+background-size: cover;
+   
+     margin: auto;
+     border: 2px solid black;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.poqr{
+
+    border: 1px solid black;
+/* background-image: url("./img/l3.png"); */
+background: linear-gradient(to right,gray,limegreen);
+background-size: cover;
+    background-repeat: round;
+    background-attachment: fixed;
+    border-radius: 33px;
+    background-color: limegreen;
+}
+
+
+#imgbrl{
+    height: 43px;
+    width: 43px;
+    transform: rotateY(360deg);
+transition-duration: 1s;
+}
+.imgbrl2,#adamands{
+    height: 43px;
+    width: 43px;
+    transform: rotateZ(360deg);
+transition-duration: 1s;
+}
+.anclev{
+animation-name: acn;
+animation-delay: 1s;
+animation-duration: 1s;
+position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+
+}
+@keyframes anc{
+
+0%{border: 0px solid}
+50%{border: 5px solid red}
+100%{border: 50px solid red}
+
+}
