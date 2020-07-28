@@ -43,7 +43,7 @@ var para = localStorage.getItem("para")
 p1s.addEventListener("click",newgame)
 xosh[0].addEventListener("click",newgame)
 
-p1s.offsetHeight
+// p1s.offsetHeight
 // document.addEventListener("keypress",function (params) {
 // if (params.key=="d") {
 //     aj()
@@ -674,7 +674,7 @@ function l0(params) {
 
             ver()
         }
-
+  
 
 
         var gamediv = document.createElement("div")
@@ -698,14 +698,20 @@ function l0(params) {
         var tbd = document.createElement('tbody')
 
         tbl.appendChild(tbd)
-        var m = 10
-        var n = 10
+        var m = 30
+        var n = 30
+        var xaxh = xaxayin.offsetHeight
+        var verh = document.getElementsByClassName("vererv")[0].offsetHeight
+        var cach =  54
+var tbih = xaxh - (cach+verh)
+var verj = tbih/28
+        
         for (let i = 0; i < m; i++) {
             var tr = document.createElement('tr')
             tbd.appendChild(tr)
             tr.setAttribute("id", i)
-
-
+ 
+            tr.style.height = verj-2 + 'px'
 
             for (let j = 0; j < n; j++) {
                 var td = document.createElement('td')
@@ -713,12 +719,12 @@ function l0(params) {
                 td.setAttribute("class", "td")
                 td.setAttribute("id", j)
                 td.style.backgroundColor = "transparent"
-                td.style.width = 50 + 'px'
-                td.style.height = 42 + 'px'
+                td.style.width = 30 + 'px'
+                // td.style.height = 42 + 'px'
                 td.onclick = function (params) {
 
 
-                    if (this.id == 3 && this.parentElement.id == 2 || this.id == 4 && this.parentElement.id == 2 || this.id == 2 && this.parentElement.id == 3 || this.id == 3 && this.parentElement.id == 3 || this.id == 4 && this.parentElement.id == 3 || this.id == 5 && this.parentElement.id == 3 || this.id == 2 && this.parentElement.id == 4 || this.id == 3 && this.parentElement.id == 4 || this.id == 4 && this.parentElement.id == 4 || this.id == 5 && this.parentElement.id == 4 || this.id == 6 && this.parentElement.id == 4 || this.id == 2 && this.parentElement.id == 5 || this.id == 3 && this.parentElement.id == 5 || this.id == 4 && this.parentElement.id == 5 || this.id == 5 && this.parentElement.id == 5 || this.id == 3 && this.parentElement.id == 6) {
+                    if (this.id == 10 && this.parentElement.id == 6 || this.id == 11 && this.parentElement.id == 6 || this.id == 12 && this.parentElement.id == 6 || this.id == 9 && this.parentElement.id == 7 || this.id == 10 && this.parentElement.id == 7 || this.id == 11 && this.parentElement.id == 7 || this.id == 12 && this.parentElement.id == 7 || this.id == 13 && this.parentElement.id == 7 || this.id == 9 && this.parentElement.id == 8 || this.id == 10 && this.parentElement.id == 8 || this.id == 11 && this.parentElement.id == 8 || this.id == 12 && this.parentElement.id == 8 || this.id == 13 && this.parentElement.id == 8 || this.id == 14 && this.parentElement.id == 8 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8|| this.id == 8 && this.parentElement.id == 9|| this.id == 10 && this.parentElement.id == 9|| this.id == 11 && this.parentElement.id == 9|| this.id == 12 && this.parentElement.id == 9|| this.id == 13 && this.parentElement.id == 9|| this.id == 14 && this.parentElement.id == 9|| this.id == 15 && this.parentElement.id == 9|| this.id == 16 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 8 && this.parentElement.id == 10|| this.id == 9 && this.parentElement.id == 10|| this.id == 10 && this.parentElement.id == 10|| this.id == 11 && this.parentElement.id == 10|| this.id == 12 && this.parentElement.id == 10|| this.id == 13 && this.parentElement.id == 10|| this.id == 14 && this.parentElement.id == 10|| this.id == 15 && this.parentElement.id == 10|| this.id == 16 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 8 && this.parentElement.id == 11|| this.id == 9 && this.parentElement.id == 11|| this.id == 10 && this.parentElement.id == 11|| this.id == 11 && this.parentElement.id == 11|| this.id == 12 && this.parentElement.id == 11|| this.id == 13 && this.parentElement.id == 11|| this.id == 14 && this.parentElement.id == 11|| this.id == 15 && this.parentElement.id == 11|| this.id == 16 && this.parentElement.id == 11|| this.id == 17 && this.parentElement.id == 11|| this.id == 18 && this.parentElement.id == 11|| this.id == 7 && this.parentElement.id == 12|| this.id == 8 && this.parentElement.id == 12|| this.id == 9 && this.parentElement.id == 12|| this.id == 10 && this.parentElement.id == 11|| this.id == 11 && this.parentElement.id == 12|| this.id == 12 && this.parentElement.id == 12|| this.id == 13 && this.parentElement.id == 12|| this.id == 14 && this.parentElement.id == 12|| this.id == 15 && this.parentElement.id == 12|| this.id == 16 && this.parentElement.id == 12|| this.id == 17 && this.parentElement.id == 12|| this.id == 18 && this.parentElement.id == 12|| this.id == 19 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 13|| this.id == 8 && this.parentElement.id == 13|| this.id == 9 && this.parentElement.id == 13|| this.id == 10 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 13 && this.parentElement.id == 13|| this.id == 14 && this.parentElement.id == 13|| this.id == 15 && this.parentElement.id == 13|| this.id == 16 && this.parentElement.id == 13|| this.id == 17 && this.parentElement.id == 13|| this.id == 18 && this.parentElement.id == 13|| this.id == 19 && this.parentElement.id == 13|| this.id == 6 && this.parentElement.id == 14|| this.id == 7 && this.parentElement.id == 14|| this.id == 8 && this.parentElement.id == 14|| this.id == 9 && this.parentElement.id == 14|| this.id == 10 && this.parentElement.id == 14|| this.id == 11 && this.parentElement.id == 14|| this.id == 12 && this.parentElement.id == 14|| this.id == 13 && this.parentElement.id == 14|| this.id == 14 && this.parentElement.id == 14|| this.id == 15 && this.parentElement.id == 14|| this.id == 16 && this.parentElement.id == 14|| this.id == 17 && this.parentElement.id == 14|| this.id == 18 && this.parentElement.id == 14|| this.id == 19 && this.parentElement.id == 15|| this.id == 6 && this.parentElement.id == 15|| this.id == 7 && this.parentElement.id == 15|| this.id == 8 && this.parentElement.id == 15|| this.id == 9 && this.parentElement.id == 15|| this.id == 10 && this.parentElement.id == 15|| this.id == 11 && this.parentElement.id == 15|| this.id == 12 && this.parentElement.id == 15|| this.id == 13 && this.parentElement.id == 15|| this.id == 14 && this.parentElement.id == 15|| this.id == 15 && this.parentElement.id == 15|| this.id == 16 && this.parentElement.id == 15|| this.id == 17|| this.id == 19 && this.parentElement.id == 16|| this.id == 6 && this.parentElement.id == 16|| this.id == 7 && this.parentElement.id == 16|| this.id == 8 && this.parentElement.id == 16|| this.id == 9 && this.parentElement.id == 16|| this.id == 10 && this.parentElement.id == 16|| this.id == 11 && this.parentElement.id == 16|| this.id == 12 && this.parentElement.id == 16|| this.id == 13 && this.parentElement.id == 16|| this.id == 14 && this.parentElement.id == 16|| this.id == 15 && this.parentElement.id == 17||  this.id == 8 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 18|| this.id == 10 && this.parentElement.id == 18|| this.id == 11 && this.parentElement.id == 18|| this.id == 12 && this.parentElement.id == 18|| this.id == 13 && this.parentElement.id == 18|| this.id == 14 && this.parentElement.id == 18|| this.id == 15 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 19|| this.id == 10 && this.parentElement.id == 19|| this.id == 11 && this.parentElement.id == 19|| this.id == 12 && this.parentElement.id == 19|| this.id == 15 && this.parentElement.id == 19) {
                         tbl.setAttribute("class", "comp")
 
                         paraadam()
@@ -755,7 +761,7 @@ function l0(params) {
         if (!gamediv[0]) {
             futer()
         }
-
+    
     }
 
 
@@ -763,7 +769,7 @@ function l0(params) {
 
 function tanel(params) {
     var karimg = document.getElementsByClassName("deli")
-
+var divb  =document.getElementsByClassName("divs")
 
 
     var karp = document.getElementsByClassName("delp")
@@ -788,31 +794,37 @@ if (karp.length>0&&karp[0]) {
 
   
 }
- 
 
 
-    params.style.display = "flex"
-    params.style.alignItems = 'center'
+var divs = document.createElement("div")
+divs.setAttribute("class", "divs")
+params.append(divs)
+divs.style.position = "absolute"
+
+divs.style.display = "flex"
+divs.style.alignItems = 'center'
     var brlimg = document.createElement("img")
     brlimg.setAttribute("class", "deli")
     brlimg.src = "img/brliand.png"
 
-    params.append(brlimg)
+    divs.append(brlimg)
     var p = document.createElement("p")
 
     p.setAttribute("class", "delp")
     p.innerHTML = -1
-    params.append(p)
+    divs.append(p)
 
     if (brlimg && p) {
 
 
         setTimeout(() => {
-            for (let x = 0; x < karimg.length; x++) {
-                if (karimg[x] && brlimg.parentElement == params) {
-
-                    params.removeChild(brlimg)
-                    params.removeChild(p)
+            
+            
+            for (let x = 0; x < divb.length; x++) {
+                if (divb[x] && divs.parentElement == params) {
+                
+                    params.removeChild(divs)
+                    // params.removeChild(p)
                     params.style.display = "table-cell"
                 }
 
@@ -830,20 +842,20 @@ if (karp.length>0&&karp[0]) {
 
 function l1(params) {
 
-    lner("60px", "19px", 20, 20, 1)
+    lner("60px", "19px", 30, 30, 1)
 
 }
 
 function l3() {
-    lner("52px", "42px", 10, 10, 2)
+    lner("52px", "42px", 30, 30, 2)
 
 }
 function l4(params) {
-    lner("60px", "19px", 20, 25, 3)
+    lner("60px", "19px", 30, 30, 3)
 }
 
 function l5(params) {
-    lner("60px", "19px", 20, 25, 4)
+    lner("60px", "19px", 30, 30, 4)
 
 
 }
@@ -852,29 +864,29 @@ function l5(params) {
 
 
 function l6(params) {
-    lner("60px", "19px", 20, 25, 5)
+    lner("60px", "19px", 30, 30, 5)
 
 }
 
 function l7(params) {
-    lner("25px", "27px", 15, 16, 6)
+    lner("25px", "27px", 30, 30, 6)
 
 }
 
 
 function l8(params) {
-    lner("56px", "42px", 10, 12, 7)
+    lner("56px", "42px", 30, 30, 7)
 }
 function l9(params) {
-    lner("10px", "10px", 36, 40, 8)
+    lner("10px", "10px", 30, 30, 8)
 }
 
 function l10(params) {
     // lner("40px","40px",10,12,9)
-    lner("44px", "42px", 10, 12, 9)
+    lner("44px", "42px", 30, 30, 9)
 }
 function l11(params) {
-    lner("19px", "19px", 21, 20, 10)
+    lner("19px", "19px", 30, 30, 10)
 }
 
 
@@ -964,12 +976,19 @@ else if (ancdiv[0]) {
             var tbd = document.createElement('tbody')
 
             tbl.appendChild(tbd)
+var xaxayins= document.getElementsByClassName("xaxayin") 
+            var xaxh = xaxayins[0].offsetHeight
+            var verh = document.getElementsByClassName("vererv")[0].offsetHeight
+            var cach =  54
+    var tbih = xaxh - (cach+verh)
+    var verj = tbih/28
+            
 
             for (let i = 0; i < m; i++) {
                 var tr = document.createElement('tr')
                 tbd.appendChild(tr)
                 tr.setAttribute("id", i)
-
+                tr.style.height = verj-2 + "px"
 
 
                 for (let j = 0; j < n; j++) {
@@ -978,11 +997,11 @@ else if (ancdiv[0]) {
                     td.setAttribute("class", "td")
                     td.setAttribute("id", j)
                     td.style.backgroundColor = "transparent"
-                    td.style.width = w
-                    td.style.height = h
+                    td.style.width = "30px"
+                    // td.style.height = h
                     td.onclick = function (params) {
                         if (level == 1) {
-                            if (this.id == 13 && this.parentElement.id == 7 || this.id == 14 && this.parentElement.id == 7 || this.id == 14 && this.parentElement.id == 8 || this.id == 15 && this.parentElement.id == 8 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8) {
+                            if (this.id == 20 && this.parentElement.id == 11 || this.id == 21 && this.parentElement.id == 11 || this.id == 22 && this.parentElement.id == 12 || this.id == 20 && this.parentElement.id == 12 || this.id == 21 && this.parentElement.id == 12 || this.id == 22 && this.parentElement.id == 12|| this.id == 23 && this.parentElement.id == 12|| this.id == 24 && this.parentElement.id == 12|| this.id == 25 && this.parentElement.id == 12|| this.id == 26 && this.parentElement.id == 12|| this.id == 27 && this.parentElement.id == 12|| this.id == 21 && this.parentElement.id == 13 || this.id == 22 && this.parentElement.id == 13|| this.id == 23 && this.parentElement.id == 13|| this.id == 24 && this.parentElement.id == 13|| this.id == 25 && this.parentElement.id == 13|| this.id == 26 && this.parentElement.id == 13|| this.id == 27 && this.parentElement.id == 13) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1003,7 +1022,7 @@ else if (ancdiv[0]) {
                             }
                         }
                         else if (level == 2) {
-                            if (this.id == 4 && this.parentElement.id == 4) {
+                            if (this.id == 14 && this.parentElement.id == 11||this.id == 12 && this.parentElement.id == 12||this.id == 13 && this.parentElement.id == 12||this.id == 14 && this.parentElement.id == 12||this.id == 15 && this.parentElement.id == 12||this.id == 13 && this.parentElement.id == 13||this.id == 14 && this.parentElement.id == 13||this.id == 15 && this.parentElement.id == 13||this.id == 13 && this.parentElement.id == 14||this.id == 14 && this.parentElement.id == 14||this.id == 15 && this.parentElement.id == 14||this.id == 13 && this.parentElement.id == 15||this.id == 14 && this.parentElement.id == 15||this.id == 15 && this.parentElement.id == 15) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1023,7 +1042,7 @@ else if (ancdiv[0]) {
                             }
                         }
                         else if (level == 3) {
-                            if (this.id == 14 && this.parentElement.id == 4 || this.id == 13 && this.parentElement.id == 5 || this.id == 14 && this.parentElement.id == 5 || this.id == 14 && this.parentElement.id == 6 || this.id == 14 && this.parentElement.id == 7) {
+                            if (this.id == 16 && this.parentElement.id == 7 || this.id == 17 && this.parentElement.id == 7 || this.id == 18 && this.parentElement.id == 7 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 11|| this.id == 18 && this.parentElement.id == 11) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1043,7 +1062,7 @@ else if (ancdiv[0]) {
                             }
                         }
                         else if (level == 4) {
-                            if (this.id == 11 && this.parentElement.id == 8) {
+                            if (this.id == 13 && this.parentElement.id == 12||this.id == 14 && this.parentElement.id == 12) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1064,7 +1083,7 @@ else if (ancdiv[0]) {
                             }
                         }
                         else if (level == 5) {
-                            if (this.id == 15 && this.parentElement.id == 10 || this.id == 16 && this.parentElement.id == 11 || this.id == 15 && this.parentElement.id == 11 || this.id == 16 || this.id == 16 && this.parentElement.id == 12 || this.id == 15 && this.parentElement.id == 12) {
+                            if (this.id == 19 && this.parentElement.id == 15 || this.id == 18 && this.parentElement.id == 16 || this.id == 19 && this.parentElement.id == 16 || this.id == 20 && this.parentElement.id == 16 || this.id == 19 && this.parentElement.id == 17|| this.id == 20 && this.parentElement.id == 17) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1340,26 +1359,35 @@ else if (ancdiv[0]) {
 
             tbl.appendChild(tbd)
 
+            var xaxayins= document.getElementsByClassName("xaxayin") 
+            // var m = 30
+            // var n = 30
+            var xaxh = xaxayins[0].offsetHeight
+            var verh = document.getElementsByClassName("vererv")[0].offsetHeight
+            var cach =  54
+    var tbih = xaxh - (cach+verh)
+    var verj = tbih/28
+            
             for (let i = 0; i < m; i++) {
                 var tr = document.createElement('tr')
                 tbd.appendChild(tr)
                 tr.setAttribute("id", i)
-
-
-
+     
+                tr.style.height = verj-2 + 'px'
+    
                 for (let j = 0; j < n; j++) {
                     var td = document.createElement('td')
                     tr.appendChild(td)
                     td.setAttribute("class", "td")
                     td.setAttribute("id", j)
                     td.style.backgroundColor = "transparent"
-                    td.style.width = w
-                    td.style.height = h
+                    td.style.width = 30 + 'px'
+
                     td.onclick = function (params) {
 
                         if (level == 1) {
 
-                            if (this.id == 13 && this.parentElement.id == 7 || this.id == 14 && this.parentElement.id == 7 || this.id == 14 && this.parentElement.id == 8 || this.id == 15 && this.parentElement.id == 8 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8) {
+                            if (this.id == 20 && this.parentElement.id == 11 || this.id == 21 && this.parentElement.id == 11 || this.id == 22 && this.parentElement.id == 12 || this.id == 20 && this.parentElement.id == 12 || this.id == 21 && this.parentElement.id == 12 || this.id == 22 && this.parentElement.id == 12|| this.id == 23 && this.parentElement.id == 12|| this.id == 24 && this.parentElement.id == 12|| this.id == 25 && this.parentElement.id == 12|| this.id == 26 && this.parentElement.id == 12|| this.id == 27 && this.parentElement.id == 12|| this.id == 21 && this.parentElement.id == 13 || this.id == 22 && this.parentElement.id == 13|| this.id == 23 && this.parentElement.id == 13|| this.id == 24 && this.parentElement.id == 13|| this.id == 25 && this.parentElement.id == 13|| this.id == 26 && this.parentElement.id == 13|| this.id == 27 && this.parentElement.id == 13) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1384,7 +1412,7 @@ else if (ancdiv[0]) {
 
                         }
                         else if (level == 2) {
-                            if (this.id == 4 && this.parentElement.id == 4) {
+                            if (this.id == 14 && this.parentElement.id == 11||this.id == 12 && this.parentElement.id == 12||this.id == 13 && this.parentElement.id == 12||this.id == 14 && this.parentElement.id == 12||this.id == 15 && this.parentElement.id == 12||this.id == 13 && this.parentElement.id == 13||this.id == 14 && this.parentElement.id == 13||this.id == 15 && this.parentElement.id == 13||this.id == 13 && this.parentElement.id == 14||this.id == 14 && this.parentElement.id == 14||this.id == 15 && this.parentElement.id == 14||this.id == 13 && this.parentElement.id == 15||this.id == 14 && this.parentElement.id == 15||this.id == 15 && this.parentElement.id == 15) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1405,7 +1433,7 @@ else if (ancdiv[0]) {
                         }
 
                         else if (level == 3) {
-                            if (this.id == 14 && this.parentElement.id == 4 || this.id == 13 && this.parentElement.id == 5 || this.id == 14 && this.parentElement.id == 5 || this.id == 14 && this.parentElement.id == 6 || this.id == 14 && this.parentElement.id == 7) {
+                            if (this.id == 16 && this.parentElement.id == 7 || this.id == 17 && this.parentElement.id == 7 || this.id == 18 && this.parentElement.id == 7 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 11|| this.id == 18 && this.parentElement.id == 11) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1425,7 +1453,7 @@ else if (ancdiv[0]) {
                             }
                         }
                         else if (level == 4) {
-                            if (this.id == 11 && this.parentElement.id == 8) {
+                            if (this.id == 13 && this.parentElement.id == 12||this.id == 14 && this.parentElement.id == 12) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1446,7 +1474,7 @@ else if (ancdiv[0]) {
                             }
                         }
                         else if (level == 5) {
-                            if (this.id == 15 && this.parentElement.id == 10 || this.id == 16 && this.parentElement.id == 11 || this.id == 15 && this.parentElement.id == 11 || this.id == 16 || this.id == 16 && this.parentElement.id == 12 || this.id == 15 && this.parentElement.id == 12) {
+                            if (this.id == 19 && this.parentElement.id == 15 || this.id == 18 && this.parentElement.id == 16 || this.id == 19 && this.parentElement.id == 16 || this.id == 20 && this.parentElement.id == 16 || this.id == 19 && this.parentElement.id == 17|| this.id == 20 && this.parentElement.id == 17) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1726,9 +1754,9 @@ dom.addEventListener("click",doms)
                     pb[0].innerHTML = para
                 
                         if (lev==0) {
-                            cl =  1
-                           sxm = 1
-                         localStorage.setItem("click", sxm)   
+                      // cl =  1
+                        //    sxm = 1
+                        //  localStorage.setItem("click", sxm)   
                             table[0].style.backgroundImage = "url(img/klor/1.png)"
                                 table[0].setAttribute("class",'klor')
                              
