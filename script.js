@@ -525,7 +525,10 @@ bal = 1
 
 var imgb = document.getElementsByClassName("brl")
 var brldiv = document.getElementsByClassName("brldiv")
-
+imgb[0].style.animationDuration = "1s"
+imgb[0].style.animationFillMode = "forwards"
+imgb[0].style.animationName = "adam"
+// imgb[0].style.position = "relative"
 
 
 
@@ -547,6 +550,13 @@ var brldiv = document.getElementsByClassName("brldiv")
 
 
     setTimeout(() => {
+
+        imgb[0].style.animationDuration = ""
+        imgb[0].style.animationFillMode = ""
+        imgb[0].style.animationName = ""
+
+
+
         var gamediv = document.getElementsByClassName("gamediv")
     var table=  document.getElementsByTagName("table") 
     var w = table[0].offsetWidth    
