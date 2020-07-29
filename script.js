@@ -15,6 +15,8 @@ var fla = localStorage.getItem("flay", fl)
 var gamelev = 0
 var click1 = 0
 
+var bal = 0
+var slakbal = 0 
 var poxvox 
 var page = 1
 var ej = localStorage.getItem("ej",page)
@@ -40,7 +42,10 @@ var h1hy = "Գտի՛ր կատվին"
 var adamand = localStorage.getItem("adam")
 var para = localStorage.getItem("para")
 
+
+
 p1s.addEventListener("click",newgame)
+
 xosh[0].addEventListener("click",newgame)
 
 // p1s.offsetHeight
@@ -322,6 +327,9 @@ contineo()
 
 
 function doms(params) {
+    if (bal==0) {
+        
+    
     var levdiv = document.getElementsByClassName("leveldiv")
     var xaxayin = document.getElementsByClassName("xaxayin")
     poxvox = 1
@@ -495,7 +503,7 @@ futer.append(harc)
 harc.setAttribute("class", "harc")
 harc.src = "img/harc.png"
 
-
+}
 }
 
 
@@ -503,7 +511,7 @@ harc.src = "img/harc.png"
 function paraadam(params) {
 
 
-
+bal = 1
 
 
     click2 =  0
@@ -758,6 +766,14 @@ var verj = tbih/28
 
             }
         }
+// var td2 =  document.getElementsByTagName("td")
+// console.log(td2[115]);
+
+// var ob = document.createElement("div")
+// td2[114].append(ob)
+// ob.setAttribute("class","ob")
+
+
         if (!gamediv[0]) {
             futer()
         }
@@ -898,7 +914,7 @@ function l11(params) {
 
 function lner(w, h, m, n, level) {
 
-
+bal = 0
 
     var table = document.getElementsByClassName("comp")
     var table2 = document.getElementsByClassName("table")
@@ -1104,7 +1120,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 6) {
-                            if (this.id == 9 && this.parentElement.id == 7) {
+                            if (this.id == 18 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 15||this.id == 17 && this.parentElement.id == 15||this.id == 10 && this.parentElement.id == 18) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1125,7 +1141,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 7) {
-                            if (this.id == 7 && this.parentElement.id == 9) {
+                            if (this.id == 17 && this.parentElement.id == 27||this.id == 18 && this.parentElement.id == 27||this.id == 19 && this.parentElement.id == 28||this.id == 17 && this.parentElement.id == 28||this.id == 18 && this.parentElement.id == 28||this.id == 19 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
 
                                 paraadam()
@@ -1147,7 +1163,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                         }
 
                         else if (level == 8) {
-                            if (this.id == 29 && this.parentElement.id == 32 || this.id == 30 && this.parentElement.id == 32 || this.id == 30 && this.parentElement.id == 33 || this.id == 30 && this.parentElement.id == 34) {
+                            if (this.id == 22 && this.parentElement.id == 26 || this.id == 22 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1168,7 +1184,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 9) {
-                            if (this.id == 7 && this.parentElement.id == 6) {
+                            if (this.id == 18 && this.parentElement.id == 18||this.id == 19 && this.parentElement.id == 18||this.id == 17 && this.parentElement.id == 19||this.id == 18 && this.parentElement.id == 19||this.id == 19 && this.parentElement.id == 19||this.id == 17 && this.parentElement.id == 20||this.id == 19 && this.parentElement.id == 20) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1189,7 +1205,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                           else if (level == 10) {
-                            if (this.id == 11 && this.parentElement.id == 9||this.id == 12 && this.parentElement.id == 9||this.id == 13 && this.parentElement.id == 9||this.id == 12 && this.parentElement.id == 10||this.id == 13 && this.parentElement.id == 10||this.id == 14 && this.parentElement.id == 10) {
+                            if (this.id == 17 && this.parentElement.id == 13||this.id == 18 && this.parentElement.id == 13||this.id == 20 && this.parentElement.id == 13||this.id == 21 && this.parentElement.id == 13||this.id == 17 && this.parentElement.id == 14||this.id == 17 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 14||this.id == 20 && this.parentElement.id == 14||this.id == 21 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 15) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1201,6 +1217,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 page = 2
                                 ej = 2 
                              localStorage.setItem("ej",page)
+                             poxvox = 2 
                                 // setTimeout(() => {
                                 //     l10()
                                 // }, 2000);
@@ -1495,7 +1512,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 6) {
-                            if (this.id == 9 && this.parentElement.id == 7) {
+                            if (this.id == 18 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 15||this.id == 17 && this.parentElement.id == 15||this.id == 10 && this.parentElement.id == 18) {
                                 tbl.setAttribute("class", "comp")
 
                                 paraadam()
@@ -1516,7 +1533,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 7) {
-                            if (this.id == 7 && this.parentElement.id == 9) {
+                            if (this.id == 17 && this.parentElement.id == 27||this.id == 18 && this.parentElement.id == 27||this.id == 19 && this.parentElement.id == 28||this.id == 17 && this.parentElement.id == 28||this.id == 18 && this.parentElement.id == 28||this.id == 19 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1537,7 +1554,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 8) {
-                            if (this.id == 29 && this.parentElement.id == 32 || this.id == 30 && this.parentElement.id == 32 || this.id == 30 && this.parentElement.id == 33 || this.id == 30 && this.parentElement.id == 34) {
+                            if (this.id == 22 && this.parentElement.id == 26 || this.id == 22 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1559,7 +1576,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                         }
                         else if (level == 9) {
 
-                            if (this.id == 7 && this.parentElement.id == 6) {
+                            if (this.id == 18 && this.parentElement.id == 18||this.id == 19 && this.parentElement.id == 18||this.id == 17 && this.parentElement.id == 19||this.id == 18 && this.parentElement.id == 19||this.id == 19 && this.parentElement.id == 19||this.id == 17 && this.parentElement.id == 20||this.id == 19 && this.parentElement.id == 20) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1581,7 +1598,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                         }
                         else if (level == 10) {
 
-                            if (this.id == 11 && this.parentElement.id == 9||this.id == 12 && this.parentElement.id == 9||this.id == 13 && this.parentElement.id == 9||this.id == 12 && this.parentElement.id == 10||this.id == 13 && this.parentElement.id == 10||this.id == 14 && this.parentElement.id == 10) {
+                            if (this.id == 17 && this.parentElement.id == 13||this.id == 18 && this.parentElement.id == 13||this.id == 20 && this.parentElement.id == 13||this.id == 21 && this.parentElement.id == 13||this.id == 17 && this.parentElement.id == 14||this.id == 17 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 14||this.id == 20 && this.parentElement.id == 14||this.id == 21 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 15) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
@@ -1592,7 +1609,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 page = 2
                                 ej = 2 
                              localStorage.setItem("ej",page)
-
+                               poxvox = 2 
                                 // setTimeout(() => {
                                 //     l11()
                                 // }, chap);
@@ -2424,6 +2441,23 @@ function levmyus(params) {
 
 function aj(params) {
  
+      if (slakbal==0) {
+            
+    var lner = document.getElementsByClassName("levelner")
+    // lner[0].style.animationDelay = "0.5"
+    lner[0].style.animationDuration = "1s"
+    lner[0].style.animationFillMode = "backwards"
+    lner[0].style.animationName = "anc"
+    lner[0].style.position = "relative"
+   slakbal = 1
+setTimeout(() => {
+    lner[0].style.right = "200px"
+    lner[0].style.animationName = "et"
+    // lner[0].style.animationDelay = ""
+    lner[0].style.animationDuration = "0.5s"
+    lner[0].style.animationFillMode = "forwards"
+   
+    
     if (poxvox==1&&ej==1) {
         chancac(1,11,21,"+")
         
@@ -2449,6 +2483,24 @@ function aj(params) {
     else if (poxvox==5) {
         chancac(5,51,61,"+")
     }
+
+setTimeout(() => {
+    lner[0].style.animationDuration = ""
+    lner[0].style.animationFillMode = ""
+    lner[0].style.animationName = ""
+    lner[0].style.right = ""
+    slakbal = 0
+}, 500);
+
+}, 400);
+ 
+      }
+ 
+
+
+
+  
+  
 
 }
 
@@ -2567,7 +2619,25 @@ slakimg.addEventListener("click",aj)
 
 
 function dzax(params) {
-    if (poxvox==2) {
+
+if (slakbal == 0) {
+    var lner = document.getElementsByClassName("levelner")
+    // lner[0].style.animationDelay = "0.5"
+    lner[0].style.animationDuration = "1s"
+    lner[0].style.animationFillMode = "backwards"
+    lner[0].style.animationName = "dzax"
+    lner[0].style.position = "relative"
+slakbal = 1
+setTimeout(() => {
+
+    lner[0].style.left = "200px"
+    lner[0].style.animationName = "dzax2"
+    // lner[0].style.animationDelay = ""
+    lner[0].style.animationDuration = "0.5s"
+    lner[0].style.animationFillMode = "forwards"
+    
+
+      if (poxvox==2) {
         chancac(2,0,11,"-")
     }
   else  if (poxvox==3) {
@@ -2588,7 +2658,23 @@ function dzax(params) {
     }
     else if (poxvox==6) {
         chancac(6,41,51,"-")
-    }
+    }  
+
+
+    setTimeout(() => {
+        lner[0].style.animationDuration = ""
+        lner[0].style.animationFillMode = ""
+        lner[0].style.animationName = ""
+        lner[0].style.left = ""
+        slakbal = 0
+    }, 500);
+
+
+}, 400);
+ 
+}
+
+
 
 }
 

@@ -448,22 +448,66 @@ transition-duration: 1s;
     transform: rotateZ(360deg);
 transition-duration: 1s;
 }
-.anclev{
-animation-name: acn;
-animation-delay: 1s;
-animation-duration: 1s;
-position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 
 
 
-}
+
+
+
+
 @keyframes anc{
+0%{
 
-0%{border: 0px solid}
-50%{border: 5px solid red}
-100%{border: 50px solid red}
+ left: 0px;
+}
 
+100%{
+
+    left: 500px;
+}
+}
+
+@keyframes dzax{
+    0%{
+    
+     right: 0px;
+    }
+    
+    100%{
+    
+        right: 500px;
+    }
+    }
+
+
+@keyframes et{
+    0%{
+    
+     right:500px;
+    }
+    
+    100%{
+    
+       right: 0;
+    }
+    }
+
+    @keyframes dzax2{
+        0%{
+        
+         left:500px;
+        }
+        
+        100%{
+        
+            left: 0;
+        }
+        }
+
+
+.ob{
+    position: absolute;
+    width: 300px;
+    height: 100px;
+    border: 1px solid;
 }
