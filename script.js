@@ -10,11 +10,29 @@ var dastijenia = document.getElementById("dastijenia")
 var game = 0
 var fl = 0
 var x = localStorage.getItem("game", game)
+// localStorage.setItem("game", game)
 localStorage.getItem("tetev", tetev)
 var fla = localStorage.getItem("flay", fl)
 var gamelev = 0
 var click1 = 0
+var vercs = localStorage.getItem("vercra")
+var erekor = Math.floor(localStorage.getItem("erekor"))
+var erekamis =  Math.floor(localStorage.getItem("erekamis"))
+var timesl = 0
+var timess = localStorage.getItem("timess",timesl)
+var sors  = new Date()
+var sor = sors.getDate()
+var soramis = sors.getMonth()
 
+var zdiv = document.getElementsByClassName("zagruzkadiv")
+var zagrus =   document.getElementsByClassName("zagruska")
+var zagp = document.getElementsByClassName("tokos")
+var l = window.innerWidth*window.innerHeight
+zagp[0].style.fontSize = Math.floor(l/5000)+"px"
+zdiv[0].style.width = window.innerWidth +"px"
+zdiv[0].style.height = window.innerHeight +"px"
+zagrus[0].style.width = window.innerWidth-100 +"px"
+zagrus[0].style.height = window.innerWidth-100 +"px"
 var bal = 0
 var slakbal = 0 
 var poxvox 
@@ -28,13 +46,13 @@ var click2 = localStorage.getItem("cl1", cls)
 var drosh = document.getElementsByClassName("drosh")
 var opshi = document.getElementsByClassName("opshi")
 var chap = 2000
-
+var snduk = localStorage.getItem("data")
 
 
 
                //    0      1           2             3               4          5      
 var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!"]
-var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Шноравор"]
+var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!"]
 var h1ru = "Найди кота"
 var h1hy = "Գտի՛ր կատվին"
 
@@ -44,52 +62,143 @@ var para = localStorage.getItem("para")
 
 
 
-p1s.addEventListener("click",newgame)
 
-xosh[0].addEventListener("click",newgame)
-
-// p1s.offsetHeight
-// document.addEventListener("keypress",function (params) {
-// if (params.key=="d") {
-//     aj()
-// }
-//  if (params.key=="a") {
-//      dzax()
-//  }
-// if (params.code == "Space" ) {
-//     doms()
-// }
-// if (params.key == "Enter" ) {
-//     levmyus()
-// }
-// if (params.key == "0" ) {
-//     l0()
-// }
-// if (params.key == "1" ) {
-//     l1()
-// }
-// console.log(params.key);
-
-
-// })
-
-
+   
+function tokos(params) {
+    var c = 0
+var p = document.getElementById("tok")
+p.innerHTML = 0 + "%"
+var st = setInterval(zags,50)
+function zags(params) {
+   
+    c++
+    p.innerHTML = c + "%"
+    if (c==30) {
+        p.innerHTML = "Complete"
+        clearInterval(st)
+        setTimeout(() => {
+          
+             if (x == null) {
+                 console.log("x chka");
+                 
+                game = 0
+                x = 0
+                localStorage.setItem("game", game)
+                fl = 0
+                localStorage.setItem("flay", fl)
+                fla = 0
+                tetev = 0
+                localStorage.setItem("tetev", tetev)
+               
 
 
-p2s.onclick = function () {
-
-    window.open("www.facebook.com", "blank")
+                timesl = 0
+            timess = 0
+            localStorage.setItem("timess",timesl)
+            verc = 0
+            localStorage.setItem("vercra",verc)
+            vercs = 0
+           
+            }
+        
+            contineo()  
+            data()
+        }, 300);
+       
+    }
+}
 
 }
 
+tokos()
+
+function data(params) {
+    
+    
+ 
 
 
 
+    if (timess==0) {
+      console.log("araji angam");
+       verc = 0
+       localStorage.setItem("vercra",verc)
+       vercs = 0
+      timesl = 1
+      timess = 1
+      localStorage.setItem("timess",timesl)
+      var times = new Date()
+      localStorage.setItem("erekor",times.getDate())
+      localStorage.setItem("erekamis",times.getMonth())
+      // localStorage.setItem("time",times.getMinutes())
+    }
+    else if (timess==1&&x==1) {
 
-drosh[0].addEventListener("click",droshinna)
+ 
+      if (sor>erekor&&erekamis==soramis) {
+        
+        console.log("ha");
+          
+        if (vercs==0) {
+            console.log("vercreci vercs = 0");
+            vercra()   
+    
+        }
+        else if (vercs==2) {
+            
+            timesl = 0
+            timess = 0
+            localStorage.setItem("timess",timesl)
+            verc = 0
+            localStorage.setItem("vercra",verc)
+            vercs = 0
+        }
 
 
+    
+      }           //1!= 2                 31-1=30 30-1
+      else if (erekamis!=soramis) {
+        if (sor-erekor==30||sor-erekor==29||sor-erekor==28||sor-erekor==27||sor-erekor==26||sor-erekor==25||sor-erekor==24||sor-erekor==23||sor-erekor==22||sor-erekor==21||sor-erekor==20||sor-erekor==19||sor-erekor==18||sor-erekor==17||sor-erekor==16||sor-erekor==15||sor-erekor==14||sor-erekor==13||sor-erekor==12||sor-erekor==11||sor-erekor==10||sor-erekor==9||sor-erekor==8||sor-erekor==7||sor-erekor==6||sor-erekor==5||sor-erekor==4||sor-erekor==3||sor-erekor==2||sor-erekor==1||sor-erekor==0) {
+          
+        
+          if (vercs==0) {
+            console.log("vercreci");
+            vercra()   
+    
+        }
+        else if (vercs==2) {
+            console.log(0);
+            timesl = 0
+            timess = 0
+            localStorage.setItem("timess",timesl)
+            verc = 0
+            localStorage.setItem("vercra",verc)
+            vercs = 0
+        }
+         
+  
+        }
+     
+        
+      }
+        
 
+    }
+else if (timess==1&&x==0) {
+    
+    console.log("araji angam");
+    verc = 0
+    localStorage.setItem("vercra",verc)
+    vercs = 0
+   timesl = 1
+   timess = 1
+   localStorage.setItem("timess",timesl)
+   var times = new Date()
+   localStorage.setItem("erekor",times.getDate())
+   localStorage.setItem("erekamis",times.getMonth())
+
+}
+  }
 
 function droshinna(params) {
     
@@ -178,7 +287,7 @@ function flag(params) {
 
 
 }
-flag()
+//flag()
 
 
 
@@ -206,7 +315,9 @@ adamand = 40
 par = 160
 localStorage.setItem("para", par)
 para = 160
-
+timesl = 0
+timess = 0
+localStorage.setItem("timess",timesl)
 }
 
 
@@ -317,22 +428,338 @@ sharim1.addEventListener("click",norxax)
 
 
         }
+        else if (zdiv[0]) {
+            document.body.removeChild(zdiv[0])
+        
+            var opshi = document.createElement("div")
+            document.body.append(opshi)
+            opshi.setAttribute("class", "opshi")
+        
+            var h1div = document.createElement("div")
+            opshi.append(h1div)
+            h1div.setAttribute("class", "h1")
+        
+        
+            var h1div2 = document.createElement("div")
+            h1div.append(h1div2)
+            h1div2.setAttribute("class", "h1div")
+        
+        
+        
+            var h1 = document.createElement("h1")
+            h1div2.append(h1)
+            h1.setAttribute("class", "s")
+        
+        
+            if (fla == 0) {
+                h1.innerHTML = h1hy
+            }
+            else if (fla == 1) {
+                h1.innerHTML = h1ru
+            }
+        
+        
+        
+            var xax = document.createElement("div")
+            opshi.append(xax)
+            xax.setAttribute("class", "xax")
+            xax.setAttribute("id", "xax")
+        
+        
+        
+        
+            var sharun = document.createElement("div")
+            xax.append(sharun)
+            sharun.setAttribute("class", "sharun")
+        
+            var sharnk = document.createElement("img")
+            sharun.append(sharnk)
+            sharnk.setAttribute("class", "cont")
+            sharnk.setAttribute("src", "img/shar.png")
+        sharnk.addEventListener("click",levmyus)
+        
+            var sharp = document.createElement("p")
+            sharun.append(sharp)
+            sharp.setAttribute("class", "nor")
+            sharp.setAttribute("id", "p4")
+            sharp.addEventListener("click",levmyus)
+            if (fla == 0) {
+                sharp.innerHTML = tarhy[3]
+            }
+            else if (fla == 1) {
+                sharp.innerHTML = tarru[3]
+            }
+         
+        
+        
+        
+            var norx = document.createElement("div")
+            xax.append(norx)
+            norx.setAttribute("class", "sksel")
+            //  norx.setAttribute("id","skizb")
+            var sharim1 = document.createElement("img")
+            norx.append(sharim1)
+            sharim1.setAttribute("src", "img/xoshor.png")
+            sharim1.setAttribute("class", "xoshor")
+            var p1 = document.createElement("p")
+            norx.append(p1)
+            p1.setAttribute("class", "nor")
+            p1.setAttribute("id", "p1")
+            if (fla == 0) {
+                p1.innerHTML = tarhy[0]
+            }
+            else if (fla == 1) {
+                p1.innerHTML = tarru[0]
+            }
+        
+          p1.addEventListener("click",norxax)
+        sharim1.addEventListener("click",norxax)
+            var norx1 = document.createElement("div")
+            xax.append(norx1)
+            norx1.setAttribute("class", "taracel")
+            //   norx1.setAttribute("id","taracel")
+            var a = document.createElement("a")
+            norx1.append(a)
+            a.setAttribute("href", "https://www.youtube.com/watch?v=I1ruXD6POfE")
+            a.setAttribute("target", "_blank")
+            var sharim2 = document.createElement("img")
+            a.append(sharim2)
+            sharim2.setAttribute("src", "img/pod.png")
+            sharim2.setAttribute("class", "dost")
+            var p2 = document.createElement("p")
+            a.append(p2)
+            p2.setAttribute("class", "nor")
+            p2.setAttribute("id", "p2")
+            if (fla == 0) {
+                p2.innerHTML = tarhy[1]
+            }
+            else if (fla == 1) {
+                p2.innerHTML = tarru[1]
+            }
+        
+        
+        
+            var norx2 = document.createElement("div")
+            xax.append(norx2)
+            norx2.setAttribute("class", "dastijenia")
+            //    norx2.setAttribute("id","dastijenia")
+            var sharim3 = document.createElement("img")
+            norx2.append(sharim3)
+            sharim3.setAttribute("src", "img/dost.png")
+            sharim3.setAttribute("class", "dost")
+            var p3 = document.createElement("p")
+            norx2.append(p3)
+            p3.setAttribute("class", "nor")
+            p3.setAttribute("id", "p3")
+            if (fla == 0) {
+                p3.innerHTML = tarhy[2]
+            }
+        
+            else if (fla == 1) {
+                p3.innerHTML = tarru[2]
+            }
+        
+        
+        
+        
+        
+            var futer = document.createElement("div")
+            opshi.append(futer)
+            futer.setAttribute("class", "futer")
+        
+        
+            var zvuk = document.createElement("img")
+            futer.append(zvuk)
+            zvuk.setAttribute("class", "zvuk")
+        zvuk.src = "img/zvuk.png"
+        
+        var drosh = document.createElement("img")
+        futer.append(drosh)
+        drosh.setAttribute("class", "drosh")
+        drosh.addEventListener("click",droshinna)
+        if (fla==0) {
+            drosh.src = "img/rus.png"
+        }
+        else if (fla==1) {
+            
+            drosh.src = "img/arm.png"
+            drosh.style.width = "47px"
+            drosh.style.height = "47px"
+        
+        }
+        
+        var harc = document.createElement("img")
+        futer.append(harc)
+        harc.setAttribute("class", "harc")
+        harc.src = "img/harc.png"
+        
+        }
+
+
+
+    }
+    else if (x==0) {
+         if (zdiv[0]) {
+            document.body.removeChild(zdiv[0])
+        }
+
+
+        var opshi = document.createElement("div")
+        document.body.append(opshi)
+        opshi.setAttribute("class", "opshi")
+    
+        var h1div = document.createElement("div")
+        opshi.append(h1div)
+        h1div.setAttribute("class", "h1")
+    
+    
+        var h1div2 = document.createElement("div")
+        h1div.append(h1div2)
+        h1div2.setAttribute("class", "h1div")
+    
+    
+    
+        var h1 = document.createElement("h1")
+        h1div2.append(h1)
+        h1.setAttribute("class", "s")
+    
+    
+        if (fla == 0) {
+            h1.innerHTML = h1hy
+        }
+        else if (fla == 1) {
+            h1.innerHTML = h1ru
+        }
+    
+    
+    
+        var xax = document.createElement("div")
+        opshi.append(xax)
+        xax.setAttribute("class", "xax")
+        xax.setAttribute("id", "xax")
+    
+    
+    
+    
+    
+        var norx = document.createElement("div")
+        xax.append(norx)
+        norx.setAttribute("class", "sksel")
+        //  norx.setAttribute("id","skizb")
+        var sharim1 = document.createElement("img")
+        norx.append(sharim1)
+        sharim1.setAttribute("src", "img/xoshor.png")
+        sharim1.setAttribute("class", "xoshor")
+        var p1 = document.createElement("p")
+        norx.append(p1)
+        p1.setAttribute("class", "nor")
+        p1.setAttribute("id", "p1")
+        if (fla == 0) {
+            p1.innerHTML = tarhy[0]
+        }
+        else if (fla == 1) {
+            p1.innerHTML = tarru[0]
+        }
+    
+      p1.addEventListener("click",newgame)
+    sharim1.addEventListener("click",newgame)
+        var norx1 = document.createElement("div")
+        xax.append(norx1)
+        norx1.setAttribute("class", "taracel")
+        //   norx1.setAttribute("id","taracel")
+        var a = document.createElement("a")
+        norx1.append(a)
+        a.setAttribute("href", "https://www.youtube.com/watch?v=I1ruXD6POfE")
+        a.setAttribute("target", "_blank")
+        var sharim2 = document.createElement("img")
+        a.append(sharim2)
+        sharim2.setAttribute("src", "img/pod.png")
+        sharim2.setAttribute("class", "dost")
+        var p2 = document.createElement("p")
+        a.append(p2)
+        p2.setAttribute("class", "nor")
+        p2.setAttribute("id", "p2")
+        if (fla == 0) {
+            p2.innerHTML = tarhy[1]
+        }
+        else if (fla == 1) {
+            p2.innerHTML = tarru[1]
+        }
+    
+    
+    
+        var norx2 = document.createElement("div")
+        xax.append(norx2)
+        norx2.setAttribute("class", "dastijenia")
+        //    norx2.setAttribute("id","dastijenia")
+        var sharim3 = document.createElement("img")
+        norx2.append(sharim3)
+        sharim3.setAttribute("src", "img/dost.png")
+        sharim3.setAttribute("class", "dost")
+        var p3 = document.createElement("p")
+        norx2.append(p3)
+        p3.setAttribute("class", "nor")
+        p3.setAttribute("id", "p3")
+        if (fla == 0) {
+            p3.innerHTML = tarhy[2]
+        }
+    
+        else if (fla == 1) {
+            p3.innerHTML = tarru[2]
+        }
+    
+    
+    
+    
+    
+        var futer = document.createElement("div")
+        opshi.append(futer)
+        futer.setAttribute("class", "futer")
+    
+    
+        var zvuk = document.createElement("img")
+        futer.append(zvuk)
+        zvuk.setAttribute("class", "zvuk")
+    zvuk.src = "img/zvuk.png"
+    
+    var drosh = document.createElement("img")
+    futer.append(drosh)
+    drosh.setAttribute("class", "drosh")
+    drosh.addEventListener("click",droshinna)
+    if (fla==0) {
+        drosh.src = "img/rus.png"
+    }
+    else if (fla==1) {
+        
+        drosh.src = "img/arm.png"
+        drosh.style.width = "47px"
+        drosh.style.height = "47px"
+    
+    }
+    
+    var harc = document.createElement("img")
+    futer.append(harc)
+    harc.setAttribute("class", "harc")
+    harc.src = "img/harc.png"
+    
+    }
+
+
 
 
 
     }
 
-}
-contineo()
+
 
 
 function doms(params) {
-    if (bal==0) {
+    if (bal==0&&slakbal==0) {
         
     
     var levdiv = document.getElementsByClassName("leveldiv")
     var xaxayin = document.getElementsByClassName("xaxayin")
-    poxvox = 1
+   
     document.body.style.backgroundImage = "url(img/back.jpg)"
     if (levdiv[0]) {
         document.body.removeChild(levdiv[0])
@@ -340,7 +767,7 @@ function doms(params) {
   else if (xaxayin[0]) {
         document.body.removeChild(xaxayin[0])
     }
-
+ poxvox = 1
     var opshi = document.createElement("div")
     document.body.append(opshi)
     opshi.setAttribute("class", "opshi")
@@ -832,13 +1259,25 @@ divs.style.alignItems = 'center'
     var brlimg = document.createElement("img")
     brlimg.setAttribute("class", "deli")
     brlimg.src = "img/brliand.png"
-
+    var xaxayin = document.getElementsByClassName("xaxayin")
+brlimg.style.width = (xaxayin[0].offsetHeight/22)+"px"
+brlimg.style.height = (xaxayin[0].offsetHeight/22)+"px"
     divs.append(brlimg)
     var p = document.createElement("p")
-
+p.style.fontSize = ((xaxayin[0].offsetHeight/22)-11)+"px"
     p.setAttribute("class", "delp")
     p.innerHTML = -1
     divs.append(p)
+
+    // .delp{
+    //     display: inline;
+    //     color: red;
+    //     font-size: 16px;
+    // }
+    // .deli{
+    //     width: 25px;
+    //     height: 25px;
+    // }
 
     if (brlimg && p) {
 
@@ -1655,7 +2094,10 @@ function ver(params) {
     var ids = 0
 
     var levsa = document.getElementsByClassName("leveldiv")
-    document.body.removeChild(levsa[0])
+    if (levsa[0]) {
+        document.body.removeChild(levsa[0])
+    }
+  
 
 
     var xaxayin = document.getElementsByClassName("xaxayin")
@@ -1674,6 +2116,11 @@ function ver(params) {
     brlplus.setAttribute("src", "img/plus.png")
     brlplus.setAttribute("class", "plus")
     brldiv.append(brlplus)
+brlplus.addEventListener("click",brlaynd)
+// brlplus.style.width = xaxayin[0].offsetHeight
+
+
+
 
 
     var brl = document.createElement("img")
@@ -1682,11 +2129,15 @@ function ver(params) {
     brl.setAttribute("id", "adamans")
     brldiv.append(brl)
 
+    brl.style.width = ((xaxayin[0].offsetHeight/16)+3)+"px"
+    brl.style.height = ((xaxayin[0].offsetHeight/16)+3)+"px"
+    brlplus.style.width = (brl.offsetHeight-17)+"px"
+    brlplus.style.height = (brl.offsetHeight-17)+"px"
     var brlp = document.createElement("p")
     brlp.setAttribute("class", "brlp")
     brlp.innerHTML = adamand
     brldiv.append(brlp)
-
+  
     var levdiv = document.createElement("div")
     levdiv.setAttribute("class", "levdiv")
     verev.append(levdiv)
@@ -1709,8 +2160,8 @@ function ver(params) {
     levp.innerHTML = lev
     levdiv.append(levp)
     levp.setAttribute("align", "center")
-
-
+ levp.style.fontSize =((xaxayin[0].offsetHeight/19)+1) + "px"
+ brldiv.style.fontSize =((xaxayin[0].offsetHeight/19)+1) + "px"
     var poxdiv = document.createElement("div")
     poxdiv.setAttribute("class", "poxdiv")
     verev.append(poxdiv)
@@ -1719,18 +2170,22 @@ function ver(params) {
     poxp.setAttribute("class", "poxp")
     poxp.innerHTML = para
     poxdiv.append(poxp)
-
-
+poxp.style.fontSize = (levp.offsetHeight - 11)+ "px"
 
     var pox = document.createElement("img")
     pox.setAttribute("src", "img/pox.png")
     pox.setAttribute("class", "pox")
     poxdiv.append(pox)
+    pox.style.width = (brl.offsetHeight  + 2) + "px"
+    pox.style.height = (brl.offsetHeight  + 2) + "px"
+
     var poxplus = document.createElement("img")
     poxplus.setAttribute("src", "img/poxplus.png")
     poxplus.setAttribute("class", "poxplus")
     poxdiv.append(poxplus)
 
+    poxplus.style.width = (brlplus.offsetHeight  + 2) + "px"
+    poxplus.style.height = (brlplus.offsetHeight  + 2)+ "px"
 
 }
 
@@ -2102,11 +2557,7 @@ click1 = 1
 }
 
 
-function brlilus(params) {
-    
 
-
-}
 function liver(params) {
     var levon = document.getElementsByClassName("leveldiv")
     var verev = document.createElement("div")
@@ -2121,6 +2572,7 @@ function liver(params) {
     brlplus.setAttribute("src", "img/plus.png")
     brlplus.setAttribute("class", "plus")
     brldiv.append(brlplus)
+    brlplus.addEventListener("click",brlaynd)
 
 
     var brl = document.createElement("img")
@@ -2128,6 +2580,13 @@ function liver(params) {
     brl.setAttribute("class", "brl")
     brl.setAttribute("id", "adamans")
     brldiv.append(brl)
+
+    brl.style.width = ((levon[0].offsetHeight/16)+3)+"px"
+    brl.style.height = ((levon[0].offsetHeight/16)+3)+"px"
+    brlplus.style.width = (brl.offsetHeight-17)+"px"
+    brlplus.style.height = (brl.offsetHeight-17)+"px"
+    brldiv.style.fontSize =((levon[0].offsetHeight/19)+1) + "px"
+
 
     var brlp = document.createElement("p")
     brlp.setAttribute("class", "brlp")
@@ -2158,29 +2617,59 @@ function liver(params) {
     poxp.setAttribute("class", "poxp")
     poxp.innerHTML = para
     poxdiv.append(poxp)
-
+    poxp.style.fontSize = (brlp.offsetHeight - 11)+ "px"
 
 
     var pox = document.createElement("img")
     pox.setAttribute("src", "img/pox.png")
     pox.setAttribute("class", "pox")
     poxdiv.append(pox)
+    pox.style.width = (brl.offsetHeight  + 2) + "px"
+    pox.style.height = (brl.offsetHeight  + 2) + "px"
+
+
     var poxplus = document.createElement("img")
     poxplus.setAttribute("src", "img/poxplus.png")
     poxplus.setAttribute("class", "poxplus")
     poxdiv.append(poxplus)
+    poxplus.style.width = (brlplus.offsetHeight  + 2) + "px"
+    poxplus.style.height = (brlplus.offsetHeight  + 2) + "px"
 
 }
 
 function newgame(params) {
     
-poxvox = 1
+    ej = 1
+  
+    page = 1
+    localStorage.setItem("ej",page)
+  
+    lev = 0
+    gamelev = 0
+    localStorage.setItem("lev", gamelev)
+    cl =  0
+    sxm = 0
+    
+     
+    
+adam = 40
+localStorage.setItem("adam", adam)
+adamand = 40
+
+par = 160
+localStorage.setItem("para", par)
+para = 160
+
+
+
+        poxvox = 1
     document.body.style.backgroundImage = "url(img/backa.jpg)"
         click2 =  0
         cls = 0
       localStorage.setItem("cl1", cls) 
       click1 = 0
         game = 1
+        x=1
         localStorage.setItem("game", game)
     
         document.body.removeChild(opshi[0]) //են առաջի էջը կորավ 
@@ -2201,8 +2690,8 @@ poxvox = 1
             level.setAttribute("id", i)
     
             level.setAttribute("class", "levels")
-    
-    
+            level.style.width =((window.innerWidth-12)/4)-17  + "px"
+            level.style.height = ((window.innerWidth-12)/4)-17  +"px"
     
             var p = document.createElement("p")
             p.setAttribute("class", "pner")
@@ -2260,7 +2749,9 @@ poxvox = 1
         var slak = document.createElement("div")
         levelner.append(slak)
         slak.setAttribute("class", "slak")
-  
+        slak.style.width =((window.innerWidth-12)/4)  + "px"
+        slak.style.height = ((window.innerWidth-12)/4)-17  +"px"
+
         var slakimg = document.createElement("img")
         slakimg.setAttribute("class", "slakimg")
         slak.append(slakimg)
@@ -2319,7 +2810,8 @@ function levmyus(params) {
     
     
                 level.setAttribute("class", "levels")
-    
+    level.style.width =((window.innerWidth-12)/4)-17  + "px"
+    level.style.height = ((window.innerWidth-12)/4)-17  +"px"
                 var p = document.createElement("p")
                 p.setAttribute("class", "pner")
                 p.innerHTML = i
@@ -2371,7 +2863,8 @@ function levmyus(params) {
                 var slakdzax = document.createElement("div")
                 levelner.append(slakdzax)
                 slakdzax.setAttribute("class", "slak")
-             
+                slakdzax.style.width =((window.innerWidth-12)/4)  + "px"
+                slakdzax.style.height = ((window.innerWidth-12)/4)-17  +"px"
                 var slakdaximg = document.createElement("img")
                 slakdaximg.setAttribute("class", "slakimg")
                 slakdzax.append(slakdaximg)
@@ -2386,6 +2879,9 @@ function levmyus(params) {
         
                     level.setAttribute("class", "levels")
         
+                    level.style.width =((window.innerWidth-12)/4)-17  + "px"
+                    level.style.height = ((window.innerWidth-12)/4)-17  +"px"
+
                     var p = document.createElement("p")
                     p.setAttribute("class", "pner")
                     p.innerHTML = i
@@ -2417,6 +2913,8 @@ function levmyus(params) {
         var slak = document.createElement("div")
         levelner.append(slak)
         slak.setAttribute("class", "slak")
+        slak.style.width =((window.innerWidth-12)/4)  + "px"
+        slak.style.height = ((window.innerWidth-12)/4)-17  +"px"
         // slak.addEventListener("click",aj)
         var slakimg = document.createElement("img")
         slakimg.setAttribute("class", "slakimg")
@@ -2461,7 +2959,7 @@ function aj(params) {
     lner[0].style.position = "relative"
    slakbal = 1
 setTimeout(() => {
-    lner[0].style.right = "200px"
+    lner[0].style.left = "200px"
     lner[0].style.animationName = "et"
     // lner[0].style.animationDelay = ""
     lner[0].style.animationDuration = "0.5s"
@@ -2498,7 +2996,7 @@ setTimeout(() => {
     lner[0].style.animationDuration = ""
     lner[0].style.animationFillMode = ""
     lner[0].style.animationName = ""
-    lner[0].style.right = ""
+    lner[0].style.left = ""
     slakbal = 0
 }, 500);
 
@@ -2548,7 +3046,8 @@ if (poxvox!=1) {
     var slakhet = document.createElement("div")
     levelner[0].append(slakhet)
     slakhet.setAttribute("class", "slak")
-    
+    slakhet.style.width =((window.innerWidth-12)/4)  + "px"
+    slakhet.style.height = ((window.innerWidth-12)/4)-17  +"px"
     var slakimghet = document.createElement("img")
     slakimghet.setAttribute("class", "slakimg")
     slakimghet.addEventListener("click",dzax)
@@ -2565,6 +3064,9 @@ for (let x = skiz; x < verj; x++) {
     var level = document.createElement("div")
     levelner[0].append(level)
     level.setAttribute("id", x)
+
+    level.style.width =((window.innerWidth-12)/4)-17  + "px"
+    level.style.height = ((window.innerWidth-12)/4)-17  +"px"
 
     level.setAttribute("class", "levels")
 
@@ -2614,7 +3116,8 @@ levs[10].addEventListener("click", l11)
 var slak = document.createElement("div")
 levelner[0].append(slak)
 slak.setAttribute("class", "slak")
-
+slak.style.width =((window.innerWidth-12)/4)  + "px"
+slak.style.height = ((window.innerWidth-12)/4)-17  +"px"
 var slakimg = document.createElement("img")
 slakimg.setAttribute("class", "slakimg")
 slak.append(slakimg)
@@ -2640,7 +3143,7 @@ if (slakbal == 0) {
 slakbal = 1
 setTimeout(() => {
 
-    lner[0].style.left = "200px"
+    lner[0].style.right = "200px"
     lner[0].style.animationName = "dzax2"
     // lner[0].style.animationDelay = ""
     lner[0].style.animationDuration = "0.5s"
@@ -2675,7 +3178,7 @@ setTimeout(() => {
         lner[0].style.animationDuration = ""
         lner[0].style.animationFillMode = ""
         lner[0].style.animationName = ""
-        lner[0].style.left = ""
+        lner[0].style.right = ""
         slakbal = 0
     }, 500);
 
@@ -2689,3 +3192,364 @@ setTimeout(() => {
 }
 
 
+
+
+
+function vercra(params) {
+    console.log("vercra funkcia");
+    // vercs = 0
+
+
+
+var op = document.getElementsByClassName("opshi")
+var ka = document.getElementsByClassName("shahum")
+// ver()
+
+
+
+
+if (ka.length ==0) {
+    var shahum = document.createElement("div")
+    op[0].append(shahum)
+    shahum.setAttribute("class","shahum")
+    shahum.style.width = op[0].offsetWidth + "px"
+    shahum.style.height = op[0].offsetHeight  + "px"
+    sndver()
+    
+    var shahumdiv = document.createElement("div")
+    shahum.append(shahumdiv)
+    shahumdiv.setAttribute("class","sharundiv")
+    
+    
+    
+    for (let i = 0; i < 9; i++) {
+        var snd1 = document.createElement("div")
+    // snd1.src = "img/sndpak.png"
+    shahumdiv.append(snd1)
+
+    snd1.style.width = ((opshi[0].offsetWidth/3)-34) + "px"
+    snd1.style.height = ((opshi[0].offsetWidth/3)-34) + "px"
+    snd1.setAttribute("class","snd1")
+    snd1.style.backgroundImage = "url(./img/sndpak.png)";
+    snd1.onclick = function () {
+    var sh = document.getElementsByClassName("sharundiv")
+
+var nverbrl = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+var nverpox = [5,10,12,15,20,25,33,30,35,40,45,50,60,65]
+var pizimgrandom = ["img/pox.png","img/brliand.png"]
+var prizpox = nverpox[Math.floor(Math.random()*nverpox.length)]
+var prizbrl = nverbrl[Math.floor(Math.random()*nverbrl.length)]
+
+
+//  var nverrand = [prizpox,prizbrl]
+//  var nver = nverrand[Math.floor(Math.random()*nverrand.length)]
+ var pizimg = pizimgrandom[Math.floor(Math.random()*pizimgrandom.length)]   
+ var nver
+if (pizimg=="img/pox.png") {
+    nver = prizpox
+
+
+    var sdiv = document.createElement("div")
+    this.append(sdiv)
+    sdiv.setAttribute("class","sdiv")
+    
+    var sndukimg = document.createElement("img")
+    sdiv.append(sndukimg)
+    sndukimg.setAttribute("class","sndukimg")
+
+    sndukimg.src = pizimg
+
+
+    var sndukp = document.createElement("p")
+    sdiv.append(sndukp)
+    sndukp.setAttribute("class","sndukp")
+    sndukp.setAttribute("align","center")
+    sndukp.innerHTML = nver
+
+    var po = ((snd1.offsetHeight+14)/2)+10
+    
+var pp = ((snd1.offsetHeight+14)/2)-20
+
+
+
+
+   
+        sndukimg.style.width = po + "px"
+        sndukimg.style.height =po + "px"
+        sndukp.style.fontSize =  pp + "px"
+   
+     
+
+
+    
+  
+
+    
+
+
+    para = Math.floor(para) + nver
+    par = para
+    localStorage.setItem("para", par)
+    var brlp = document.getElementsByClassName("poxp")
+    brlp[0].innerHTML = para
+
+}
+else{
+
+
+
+    nver = prizbrl
+
+  
+    var sdiv = document.createElement("div")
+    this.append(sdiv)
+    sdiv.setAttribute("class","sdiv")
+    
+    var sndukimg = document.createElement("img")
+    sdiv.append(sndukimg)
+    sndukimg.setAttribute("class","sndukimg")
+
+sndukimg.src = pizimg
+    
+
+var sndukp = document.createElement("p")
+sdiv.append(sndukp)
+sndukp.setAttribute("class","sndukp")
+sndukp.setAttribute("align","center")
+sndukp.innerHTML = nver
+sndukp.style.color = "aqua"
+
+var po = ((snd1.offsetHeight+14)/2)+10
+    
+var pp = ((snd1.offsetHeight+14)/2)-20
+
+
+
+
+   
+        sndukimg.style.width = po + "px"
+        sndukimg.style.height =po + "px"
+        sndukp.style.fontSize =  pp + "px"
+    
+     
+
+    
+    console.log(nver);
+    adamand = Math.floor(adamand) + nver
+    adam = adamand
+    localStorage.setItem("adam", adam)
+
+    var brlp = document.getElementsByClassName("brlp")
+    brlp[0].innerHTML = adamand
+
+
+}
+
+
+
+
+
+ this.style.backgroundImage = "url(./img/sndbac.png)";
+this.onclick = "none"
+
+var sndukner = document.getElementsByClassName("snd1")
+for (let m = 0; m < sndukner.length; m++) {
+    sndukner[m].onclick = "none"
+    
+}
+
+
+setTimeout(() => {
+
+verc = 0
+localStorage.setItem("vercra",verc)
+vercs = 0
+timesl = 1
+timess = 1
+localStorage.setItem("timess",timesl)
+var times = new Date()
+localStorage.setItem("erekor",times.getDate())
+localStorage.setItem("erekamis",times.getMonth())
+
+ shahum.parentElement.removeChild(shahum)
+
+}, 2000);
+    
+        
+     
+    
+    }
+    
+    }
+    
+      
+}
+
+
+
+}
+
+
+function sndver(params) {
+    var xaxayin = document.getElementsByClassName("shahum")
+
+
+
+var verev = document.createElement("div")
+verev.setAttribute("class", "vererv")
+xaxayin[0].append(verev)
+
+var brldiv = document.createElement("div")
+brldiv.setAttribute("class", "brldiv")
+verev.append(brldiv)
+
+var brlplus = document.createElement("img")
+brlplus.setAttribute("src", "img/plus.png")
+brlplus.setAttribute("class", "plus")
+brldiv.append(brlplus)
+brlplus.addEventListener("click",brlaynd)
+
+var brl = document.createElement("img")
+brl.setAttribute("src", "img/brliand.png")
+brl.setAttribute("class", "brl")
+brl.setAttribute("id", "adamans")
+brldiv.append(brl)
+
+var brlp = document.createElement("p")
+brlp.setAttribute("class", "brlp")
+brlp.innerHTML = adamand
+brldiv.append(brlp)
+
+
+var poxdiv = document.createElement("div")
+poxdiv.setAttribute("class", "poxdiv")
+verev.append(poxdiv)
+
+var poxp = document.createElement("p")
+poxp.setAttribute("class", "poxp")
+poxp.innerHTML = para
+poxdiv.append(poxp)
+
+
+
+var pox = document.createElement("img")
+pox.setAttribute("src", "img/pox.png")
+pox.setAttribute("class", "pox")
+poxdiv.append(pox)
+var poxplus = document.createElement("img")
+poxplus.setAttribute("src", "img/poxplus.png")
+poxplus.setAttribute("class", "poxplus")
+poxdiv.append(poxplus)
+}
+
+
+function brlaynd(params) {
+    
+var plusdiv = document.createElement("div")
+document.body.children[1].append(plusdiv)
+plusdiv.setAttribute("class","plusdiv")
+plusdiv.style.width = plusdiv.parentElement.offsetWidth + "px"
+plusdiv.style.height = plusdiv.parentElement.offsetHeight  + "px"
+
+var plusmej = document.createElement("div")
+plusdiv.append(plusmej)
+plusmej.setAttribute("class","plusmej")
+plusmej.style.width = plusdiv.parentElement.offsetWidth-100 + "px"
+plusmej.style.height = plusdiv.parentElement.offsetHeight-200  + "px"
+
+
+var plusmejimej = document.createElement("div")
+plusmej.append(plusmejimej)
+plusmejimej.setAttribute("class","plusmej")
+// plusmejimej.style.width = plusdiv.parentElement.offsetWidth-100 + "px"
+// plusmejimej.style.height = plusdiv.parentElement.offsetHeight-200  + "px"
+
+
+
+
+
+for (let k = 0; k < 5; k++) {
+   
+    var pl1 = document.createElement("div")
+    plusmejimej.append(pl1)
+pl1.setAttribute("class","pl1")
+pl1.style.height = (plusmej.offsetHeight/10  )+ "px"
+
+   
+var bri = document.createElement("img")
+pl1.append(bri)
+bri.setAttribute("class","bri")
+bri.src = "img/brliand.png"
+
+// var brpdiv = document.createElement("div")
+// pl1.append(brpdiv)
+// brpdiv.setAttribute("class","brpdiv")
+
+
+
+var brp = document.createElement("p")
+pl1.append(brp)
+brp.setAttribute("class","brp")
+brp.innerHTML = 1 + "-"
+
+var poxp = document.createElement("p")
+pl1.append(poxp)
+poxp.setAttribute("class","para")
+poxp.innerHTML = 10 
+
+
+var poxi = document.createElement("img")
+pl1.append(poxi)
+poxi.setAttribute("class","poxi")
+poxi.src = "img/pox.png"
+
+var pluss = document.createElement("img")
+pl1.append(pluss)
+pluss.setAttribute("class","pluss")
+pluss.src = "img/plus.png"
+
+// brp.style.height = plusmej.offsetHeight/10  + "px"
+
+
+
+}
+
+// var pl1 = document.createElement("div")
+// plusmej.append(pl1)
+// pl1.setAttribute("class","pl1")
+
+// var pl2 = document.createElement("div")
+// plusmej.append(pl2)
+// pl2.setAttribute("class","pl1")
+
+// var pl3 = document.createElement("div")
+// plusmej.append(pl3)
+// pl3.setAttribute("class","pl1")
+
+
+// var pl3 = document.createElement("div")
+// plusmej.append(pl3)
+// pl3.setAttribute("class","pl1")
+
+
+
+
+
+
+}
+
+
+
+// cound	0	
+// lev	0	
+// game	1	
+// cl1	0	
+// erekor	2	
+// timess	1	
+// adam	40	
+// vercra	0	
+// para	160	
+// erekamis	7	
+// flay	1	
+// tetev	1	
+// ej	1	
