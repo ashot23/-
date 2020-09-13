@@ -694,3 +694,80 @@ font-family: monospace;
 100%{border-top: 4px solid red;border-right: 4px solid red;border-bottom: 4px solid red;border-left: 4px solid red }
 
 }
+
+.dashtparent{
+
+    position: absolute;
+    display: flex;
+    align-items: center;
+
+}
+.ha,.che{
+    background-color: aliceblue;
+    color: black;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid green; */
+    justify-content: center;
+    border-radius: 20px;
+    
+    border-block-end: 2px solid gray;
+    border-right: 2px solid gray;
+}
+
+.hache{
+    display: flex;
+    justify-content: space-evenly;
+}
+.harcpat{
+    background-color:antiquewhite;
+    border-radius: 14px;
+    border:1px solid gray;
+}
+
+.harcna{
+    color: dodgerblue;
+}
+.h1idiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.h1dast{
+    color: red;
+}
+.dast{
+
+    height: 100px;
+    border: 1px solid red;
+}
+.dastimg{
+    width: 100px;
+    height: 100px;
+}
+.dast{
+    display: flex;
+}
+.dastp{
+    color: red
+}
+.dastpdiv,.dastpdiv2{
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+}
+.dastp2{
+    color: red;
+    font-size: 44px;
+}
+.opshuc{
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

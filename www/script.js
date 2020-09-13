@@ -52,8 +52,8 @@ var snduk = localStorage.getItem("data")
 
 
                //    0      1           2             3               4          5      
-var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!"]
-var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!"]
+var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ"]
+var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет"]
 var h1ru = "Найди кота"
 var h1hy = "Գտի՛ր կատվին"
 
@@ -66,6 +66,7 @@ var k1 = new Audio("audio/k1.mp3")
 
    
 function tokos(params) {
+    window.open("index.html")
     var c = 0
 var p = document.getElementById("tok")
 p.innerHTML = 0 + "%"
@@ -74,7 +75,7 @@ function zags(params) {
    
     c++
     p.innerHTML = c + "%"
-    if (c==100) {
+    if (c==10) {
         p.innerHTML = "Complete"
         clearInterval(st)
         setTimeout(() => {
@@ -322,13 +323,141 @@ timess = 0
 localStorage.setItem("timess",timesl)
 }
 
+function harcpatasx() {
+    k1.play()
+var parent = document.body.children[1]
 
+var dashtparent = document.createElement("div")
+parent.append(dashtparent)
+dashtparent.setAttribute("class","dashtparent")
+dashtparent.style.width = parent.offsetWidth + "px"
+dashtparent.style.height = parent.offsetHeight + "px"
+
+var dasht = document.createElement("div")
+dashtparent.append(dasht)
+dasht.setAttribute("class","harcpat")
+dasht.style.width = parent.offsetWidth + "px"
+dasht.style.height = parent.offsetHeight/6 + "px"
+
+
+var harccna = document.createElement("div")
+dasht.append(harccna)
+harccna.setAttribute("class","harcna")
+harccna.style.width = dasht.offsetWidth + "px"
+// harccna.style.height = dasht.offsetHeight/6 + "px"
+
+var pharc = document.createElement("p")
+harccna.append(pharc)
+pharc.setAttribute("class","harcna")
+pharc.setAttribute("align","center")
+if (fla==0) {
+    pharc.innerHTML = tarhy[6]
+}
+else{
+    pharc.innerHTML = tarru[6]
+}
+
+
+
+var hache = document.createElement("div")
+dasht.append(hache)
+hache.setAttribute("class","hache")
+
+
+
+var che = document.createElement("div")
+hache.append(che)
+che.setAttribute("class","che")
+
+if (fla==0) {
+    che.innerHTML =  tarhy[8]
+}
+else{
+    che.innerHTML =  tarru[8]
+}
+
+
+che.style.width =(dasht.offsetHeight/2)-10 + "px"
+che.style.height = (dasht.offsetHeight/2)-10 + "px"
+var ha = document.createElement("div")
+hache.append(ha)
+ha.setAttribute("class","ha")
+
+
+if (fla==0) {
+    ha.innerHTML = tarhy[7]
+}
+else{
+    ha.innerHTML = tarru[7]
+}
+
+ha.style.width =(dasht.offsetHeight/2)-10 + "px"
+ha.style.height = (dasht.offsetHeight/2)-10 + "px"
+che.addEventListener("click",chexav)
+ha.addEventListener("click",exav)
+
+}
+
+
+function chexav(params) {
+    var che = document.getElementsByClassName("che")[0]
+    var dashtparent = document.getElementsByClassName("dashtparent")[0]
+    k1.play()
+    che.style.borderBlockEnd = "0px"
+    che.style.borderRight = "0px"
+    che.style.borderBlockStart = "2px solid gray"
+    che.style.borderLeft = "2px solid gray"
+
+    setTimeout(() => {
+        che.style.borderBlockEnd = "2px solid gray"
+        che.style.borderRight = "2px solid gray"
+        che.style.borderBlockStart = "0px"
+        che.style.borderLeft = "0px"
+
+dashtparent.parentElement.removeChild(dashtparent)
+
+
+
+
+
+
+    
+    }, 80);
+}
+
+function exav(params) {
+    var ha = document.getElementsByClassName("ha")[0]
+    var dashtparent = document.getElementsByClassName("dashtparent")[0]
+    k1.play()
+    ha.style.borderBlockEnd = "0px"
+    ha.style.borderRight = "0px"
+    ha.style.borderBlockStart = "2px solid gray"
+    ha.style.borderLeft = "2px solid gray"
+
+    setTimeout(() => {
+        ha.style.borderBlockEnd = "2px solid gray"
+        ha.style.borderRight = "2px solid gray"
+        ha.style.borderBlockStart = "0px"
+        ha.style.borderLeft = "0px"
+
+dashtparent.parentElement.removeChild(dashtparent)
+newgame()
+
+
+
+
+
+    
+    }, 80);
+}
 
 
 
 function contineo(params) {
+
    
     if (x == 1) {
+           
         var xax = document.getElementsByClassName("xax")
         if (xax[0]) {
 
@@ -381,8 +510,11 @@ function contineo(params) {
                 p1.innerHTML = tarru[0]
             }
 
-          p1.addEventListener("click",norxax)
-sharim1.addEventListener("click",norxax)
+
+//           p1.addEventListener("click",norxax)
+// sharim1.addEventListener("click",norxax)
+p1.addEventListener("click",harcpatasx)
+sharim1.addEventListener("click",harcpatasx)
             var norx1 = document.createElement("div")
             sharq.append(norx1)
             norx1.setAttribute("class", "taracel")
@@ -399,6 +531,7 @@ sharim1.addEventListener("click",norxax)
             a.append(p2)
             p2.setAttribute("class", "nor")
             p2.setAttribute("id", "p2")
+   
             if (fla == 0) {
                 p2.innerHTML = tarhy[1]
             }
@@ -414,12 +547,16 @@ sharim1.addEventListener("click",norxax)
             //    norx2.setAttribute("id","dastijenia")
             var sharim3 = document.createElement("img")
             norx2.append(sharim3)
+
             sharim3.setAttribute("src", "img/dost.png")
             sharim3.setAttribute("class", "dost")
+        
             var p3 = document.createElement("p")
             norx2.append(p3)
             p3.setAttribute("class", "nor")
             p3.setAttribute("id", "p3")
+            sharim3.addEventListener("click",dostijenia)
+            p3.addEventListener("click",dostijenia)
             if (fla == 0) {
                 p3.innerHTML = tarhy[2]
             }
@@ -515,8 +652,11 @@ sharim1.addEventListener("click",norxax)
                 p1.innerHTML = tarru[0]
             }
         
-          p1.addEventListener("click",norxax)
-        sharim1.addEventListener("click",norxax)
+        //   p1.addEventListener("click",norxax)
+        // sharim1.addEventListener("click",norxax)
+            
+          p1.addEventListener("click",harcpatasx)
+        sharim1.addEventListener("click",harcpatasx)
             var norx1 = document.createElement("div")
             xax.append(norx1)
             norx1.setAttribute("class", "taracel")
@@ -533,6 +673,7 @@ sharim1.addEventListener("click",norxax)
             a.append(p2)
             p2.setAttribute("class", "nor")
             p2.setAttribute("id", "p2")
+         
             if (fla == 0) {
                 p2.innerHTML = tarhy[1]
             }
@@ -550,10 +691,13 @@ sharim1.addEventListener("click",norxax)
             norx2.append(sharim3)
             sharim3.setAttribute("src", "img/dost.png")
             sharim3.setAttribute("class", "dost")
+       
             var p3 = document.createElement("p")
             norx2.append(p3)
             p3.setAttribute("class", "nor")
             p3.setAttribute("id", "p3")
+            sharim3.addEventListener("click",dostijenia)
+            p3.addEventListener("click",dostijenia)
             if (fla == 0) {
                 p3.innerHTML = tarhy[2]
             }
@@ -595,7 +739,7 @@ sharim1.addEventListener("click",norxax)
         futer.append(harc)
         harc.setAttribute("class", "harc")
         harc.src = "img/harc.png"
-        
+    
         }
 
 
@@ -763,19 +907,23 @@ v.href = "https://www.facebook.com"
 
 
 function doms(params) {
+    
     k1.play()
     if (bal==0&&slakbal==0) {
         
     
     var levdiv = document.getElementsByClassName("leveldiv")
     var xaxayin = document.getElementsByClassName("xaxayin")
-   
+   var opshuc = document.getElementsByClassName("opshuc")
     document.body.style.backgroundImage = "url(img/back.jpg)"
     if (levdiv[0]) {
         document.body.removeChild(levdiv[0])
     }
   else if (xaxayin[0]) {
         document.body.removeChild(xaxayin[0])
+    }
+    else if (opshuc[0]) {
+        document.body.removeChild(opshuc[0])
     }
  poxvox = 1
     var opshi = document.createElement("div")
@@ -859,8 +1007,8 @@ sharnk.addEventListener("click",levmyus)
         p1.innerHTML = tarru[0]
     }
 
-  p1.addEventListener("click",norxax)
-sharim1.addEventListener("click",norxax)
+  p1.addEventListener("click",harcpatasx)
+sharim1.addEventListener("click",harcpatasx)
     var norx1 = document.createElement("div")
     xax.append(norx1)
     norx1.setAttribute("class", "taracel")
@@ -898,6 +1046,8 @@ sharim1.addEventListener("click",norxax)
     norx2.append(p3)
     p3.setAttribute("class", "nor")
     p3.setAttribute("id", "p3")
+    sharim3.addEventListener("click",dostijenia)
+    p3.addEventListener("click",dostijenia)
     if (fla == 0) {
         p3.innerHTML = tarhy[2]
     }
@@ -946,24 +1096,6 @@ harc.src = "img/harc.png"
 
 
 function paraadam(params) {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 bal = 1
 
@@ -2252,10 +2384,16 @@ poxp.style.fontSize = (brl.offsetHeight-12) + "px"
 
 
 function futer(params) {
+
+    var opshi = document.getElementsByClassName("opshi")[0]
+  
     var xaxayin = document.getElementsByClassName("xaxayin")
     var futerdiv = document.createElement("div")
     futerdiv.setAttribute("class", "futerdiv")
-    xaxayin[0].append(futerdiv)
+        xaxayin[0].append(futerdiv)
+
+  
+   
 
 
 
@@ -3863,10 +4001,124 @@ var plusdiv =document.getElementsByClassName("plusdiv")
 
 }
 
+function futer2(params) {
+      var opshi = document.getElementsByClassName("opshuc")[0]
+        
+    var futer = document.createElement("div")
+    opshi.append(futer)
+    futer.setAttribute("class", "futer")
+
+
+    var zvuk = document.createElement("img")
+    futer.append(zvuk)
+    zvuk.setAttribute("class", "zvuk")
+zvuk.src = "img/zvuk.png"
+
+
+
+var dom = document.createElement("img")
+futer.append(dom)
+dom.setAttribute("class", "dom")
+dom.src = "img/home.png"
+dom.addEventListener("click",doms)
+var drosh = document.createElement("img")
+futer.append(drosh)
+drosh.setAttribute("class", "drosh")
+// drosh.addEventListener("click",droshinna)
+if (fla==0) {
+    drosh.src = "img/rus.png"
+}
+else if (fla==1) {
+    
+    drosh.src = "img/arm.png"
+    drosh.style.width = "47px"
+    drosh.style.height = "47px"
+
+}
+
+}
+
+function dostijenia(params) {
+
+    document.body.removeChild(document.body.children[1]) 
+
+    var opshuc = document.createElement("div")
+    opshuc.setAttribute('class',"opshuc")
+    document.body.append(opshuc)
+
+
+
+           var h1div = document.createElement("div")
+           h1div.setAttribute("class","h1idiv")
+           opshuc.append(h1div)
+
+           var h1 = document.createElement("h1")
+           h1.setAttribute("class","h1dast")
+           h1div.append(h1)
+           if (fla==0) {
+            h1.innerHTML = tarhy[2]
+           }
+           else{
+            h1.innerHTML = tarru[2]
+           }
+
+           var dastidiv = document.createElement("div")
+           opshuc.append(dastidiv)
+           dastidiv.setAttribute("class","dastdiv")
+        
+            for (let i = 0; i < 4; i++) {
+               
+                var dast = document.createElement("div")
+                dastidiv.append(dast)
+                dast.setAttribute("class","dast")
+                dast.id = i
+                
+                var dastimg = document.createElement("img")
+                dast.append(dastimg)
+                dastimg.setAttribute("class","dastimg")
+                var dastpdiv= document.createElement("div")
+                dast.append(dastpdiv)
+                dastpdiv.setAttribute("class","dastpdiv")
+
+                var dastp = document.createElement("div")
+                dastpdiv.append(dastp)
+                dastp.setAttribute("class","dastp")
+
+                var dastpdiv2= document.createElement("div")
+                dast.append(dastpdiv2)
+                dastpdiv2.setAttribute("class","dastpdiv2")
+
+                var dastp2 = document.createElement("div")
+                dastpdiv2.append(dastp2)
+                dastp2.setAttribute("class","dastp2")
+
+
+
+                if (dast.id==0) {
+                    dastimg.src = "img/lev.png"
+                    dastp.innerHTML = "Անցիր մինչև 10 րդ մակարդակ"
+                    dastp2.innerHTML = lev + "/10"
+                }
+
+
+            }
+
+
+            
+
+futer2()
 
 
 
 
+
+
+}
+
+
+
+
+// locacl stronge
 // cound	0	
 // lev	0	
 // game	1	
