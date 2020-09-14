@@ -51,9 +51,9 @@ var snduk = localStorage.getItem("data")
 
 
 
-               //    0      1           2             3               4          5      
-var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ"]
-var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет"]
+               //    0      1           2             3               4          5               6                               7     8     9                                    10                     11
+var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ","Անցի՛ր մինչև 10-րդ մակարդակ","Հավաքի'ր 100 Բրլիանդ","Հավաքի'ր 300 փող"]
+var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет","Перейти вплоть до на 10 уровень!","Соберите 100 бриллиантов!","Собрать 300 денег!"]
 var h1ru = "Найди кота"
 var h1hy = "Գտի՛ր կատվին"
 
@@ -83,6 +83,31 @@ function zags(params) {
              if (x == null) {
                  console.log("x chka");
                  
+
+    ej = 1  
+    page = 1
+    localStorage.setItem("ej",page)
+    poxvox = ej
+    lev = 0
+    gamelev = 0
+    localStorage.setItem("lev", gamelev)
+    cl =  0
+    sxm = 0
+    
+     
+    
+adam = 40
+localStorage.setItem("adam", adam)
+adamand = 40
+
+par = 160
+localStorage.setItem("para", par)
+para = 160
+click2 =  0
+cls = 0
+localStorage.setItem("cl1", cls) 
+click1 = 0
+
                 game = 0
                 x = 0
                 localStorage.setItem("game", game)
@@ -262,6 +287,7 @@ function droshinna(params) {
 
 
 
+
 function flag(params) {
 
     k1.play()
@@ -325,76 +351,78 @@ localStorage.setItem("timess",timesl)
 
 function harcpatasx() {
     k1.play()
-var parent = document.body.children[1]
+    setTimeout(() => {
+        var parent = document.body.children[1]
+        var dashtparent = document.createElement("div")
+        parent.append(dashtparent)
+        dashtparent.setAttribute("class","dashtparent")
+        dashtparent.style.width = parent.offsetWidth + "px"
+        dashtparent.style.height = parent.offsetHeight + "px"
+        
+        var dasht = document.createElement("div")
+        dashtparent.append(dasht)
+        dasht.setAttribute("class","harcpat")
+        dasht.style.width = parent.offsetWidth + "px"
+        dasht.style.height = parent.offsetHeight/6 + "px"
+        
+        
+        var harccna = document.createElement("div")
+        dasht.append(harccna)
+        harccna.setAttribute("class","harcna")
+        harccna.style.width = dasht.offsetWidth + "px"
+        // harccna.style.height = dasht.offsetHeight/6 + "px"
+        
+        var pharc = document.createElement("p")
+        harccna.append(pharc)
+        pharc.setAttribute("class","harcna")
+        pharc.setAttribute("align","center")
+        if (fla==0) {
+            pharc.innerHTML = tarhy[6]
+        }
+        else{
+            pharc.innerHTML = tarru[6]
+        }
+        
+        
+        
+        var hache = document.createElement("div")
+        dasht.append(hache)
+        hache.setAttribute("class","hache")
+        
+        
+        
+        var che = document.createElement("div")
+        hache.append(che)
+        che.setAttribute("class","che")
+        
+        if (fla==0) {
+            che.innerHTML =  tarhy[8]
+        }
+        else{
+            che.innerHTML =  tarru[8]
+        }
+        
+        
+        che.style.width =(dasht.offsetHeight/2)-10 + "px"
+        che.style.height = (dasht.offsetHeight/2)-10 + "px"
+        var ha = document.createElement("div")
+        hache.append(ha)
+        ha.setAttribute("class","ha")
+        
+        
+        if (fla==0) {
+            ha.innerHTML = tarhy[7]
+        }
+        else{
+            ha.innerHTML = tarru[7]
+        }
+        
+        ha.style.width =(dasht.offsetHeight/2)-10 + "px"
+        ha.style.height = (dasht.offsetHeight/2)-10 + "px"
+        che.addEventListener("click",chexav)
+        ha.addEventListener("click",exav) 
+    }, 150);
 
-var dashtparent = document.createElement("div")
-parent.append(dashtparent)
-dashtparent.setAttribute("class","dashtparent")
-dashtparent.style.width = parent.offsetWidth + "px"
-dashtparent.style.height = parent.offsetHeight + "px"
-
-var dasht = document.createElement("div")
-dashtparent.append(dasht)
-dasht.setAttribute("class","harcpat")
-dasht.style.width = parent.offsetWidth + "px"
-dasht.style.height = parent.offsetHeight/6 + "px"
-
-
-var harccna = document.createElement("div")
-dasht.append(harccna)
-harccna.setAttribute("class","harcna")
-harccna.style.width = dasht.offsetWidth + "px"
-// harccna.style.height = dasht.offsetHeight/6 + "px"
-
-var pharc = document.createElement("p")
-harccna.append(pharc)
-pharc.setAttribute("class","harcna")
-pharc.setAttribute("align","center")
-if (fla==0) {
-    pharc.innerHTML = tarhy[6]
-}
-else{
-    pharc.innerHTML = tarru[6]
-}
-
-
-
-var hache = document.createElement("div")
-dasht.append(hache)
-hache.setAttribute("class","hache")
-
-
-
-var che = document.createElement("div")
-hache.append(che)
-che.setAttribute("class","che")
-
-if (fla==0) {
-    che.innerHTML =  tarhy[8]
-}
-else{
-    che.innerHTML =  tarru[8]
-}
-
-
-che.style.width =(dasht.offsetHeight/2)-10 + "px"
-che.style.height = (dasht.offsetHeight/2)-10 + "px"
-var ha = document.createElement("div")
-hache.append(ha)
-ha.setAttribute("class","ha")
-
-
-if (fla==0) {
-    ha.innerHTML = tarhy[7]
-}
-else{
-    ha.innerHTML = tarru[7]
-}
-
-ha.style.width =(dasht.offsetHeight/2)-10 + "px"
-ha.style.height = (dasht.offsetHeight/2)-10 + "px"
-che.addEventListener("click",chexav)
-ha.addEventListener("click",exav)
 
 }
 
@@ -844,6 +872,8 @@ sharim1.addEventListener("click",harcpatasx)
         sharim3.setAttribute("src", "img/dost.png")
         sharim3.setAttribute("class", "dost")
         var p3 = document.createElement("p")
+        sharim3.addEventListener("click",dostijenia)
+        p3.addEventListener("click",dostijenia)
         norx2.append(p3)
         p3.setAttribute("class", "nor")
         p3.setAttribute("id", "p3")
@@ -963,6 +993,7 @@ function doms(params) {
 
 
 
+if (x==1) {
     var sharun = document.createElement("div")
     xax.append(sharun)
     sharun.setAttribute("class", "sharun")
@@ -984,31 +1015,43 @@ sharnk.addEventListener("click",levmyus)
     else if (fla == 1) {
         sharp.innerHTML = tarru[3]
     }
- 
+    
+  
+}
 
 
+var norx = document.createElement("div")
+xax.append(norx)
+norx.setAttribute("class", "sksel")
+//  norx.setAttribute("id","skizb")
+var sharim1 = document.createElement("img")
+norx.append(sharim1)
+sharim1.setAttribute("src", "img/xoshor.png")
+sharim1.setAttribute("class", "xoshor")
+var p1 = document.createElement("p")
+norx.append(p1)
+p1.setAttribute("class", "nor")
+p1.setAttribute("id", "p1")
+if (fla == 0) {
+    p1.innerHTML = tarhy[0]
+}
+else if (fla == 1) {
+    p1.innerHTML = tarru[0]
+}
 
-    var norx = document.createElement("div")
-    xax.append(norx)
-    norx.setAttribute("class", "sksel")
-    //  norx.setAttribute("id","skizb")
-    var sharim1 = document.createElement("img")
-    norx.append(sharim1)
-    sharim1.setAttribute("src", "img/xoshor.png")
-    sharim1.setAttribute("class", "xoshor")
-    var p1 = document.createElement("p")
-    norx.append(p1)
-    p1.setAttribute("class", "nor")
-    p1.setAttribute("id", "p1")
-    if (fla == 0) {
-        p1.innerHTML = tarhy[0]
-    }
-    else if (fla == 1) {
-        p1.innerHTML = tarru[0]
-    }
+if (x==0) {
+    p1.addEventListener("click",newgame)
+sharim1.addEventListener("click",newgame)
 
-  p1.addEventListener("click",harcpatasx)
-sharim1.addEventListener("click",harcpatasx)
+}
+else{
+
+    p1.addEventListener("click",harcpatasx)
+    sharim1.addEventListener("click",harcpatasx)
+     
+}
+
+
     var norx1 = document.createElement("div")
     xax.append(norx1)
     norx1.setAttribute("class", "taracel")
@@ -2844,8 +2887,9 @@ function liver(params) {
 
 function newgame(params) {
     k1.play()
-    ej = 1
-  
+       
+    setTimeout(() => {
+        ej = 1  
     page = 1
     localStorage.setItem("ej",page)
     poxvox = ej
@@ -2864,19 +2908,18 @@ adamand = 40
 par = 160
 localStorage.setItem("para", par)
 para = 160
-
+click2 =  0
+cls = 0
+localStorage.setItem("cl1", cls) 
+click1 = 0
+game = 1
+x=1
+localStorage.setItem("game", game)
 
 
         // poxvox = 1
     document.body.style.backgroundImage = "url(img/backa.jpg)"
-        click2 =  0
-        cls = 0
-      localStorage.setItem("cl1", cls) 
-      click1 = 0
-        game = 1
-        x=1
-        localStorage.setItem("game", game)
-    
+
         document.body.removeChild(opshi[0]) //են առաջի էջը կորավ 
         var leveldiv = document.createElement("div")
         document.body.append(leveldiv)
@@ -2983,171 +3026,178 @@ para = 160
         harcs.setAttribute("class", "harc")
         harcs.src = "img/harc.png"
     
+    }, 150);
+
+
+    
     
 }
 function levmyus(params) {
    
 
               k1.play()
-    document.body.style.backgroundImage = "url(img/backa.jpg)"
-            game = 1
-            localStorage.setItem("game", game)
-    
-            document.body.removeChild(opshi[0]) //են առաջի էջը կորավ 
-            var leveldiv = document.createElement("div")
-            document.body.append(leveldiv)
-            leveldiv.setAttribute("class", "leveldiv")
-            liver()
-         
-    
-    
-    
-            var levelner = document.createElement("div")
-            leveldiv.append(levelner)
-            levelner.setAttribute("class", "levelner")
-    
-            if (ej==1) {
-                
-            for (let i = 0; i <= 10; i++) {
-                var level = document.createElement("div")
-                levelner.append(level)
-                level.setAttribute("id", i)
-    
-    
-                level.setAttribute("class", "levels")
-    level.style.width =((window.innerWidth-12)/4)-17  + "px"
-    level.style.height = ((window.innerWidth-12)/4)-17  +"px"
-                var p = document.createElement("p")
-                p.setAttribute("class", "pner")
-                p.innerHTML = i
-                level.append(p)
-
-                if (lev<i) {
-     
+              setTimeout(() => {
+                document.body.style.backgroundImage = "url(img/backa.jpg)"
+                game = 1
+                localStorage.setItem("game", game)
         
-                    level.style.backgroundImage = "url(img/l7.png)"
-                    level.style.borderColor = "white"
-                    p.style.color = "gray" 
-                }
-                else if (lev==i) {
-                      
-                    level.style.backgroundImage = "url(img/l6.png)"
-                    level.style.borderColor = "aqua"
-                    p.style.color = "white" 
-                }
-                else if (lev>i) {
-                    level.style.backgroundImage = "url(img/l2.png)"
-                    level.style.borderColor = "white"
-                    p.style.color = "black" 
-                }
-
-            }
-    
-            var levs = document.getElementsByClassName("levels")
-    
-          
-          
-    
-    
-            levs[0].addEventListener("click", l0)
-            levs[1].addEventListener("click", l1)
-            levs[2].addEventListener("click", l3)
-            levs[3].addEventListener("click", l4)
-            levs[4].addEventListener("click", l5)
-            levs[5].addEventListener("click", l6)
-            levs[6].addEventListener("click", l7)
-            levs[7].addEventListener("click", l8)
-            levs[8].addEventListener("click", l9)
-            levs[9].addEventListener("click", l10)
-            levs[10].addEventListener("click", l11)
-    
-            }  
-            
-            else if (ej==2) {
-            
-                var slakdzax = document.createElement("div")
-                levelner.append(slakdzax)
-                slakdzax.setAttribute("class", "slak")
-                slakdzax.style.width =((window.innerWidth-12)/4)  + "px"
-                slakdzax.style.height = ((window.innerWidth-12)/4)-17  +"px"
-                var slakdaximg = document.createElement("img")
-                slakdaximg.setAttribute("class", "slakimg")
-                slakdzax.append(slakdaximg)
-                slakdaximg.src = "img/dzax.png"
-                slakdaximg.addEventListener("click",dzax)
-    
-                for (let i = 11; i <= 20; i++) {
+                document.body.removeChild(opshi[0]) //են առաջի էջը կորավ 
+                var leveldiv = document.createElement("div")
+                document.body.append(leveldiv)
+                leveldiv.setAttribute("class", "leveldiv")
+                liver()
+             
+        
+        
+        
+                var levelner = document.createElement("div")
+                leveldiv.append(levelner)
+                levelner.setAttribute("class", "levelner")
+        
+                if (ej==1) {
+                    
+                for (let i = 0; i <= 10; i++) {
                     var level = document.createElement("div")
                     levelner.append(level)
                     level.setAttribute("id", i)
         
         
                     level.setAttribute("class", "levels")
-        
-                    level.style.width =((window.innerWidth-12)/4)-17  + "px"
-                    level.style.height = ((window.innerWidth-12)/4)-17  +"px"
-
+        level.style.width =((window.innerWidth-12)/4)-17  + "px"
+        level.style.height = ((window.innerWidth-12)/4)-17  +"px"
                     var p = document.createElement("p")
                     p.setAttribute("class", "pner")
                     p.innerHTML = i
                     level.append(p)
-                    
-                if (lev<i) {
-     
-        
-                    level.style.backgroundImage = "url(img/l7.png)"
-                    level.style.borderColor = "white"
-                    p.style.color = "gray" 
+    
+                    if (lev<i) {
+         
+            
+                        level.style.backgroundImage = "url(img/l7.png)"
+                        level.style.borderColor = "white"
+                        p.style.color = "gray" 
+                    }
+                    else if (lev==i) {
+                          
+                        level.style.backgroundImage = "url(img/l6.png)"
+                        level.style.borderColor = "aqua"
+                        p.style.color = "white" 
+                    }
+                    else if (lev>i) {
+                        level.style.backgroundImage = "url(img/l2.png)"
+                        level.style.borderColor = "white"
+                        p.style.color = "black" 
+                    }
+    
                 }
-                else if (lev==i) {
-                      
-                    level.style.backgroundImage = "url(img/l6.png)"
-                    level.style.borderColor = "aqua"
-                    p.style.color = "white" 
-                }
-                else if (lev>i) {
-                    level.style.backgroundImage = "url(img/l2.png)"
-                    level.style.borderColor = "white"
-                    p.style.color = "black" 
-                }
-                }
+        
+                var levs = document.getElementsByClassName("levels")
+        
+              
+              
         
         
-        }
+                levs[0].addEventListener("click", l0)
+                levs[1].addEventListener("click", l1)
+                levs[2].addEventListener("click", l3)
+                levs[3].addEventListener("click", l4)
+                levs[4].addEventListener("click", l5)
+                levs[5].addEventListener("click", l6)
+                levs[6].addEventListener("click", l7)
+                levs[7].addEventListener("click", l8)
+                levs[8].addEventListener("click", l9)
+                levs[9].addEventListener("click", l10)
+                levs[10].addEventListener("click", l11)
         
-        var slak = document.createElement("div")
-        levelner.append(slak)
-        slak.setAttribute("class", "slak")
-        slak.style.width =((window.innerWidth-12)/4)  + "px"
-        slak.style.height = ((window.innerWidth-12)/4)-17  +"px"
-        // slak.addEventListener("click",aj)
-        var slakimg = document.createElement("img")
-        slakimg.setAttribute("class", "slakimg")
-        slak.append(slakimg)
-        slakimg.src = "img/aj.png"
-        slakimg.addEventListener("click",aj)
-        var futer = document.createElement("div")
-        leveldiv.append(futer)
-        futer.setAttribute("class", "futer")
-        var zv = document.createElement("img")
-        futer.append(zv)
-        zv.setAttribute("class", "zvuk")
-        zv.src = "img/zvuk.png"
+                }  
+                
+                else if (ej==2) {
+                
+                    var slakdzax = document.createElement("div")
+                    levelner.append(slakdzax)
+                    slakdzax.setAttribute("class", "slak")
+                    slakdzax.style.width =((window.innerWidth-12)/4)  + "px"
+                    slakdzax.style.height = ((window.innerWidth-12)/4)-17  +"px"
+                    var slakdaximg = document.createElement("img")
+                    slakdaximg.setAttribute("class", "slakimg")
+                    slakdzax.append(slakdaximg)
+                    slakdaximg.src = "img/dzax.png"
+                    slakdaximg.addEventListener("click",dzax)
+        
+                    for (let i = 11; i <= 20; i++) {
+                        var level = document.createElement("div")
+                        levelner.append(level)
+                        level.setAttribute("id", i)
+            
+            
+                        level.setAttribute("class", "levels")
+            
+                        level.style.width =((window.innerWidth-12)/4)-17  + "px"
+                        level.style.height = ((window.innerWidth-12)/4)-17  +"px"
     
-        var tun = document.createElement("img")
-        futer.append(tun)
-        tun.setAttribute("class", "tun")
-        tun.src = "img/home.png"
-        tun.addEventListener("click", doms)
-    
-    
-    
-        var harcs = document.createElement("img")
-        futer.append(harcs)
-        harcs.setAttribute("class", "harc")
-        harcs.src = "img/harc.png"
-    
-     
+                        var p = document.createElement("p")
+                        p.setAttribute("class", "pner")
+                        p.innerHTML = i
+                        level.append(p)
+                        
+                    if (lev<i) {
+         
+            
+                        level.style.backgroundImage = "url(img/l7.png)"
+                        level.style.borderColor = "white"
+                        p.style.color = "gray" 
+                    }
+                    else if (lev==i) {
+                          
+                        level.style.backgroundImage = "url(img/l6.png)"
+                        level.style.borderColor = "aqua"
+                        p.style.color = "white" 
+                    }
+                    else if (lev>i) {
+                        level.style.backgroundImage = "url(img/l2.png)"
+                        level.style.borderColor = "white"
+                        p.style.color = "black" 
+                    }
+                    }
+            
+            
+            }
+            
+            var slak = document.createElement("div")
+            levelner.append(slak)
+            slak.setAttribute("class", "slak")
+            slak.style.width =((window.innerWidth-12)/4)  + "px"
+            slak.style.height = ((window.innerWidth-12)/4)-17  +"px"
+            // slak.addEventListener("click",aj)
+            var slakimg = document.createElement("img")
+            slakimg.setAttribute("class", "slakimg")
+            slak.append(slakimg)
+            slakimg.src = "img/aj.png"
+            slakimg.addEventListener("click",aj)
+            var futer = document.createElement("div")
+            leveldiv.append(futer)
+            futer.setAttribute("class", "futer")
+            var zv = document.createElement("img")
+            futer.append(zv)
+            zv.setAttribute("class", "zvuk")
+            zv.src = "img/zvuk.png"
+        
+            var tun = document.createElement("img")
+            futer.append(tun)
+            tun.setAttribute("class", "tun")
+            tun.src = "img/home.png"
+            tun.addEventListener("click", doms)
+        
+        
+        
+            var harcs = document.createElement("img")
+            futer.append(harcs)
+            harcs.setAttribute("class", "harc")
+            harcs.src = "img/harc.png"
+        
+           
+              }, 150);
+
         
     }
 
@@ -3414,7 +3464,7 @@ var ka = document.getElementsByClassName("shahum")
 
 
 
-if (ka.length ==0) {
+if (ka.length == 0) {
     var shahum = document.createElement("div")
     op[0].append(shahum)
     shahum.setAttribute("class","shahum")
@@ -3609,11 +3659,11 @@ var brldiv = document.createElement("div")
 brldiv.setAttribute("class", "brldiv")
 verev.append(brldiv)
 
-var brlplus = document.createElement("img")
-brlplus.setAttribute("src", "img/plus.png")
-brlplus.setAttribute("class", "plus")
-brldiv.append(brlplus)
-brlplus.addEventListener("click",brlaynd)
+// var brlplus = document.createElement("img")
+// brlplus.setAttribute("src", "img/plus.png")
+// brlplus.setAttribute("class", "plus")
+// brldiv.append(brlplus)
+// brlplus.addEventListener("click",brlaynd)
 
 var brl = document.createElement("img")
 brl.setAttribute("src", "img/brliand.png")
@@ -3623,8 +3673,8 @@ brldiv.append(brl)
 
 brl.style.width = ((xaxayin[0].offsetHeight/16)+3)+"px"
 brl.style.height = ((xaxayin[0].offsetHeight/16)+3)+"px"
-brlplus.style.width = (brl.offsetHeight-17)+"px"
-brlplus.style.height = (brl.offsetHeight-17)+"px"
+// brlplus.style.width = (brl.offsetHeight-17)+"px"
+// brlplus.style.height = (brl.offsetHeight-17)+"px"
 
 
 
@@ -3649,16 +3699,16 @@ var pox = document.createElement("img")
 pox.setAttribute("src", "img/pox.png")
 pox.setAttribute("class", "pox")
 poxdiv.append(pox)
-var poxplus = document.createElement("img")
-poxplus.setAttribute("src", "img/poxplus.png")
-poxplus.setAttribute("class", "poxplus")
-poxdiv.append(poxplus)
+// var poxplus = document.createElement("img")
+// poxplus.setAttribute("src", "img/poxplus.png")
+// poxplus.setAttribute("class", "poxplus")
+// poxdiv.append(poxplus)
 
 
 pox.style.width = ((brl.offsetHeight+3))+"px"
 pox.style.height = ((brl.offsetHeight+3))+"px"
-poxplus.style.width = (brlplus.offsetHeight+3)+"px"
-poxplus.style.height = (brlplus.offsetHeight+3)+"px"
+// poxplus.style.width = (brlplus.offsetHeight+3)+"px"
+// poxplus.style.height = (brlplus.offsetHeight+3)+"px"
 
 
 }
@@ -4017,6 +4067,7 @@ zvuk.src = "img/zvuk.png"
 
 
 var dom = document.createElement("img")
+
 futer.append(dom)
 dom.setAttribute("class", "dom")
 dom.src = "img/home.png"
@@ -4024,6 +4075,7 @@ dom.addEventListener("click",doms)
 var drosh = document.createElement("img")
 futer.append(drosh)
 drosh.setAttribute("class", "drosh")
+drosh.addEventListener("click",drosh2)
 // drosh.addEventListener("click",droshinna)
 if (fla==0) {
     drosh.src = "img/rus.png"
@@ -4039,9 +4091,11 @@ else if (fla==1) {
 }
 
 function dostijenia(params) {
-
+k1.play()
+setTimeout(() => {
     document.body.removeChild(document.body.children[1]) 
-
+    document.body.style.backgroundImage = "url()"
+    document.body.style.backgroundColor = "antiquewhite"
     var opshuc = document.createElement("div")
     opshuc.setAttribute('class',"opshuc")
     document.body.append(opshuc)
@@ -4065,15 +4119,17 @@ function dostijenia(params) {
            var dastidiv = document.createElement("div")
            opshuc.append(dastidiv)
            dastidiv.setAttribute("class","dastdiv")
-        
+        dastidiv.style.height = (opshuc.offsetHeight-200) + 'px'
             for (let i = 0; i < 4; i++) {
                
                 var dast = document.createElement("div")
                 dastidiv.append(dast)
                 dast.setAttribute("class","dast")
                 dast.id = i
+                dast.style.height = (dastidiv.offsetHeight/4) + "px"
                 
                 var dastimg = document.createElement("img")
+              
                 dast.append(dastimg)
                 dastimg.setAttribute("class","dastimg")
                 var dastpdiv= document.createElement("div")
@@ -4081,9 +4137,11 @@ function dostijenia(params) {
                 dastpdiv.setAttribute("class","dastpdiv")
 
                 var dastp = document.createElement("div")
+           
                 dastpdiv.append(dastp)
                 dastp.setAttribute("class","dastp")
-
+                dastp.id = i+4
+                dastp.setAttribute("align","center")
                 var dastpdiv2= document.createElement("div")
                 dast.append(dastpdiv2)
                 dastpdiv2.setAttribute("class","dastpdiv2")
@@ -4091,22 +4149,145 @@ function dostijenia(params) {
                 var dastp2 = document.createElement("div")
                 dastpdiv2.append(dastp2)
                 dastp2.setAttribute("class","dastp2")
+     
+                var dastcomple = document.createElement("img")
+                dast.append(dastcomple)
+                dastcomple.setAttribute("class","dastcomple")
+                if (opshuc.offsetHeight>600) {
 
+                    dastcomple.style.height = dast.offsetHeight-40 + "px"
+                    dastcomple.style.width = dast.offsetHeight-40 + "px"
+                    dastimg.style.height = dast.offsetHeight-40 + "px"
+                    dastimg.style.width = dast.offsetHeight-40 + "px"
+                    dastp.style.fontSize = (opshuc.offsetHeight/36) + "px"
+                    dastp2.style.fontSize = (opshuc.offsetHeight/25) + "px"
+                }
+               else{
+                dastcomple.style.height = dast.offsetHeight-10 + "px"
+                dastcomple.style.width = dast.offsetHeight-10 + "px"
+                dastimg.style.height = dast.offsetHeight-10 + "px"
+                dastimg.style.width = dast.offsetHeight-10 + "px"
 
+               }
+     
 
                 if (dast.id==0) {
+                    dast.style.borderTopLeftRadius = "20px"
+                    dast.style.borderTopRightRadius = "20px"
+               
                     dastimg.src = "img/lev.png"
-                    dastp.innerHTML = "Անցիր մինչև 10 րդ մակարդակ"
-                    dastp2.innerHTML = lev + "/10"
+                    dastp.style.color = "brown"
+                    dast.style.backgroundColor = "beige"
+                    dastp2.style.color = "brown"
+                    if (lev >= 11) {
+                        dastcomple.src = "img/comp.png"
+                        dastp2.innerHTML = "10/10"
+                        
+                    }
+                    else {
+                    dastcomple.src = "img/d1.png"
+                    if (lev==0) {
+                        dastp2.innerHTML = lev + "/10"
+                    }
+                    else{
+                        dastp2.innerHTML = lev-1 + "/10"
+                    }
+                  
+                    }
+                 
+           
+                    if (fla==0) {
+                              dastp.innerHTML = tarhy[9]
+                       }
+                       else{
+                        dastp.innerHTML = tarru[9]
+                       }
+            
+                   
                 }
+                else if(dast.id==1){
+                    dastimg.src = "img/lev.png"
+                    dastp.style.color = "blue"
+                    dastp2.style.color = "blue"
+                    dast.style.backgroundColor = "aquamarine"
+            
+                    dastimg.src = "img/d2.png"
+                    if (adamand >= 100) {
+                        dastcomple.src = "img/comp.png"
+                        dastp2.innerHTML = "100/100"
+                    }
+                    else {
+                    dastcomple.src = "img/d1.png"
+                    dastp2.innerHTML = adamand + "/100"
+                    }
+                 
+           
+                    if (fla==0) {
+                              dastp.innerHTML = tarhy[10]
+                       }
+                       else{
+                        dastp.innerHTML = tarru[10]
+                       }
 
 
+}   
+      else if(dast.id==2){
+
+        dastp.style.color = "gold"
+                    dastp2.style.color = "gold"
+                    dast.style.backgroundColor = "limegreen"
+            
+        
+    dastimg.src = "img/poxs.png"
+    if (para >= 300) {
+        dastcomple.src = "img/comp.png"
+        dastp2.innerHTML = "300/300"
+    }
+
+    else {
+    dastcomple.src = "img/d1.png"
+    dastp2.innerHTML = para + "/300"
+    }
+ 
+
+    if (fla==0) {
+              dastp.innerHTML = tarhy[11]
+       }
+       else{
+        dastp.innerHTML = tarru[11]
+       }
+
+
+}
+else if(dast.id==3){
+      dast.style.backgroundColor = "aliceblue"
+    dast.style.borderBottomLeftRadius  = "20px"
+    dast.style.borderBottomRightRadius  = "20px"
+    dastimg.src = "img/dzaxs.png"
+    dastcomple.src = "img/ajs.png"
+  
+    dastcomple.style.border = "1px solid black"
+    dastcomple.style.borderRadius =  "52%";
+      
+    dastimg.style.border = "1px solid black"
+    dastimg.style.borderRadius =  "52%";
+    dastimg.onclick = function (params) {
+        k1.play()
+    }
+
+
+
+
+}
+
+            
             }
-
 
             
 
 futer2()
+ 
+}, 150);
 
 
 
@@ -4114,6 +4295,63 @@ futer2()
 
 
 }
+
+
+function drosh2(params) {
+    k1.play()
+    var p1 = document.getElementById("4")
+    var p2 = document.getElementById("5")
+    var p3 = document.getElementById("6")
+    var hner = document.getElementsByClassName("h1dast")
+    if (localStorage.getItem("tetev", tetev) == 0) {
+        fl = 1
+        localStorage.setItem("flay", fl)
+        fla = 1
+
+        this.src = "img/arm.png"
+        this.style.width = "45px"
+        this.style.height = "45px"
+
+        tetev = 1
+        localStorage.setItem("tetev", tetev)
+
+        p1.innerHTML = tarru[9]
+        p2.innerHTML = tarru[10]
+        p3.innerHTML = tarru[11]
+        hner[0].innerHTML = tarru[2]
+      
+
+
+
+    }
+    else if (localStorage.getItem("tetev", tetev) == 1) {
+
+        fl = 0
+        localStorage.setItem("flay", fl)
+        fla = 0
+
+
+        this.src = "img/rus.png"
+        this.style.width = "64px"
+        this.style.height = "50px"
+
+        tetev = 0
+        localStorage.setItem("tetev", tetev)
+
+        p1.innerHTML = tarhy[9]
+        p2.innerHTML = tarhy[10]
+        p3.innerHTML = tarhy[11]
+        hner[0].innerHTML = tarhy[2]
+
+
+
+    }
+}
+
+
+
+
+
 
 
 

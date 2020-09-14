@@ -736,33 +736,45 @@ font-family: monospace;
     justify-content: center;
 }
 .h1dast{
-    color: red;
+    color: cadetblue;
+    font-family: 'Dancing Script', cursive;
 }
 .dast{
 
     height: 100px;
-    border: 1px solid red;
+    border: 1px solid gray;
+}
+
+.dastdiv{
+
+    height: 408px;
 }
 .dastimg{
-    width: 100px;
-    height: 100px;
+    margin-right: 13px;
+ 
+}
+.dastimg,.dastcomple,.dastimg2{
+    width: 80px;
+    height: 80px;
 }
 .dast{
     display: flex;
+    align-items: center;
+    background-repeat: round;
+
 }
-.dastp{
-    color: red
-}
+
+
 .dastpdiv,.dastpdiv2{
     display: flex;
     width: 100px;
     justify-content: center;
     align-items: center;
 }
-.dastp2{
-    color: red;
-    font-size: 44px;
-}
+/* .dastp2{
+
+    font-size: 28px;
+} */
 .opshuc{
     height: -webkit-fill-available;
     width: -webkit-fill-available;
@@ -770,4 +782,12 @@ font-family: monospace;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+.shahum{
+    background-repeat: round;
+    background-image: url("./img/bg1.jpg");
+    background-size: cover;
+}
+.dastp,.dastp2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
