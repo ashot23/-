@@ -43,17 +43,17 @@ poxvox = ej
 var lev = localStorage.getItem("lev", gamelev)
 var cls = 0
 var click2 = localStorage.getItem("cl1", cls)
-
+var ka = localStorage.getItem("ka")
 var drosh = document.getElementsByClassName("drosh")
 var opshi = document.getElementsByClassName("opshi")
-var chap = 2000
+var chap = 2500
 var snduk = localStorage.getItem("data")
 
 
 
-               //    0      1           2             3               4          5               6                               7     8     9                                    10                     11
-var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ","Անցի՛ր մինչև 10-րդ մակարդակ","Հավաքի'ր 100 Բրլիանդ","Հավաքի'ր 300 փող"]
-var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет","Перейти вплоть до на 10 уровень!","Соберите 100 бриллиантов!","Собрать 300 денег!"]
+               //    0      1           2             3               4          5               6                               7     8     9                                    10                     11                 12                 13                        14
+var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ","Անցի՛ր մինչև 10-րդ մակարդակ","Հավաքի'ր 100 Բրլիանտ","Հավաքի'ր 300 փող","Դուք վաստակեցիք","Դեռ նվաճումներ չկան","Շնորհավոր դուք վաստակեցիք նոր նվաճում"]
+var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет","Перейти вплоть до на 10 уровень!","Соберите 100 бриллиантов!","Собрать 300 денег!","Вы заработали","Пока нет достижений","Поздравляю с новым достижением!"]
 var h1ru = "Найди кота"
 var h1hy = "Գտի՛ր կատվին"
 
@@ -93,7 +93,8 @@ function zags(params) {
     localStorage.setItem("lev", gamelev)
     cl =  0
     sxm = 0
-    
+    ka = 0
+    localStorage.setItem("ka",0)
      
     
 adam = 40
@@ -456,7 +457,6 @@ dashtparent.parentElement.removeChild(dashtparent)
 function exav(params) {
     var ha = document.getElementsByClassName("ha")[0]
     var dashtparent = document.getElementsByClassName("dashtparent")[0]
-    k1.play()
     ha.style.borderBlockEnd = "0px"
     ha.style.borderRight = "0px"
     ha.style.borderBlockStart = "2px solid gray"
@@ -1247,8 +1247,17 @@ imgb[0].style.animationName = "adam"
                 poqr.style.height = Math.floor(h-100) + "px"
                 poqr.setAttribute("class","poqr")
                 
+
+
+                var verevner = document.createElement("div")
+                poqr.append(verevner)
+                verevner.setAttribute("class","verevner")
+
+
+
                 var h1 = document.createElement("h1")
-                poqr.append(h1)
+                verevner.append(h1)
+                h1.setAttribute("align","center")
                 h1.setAttribute("class","poqrh1")
                 if (fla==0) {
                     h1.innerHTML = tarhy[5]
@@ -1258,23 +1267,175 @@ imgb[0].style.animationName = "adam"
                     h1.innerHTML = tarru[5]
                 } 
 
+                var h3 = document.createElement("h1")
+                verevner.append(h3)
+                h3.setAttribute("align","center")
+                h3.setAttribute("class","poqrh3")
+                if (fla==0) {
+                    h3.innerHTML = tarhy[12]
+                   
+                }
+                else if (fla==1) {
+                    h3.innerHTML = tarru[12]
+                } 
 
-                    var p1 = document.createElement("p")
-                    poqr.append(p1)
-                    p1.setAttribute("class","p1pox")
-                    p1.innerHTML = 3
+
+
+                // var erkardiv = document.createElement("div")
+                // poqr.append(erkardiv)
+                // erkardiv.setAttribute("class","erkardiv")
+              
+
+
+
+                var opshdiv = document.createElement("div")
+                verevner.append(opshdiv)
+                opshdiv.setAttribute("class","opshdiv")
+              
+                var poxdiv = document.createElement("div")
+                opshdiv.append(poxdiv)
+                poxdiv.setAttribute("class","poxidiv")
+              
+                var p1 = document.createElement("p")
+                poxdiv.append(p1)
+                p1.setAttribute("class","p1pox")
+                p1.innerHTML = 3
+
+                var imgpox = document.createElement("img")
+                poxdiv.append(imgpox)
+                imgpox.setAttribute("class","imgpox")
+                imgpox.src = "img/pox.png"
+
+
+
+                var brlid = document.createElement("div")
+                opshdiv.append(brlid)
+                brlid.setAttribute("class","brlidiv")
+              
+             
+        
                     var p2 = document.createElement("p")
-                    poqr.append(p2)
+                    brlid.append(p2)
                     p2.setAttribute("class","p2pox")
                     p2.innerHTML = 1
 
+                    var imgbrl = document.createElement("img")
+                    brlid.append(imgbrl)
+                    imgbrl.setAttribute("class","imgbrl")
+                    imgbrl.src = "img/brliand.png"
+
+
+
+                    var shnhayt = document.createElement("h3")    
+                    poqr.append(shnhayt)                         
+                    shnhayt.setAttribute("align","center")
+                    shnhayt.setAttribute("class","shnhayt")
+
+
+                  if (lev==11||adamand==100||para==300) {
+                 
+                    shnhayt.style.color = "crimson"
+
+            
+                    if (fla==0) {
+                        shnhayt.innerHTML  = tarhy[14]
+                    }
+                    else{
+                        shnhayt.innerHTML  = tarru[14]
+                    }
+
+                       var shardiv = document.createElement("div")
+                       poqr.append(shardiv)  
+                       shardiv.setAttribute("class","imgdiv")
+
+
+                    var shimg = document.createElement("img")
+                    shardiv.append(shimg)                         
+                    shimg.setAttribute("align","center")
+                    shimg.setAttribute("class","shimg")
+      
+
+                   if (lev==11) {
+                       
+                  shimg.src = "img/lev.png"
+
+
+                   }    
+                   else if (para == 300) {
+                            
+                  shimg.src = "img/poxs.png"
+                   }
+                   else if (adamand == 100) {
+                            
+                    shimg.src = "img/d2.png"
+                     }
+                               
+
+                  }
+                       else{
+                          
+                          
+                        // var hayt = document.createElement("h3")
+                        // poqr.append(hayt)                         
+                        // hayt.setAttribute("align","center")
+                        // hayt.setAttribute("class","hayt")
+
+                        if (fla==0) {
+                            shnhayt.innerHTML  = tarhy[13]
+                        }
+                        else{
+                            shnhayt.innerHTML  = tarru[13]
+                        }
+                        
+                       }
+               
+
+
+
+                       var sha = document.getElementsByClassName("shnhayt")[0]
+if (document.getElementsByClassName("xaxayin")[0].offsetHeight<=600) {
+    
+h1.style.fontSize =  "x-large";
+h3.style.fontSize =  "larger";
+p1.style.fontSize = "xx-large";
+p2.style.fontSize = "xx-large";
+// shnhayt.style.fontSize = "x-large"
+
+
+// if (sha) {
+//     sha.style.fontSize = "x-large"
+// }
+
+}
+else{
+    h3.style.fontSize = poqr.offsetWidth/10 + "px"
+    // shnhayt.style.fontSize = "x-large"
+    p1.style.fontSize = imgbrl.offsetHeight/2 + 5 + "px";
+    p2.style.fontSize = imgbrl.offsetHeight/2 + 5 + "px";
+    
+ 
+   
+}
+
+
+
+imgbrl.style.width = (poqr.offsetWidth/4)-10 + "px"
+imgbrl.style.height = (poqr.offsetWidth/4)-10  + "px"
+imgpox.style.width = (poqr.offsetWidth/4)-10  + "px"
+imgpox.style.height = (poqr.offsetWidth/4)-10  + "px"
+
+if (shimg) {
+    shimg.style.width = imgpox.offsetWidth+10 +"px"
+shimg.style.height = imgpox.offsetWidth+10 +"px"
+
+
+}
 
 
 
 
 
-
-    }, 1000);
+}, 1000);
 
 
 
@@ -1371,25 +1532,27 @@ var verj = tbih/28
                 // td.style.height = 42 + 'px'
                 td.onclick = function (params) {
 
-console.log(this);
 
 // m[0].style.display = "none"
 
 
-                    if (this.id == 10 && this.parentElement.id == 6 || this.id == 11 && this.parentElement.id == 6 || this.id == 12 && this.parentElement.id == 6 || this.id == 9 && this.parentElement.id == 7 || this.id == 10 && this.parentElement.id == 7 || this.id == 11 && this.parentElement.id == 7 || this.id == 12 && this.parentElement.id == 7 || this.id == 13 && this.parentElement.id == 7 || this.id == 9 && this.parentElement.id == 8 || this.id == 10 && this.parentElement.id == 8 || this.id == 11 && this.parentElement.id == 8 || this.id == 12 && this.parentElement.id == 8 || this.id == 13 && this.parentElement.id == 8 || this.id == 14 && this.parentElement.id == 8 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8|| this.id == 8 && this.parentElement.id == 9|| this.id == 10 && this.parentElement.id == 9|| this.id == 11 && this.parentElement.id == 9|| this.id == 12 && this.parentElement.id == 9|| this.id == 13 && this.parentElement.id == 9|| this.id == 14 && this.parentElement.id == 9|| this.id == 15 && this.parentElement.id == 9|| this.id == 16 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 8 && this.parentElement.id == 10|| this.id == 9 && this.parentElement.id == 10|| this.id == 10 && this.parentElement.id == 10|| this.id == 11 && this.parentElement.id == 10|| this.id == 12 && this.parentElement.id == 10|| this.id == 13 && this.parentElement.id == 10|| this.id == 14 && this.parentElement.id == 10|| this.id == 15 && this.parentElement.id == 10|| this.id == 16 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 8 && this.parentElement.id == 11|| this.id == 9 && this.parentElement.id == 11|| this.id == 10 && this.parentElement.id == 11|| this.id == 11 && this.parentElement.id == 11|| this.id == 12 && this.parentElement.id == 11|| this.id == 13 && this.parentElement.id == 11|| this.id == 14 && this.parentElement.id == 11|| this.id == 15 && this.parentElement.id == 11|| this.id == 16 && this.parentElement.id == 11|| this.id == 17 && this.parentElement.id == 11|| this.id == 18 && this.parentElement.id == 11|| this.id == 7 && this.parentElement.id == 12|| this.id == 8 && this.parentElement.id == 12|| this.id == 9 && this.parentElement.id == 12|| this.id == 10 && this.parentElement.id == 11|| this.id == 11 && this.parentElement.id == 12|| this.id == 12 && this.parentElement.id == 12|| this.id == 13 && this.parentElement.id == 12|| this.id == 14 && this.parentElement.id == 12|| this.id == 15 && this.parentElement.id == 12|| this.id == 16 && this.parentElement.id == 12|| this.id == 17 && this.parentElement.id == 12|| this.id == 18 && this.parentElement.id == 12|| this.id == 19 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 13|| this.id == 8 && this.parentElement.id == 13|| this.id == 9 && this.parentElement.id == 13|| this.id == 10 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 13 && this.parentElement.id == 13|| this.id == 14 && this.parentElement.id == 13|| this.id == 15 && this.parentElement.id == 13|| this.id == 16 && this.parentElement.id == 13|| this.id == 17 && this.parentElement.id == 13|| this.id == 18 && this.parentElement.id == 13|| this.id == 19 && this.parentElement.id == 13|| this.id == 6 && this.parentElement.id == 14|| this.id == 7 && this.parentElement.id == 14|| this.id == 8 && this.parentElement.id == 14|| this.id == 9 && this.parentElement.id == 14|| this.id == 10 && this.parentElement.id == 14|| this.id == 11 && this.parentElement.id == 14|| this.id == 12 && this.parentElement.id == 14|| this.id == 13 && this.parentElement.id == 14|| this.id == 14 && this.parentElement.id == 14|| this.id == 15 && this.parentElement.id == 14|| this.id == 16 && this.parentElement.id == 14|| this.id == 17 && this.parentElement.id == 14|| this.id == 18 && this.parentElement.id == 14|| this.id == 19 && this.parentElement.id == 15|| this.id == 6 && this.parentElement.id == 15|| this.id == 7 && this.parentElement.id == 15|| this.id == 8 && this.parentElement.id == 15|| this.id == 9 && this.parentElement.id == 15|| this.id == 10 && this.parentElement.id == 15|| this.id == 11 && this.parentElement.id == 15|| this.id == 12 && this.parentElement.id == 15|| this.id == 13 && this.parentElement.id == 15|| this.id == 14 && this.parentElement.id == 15|| this.id == 15 && this.parentElement.id == 15|| this.id == 16 && this.parentElement.id == 15|| this.id == 17|| this.id == 19 && this.parentElement.id == 16|| this.id == 6 && this.parentElement.id == 16|| this.id == 7 && this.parentElement.id == 16|| this.id == 8 && this.parentElement.id == 16|| this.id == 9 && this.parentElement.id == 16|| this.id == 10 && this.parentElement.id == 16|| this.id == 11 && this.parentElement.id == 16|| this.id == 12 && this.parentElement.id == 16|| this.id == 13 && this.parentElement.id == 16|| this.id == 14 && this.parentElement.id == 16|| this.id == 15 && this.parentElement.id == 17||  this.id == 8 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 18|| this.id == 10 && this.parentElement.id == 18|| this.id == 11 && this.parentElement.id == 18|| this.id == 12 && this.parentElement.id == 18|| this.id == 13 && this.parentElement.id == 18|| this.id == 14 && this.parentElement.id == 18|| this.id == 15 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 19|| this.id == 10 && this.parentElement.id == 19|| this.id == 11 && this.parentElement.id == 19|| this.id == 12 && this.parentElement.id == 19|| this.id == 15 && this.parentElement.id == 19) {
+                    if (this.id == 10 && this.parentElement.id == 6 || this.id == 11 && this.parentElement.id == 6 || this.id == 12 && this.parentElement.id == 6 || this.id == 9 && this.parentElement.id == 7 || this.id == 10 && this.parentElement.id == 7 || this.id == 11 && this.parentElement.id == 7 || this.id == 12 && this.parentElement.id == 7 || this.id == 13 && this.parentElement.id == 7 || this.id == 9 && this.parentElement.id == 8 || this.id == 10 && this.parentElement.id == 8 || this.id == 11 && this.parentElement.id == 8 || this.id == 12 && this.parentElement.id == 8 || this.id == 13 && this.parentElement.id == 8 || this.id == 14 && this.parentElement.id == 8 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8|| this.id == 8 && this.parentElement.id == 9|| this.id == 10 && this.parentElement.id == 9|| this.id == 11 && this.parentElement.id == 9|| this.id == 12 && this.parentElement.id == 9|| this.id == 13 && this.parentElement.id == 9|| this.id == 14 && this.parentElement.id == 9|| this.id == 15 && this.parentElement.id == 9|| this.id == 16 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 8 && this.parentElement.id == 10|| this.id == 9 && this.parentElement.id == 10|| this.id == 10 && this.parentElement.id == 10|| this.id == 11 && this.parentElement.id == 10|| this.id == 12 && this.parentElement.id == 10|| this.id == 13 && this.parentElement.id == 10|| this.id == 14 && this.parentElement.id == 10|| this.id == 15 && this.parentElement.id == 10|| this.id == 16 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 8 && this.parentElement.id == 11|| this.id == 9 && this.parentElement.id == 11|| this.id == 10 && this.parentElement.id == 11|| this.id == 11 && this.parentElement.id == 11|| this.id == 12 && this.parentElement.id == 11|| this.id == 13 && this.parentElement.id == 11|| this.id == 14 && this.parentElement.id == 11|| this.id == 15 && this.parentElement.id == 11|| this.id == 16 && this.parentElement.id == 11|| this.id==17 && this.parentElement.id == 11|| this.id == 18 && this.parentElement.id == 11|| this.id == 7 && this.parentElement.id == 12|| this.id == 8 && this.parentElement.id == 12|| this.id == 9 && this.parentElement.id == 12|| this.id == 10 && this.parentElement.id == 11|| this.id == 11 && this.parentElement.id == 12|| this.id == 12 && this.parentElement.id == 12|| this.id == 13 && this.parentElement.id == 12|| this.id == 14 && this.parentElement.id == 12|| this.id == 15 && this.parentElement.id == 12|| this.id == 16 && this.parentElement.id == 12|| this.id == 17 && this.parentElement.id == 12|| this.id == 18 && this.parentElement.id == 12|| this.id == 19 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 13|| this.id == 8 && this.parentElement.id == 13|| this.id == 9 && this.parentElement.id == 13|| this.id == 10 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 13 && this.parentElement.id == 13|| this.id == 14 && this.parentElement.id == 13|| this.id == 15 && this.parentElement.id == 13|| this.id == 16 && this.parentElement.id == 13|| this.id == 17 && this.parentElement.id == 13|| this.id == 18 && this.parentElement.id == 13|| this.id == 19 && this.parentElement.id == 13|| this.id == 6 && this.parentElement.id == 14|| this.id == 7 && this.parentElement.id == 14|| this.id == 8 && this.parentElement.id == 14|| this.id == 9 && this.parentElement.id == 14|| this.id == 10 && this.parentElement.id == 14|| this.id == 11 && this.parentElement.id == 14|| this.id == 12 && this.parentElement.id == 14|| this.id == 13 && this.parentElement.id == 14|| this.id == 14 && this.parentElement.id == 14|| this.id == 15 && this.parentElement.id == 14|| this.id == 16 && this.parentElement.id == 14|| this.id == 17 && this.parentElement.id == 14|| this.id == 18 && this.parentElement.id == 14|| this.id == 19 && this.parentElement.id == 15|| this.id == 6 && this.parentElement.id == 15|| this.id == 7 && this.parentElement.id == 15|| this.id == 8 && this.parentElement.id == 15|| this.id == 9 && this.parentElement.id == 15|| this.id == 10 && this.parentElement.id == 15|| this.id == 11 && this.parentElement.id == 15|| this.id == 12 && this.parentElement.id == 15|| this.id == 13 && this.parentElement.id == 15|| this.id == 14 && this.parentElement.id == 15|| this.id == 15 && this.parentElement.id == 15|| this.id == 16 && this.parentElement.id == 15|| this.id == 17|| this.id == 19 && this.parentElement.id == 16|| this.id == 6 && this.parentElement.id == 16|| this.id == 7 && this.parentElement.id == 16|| this.id == 8 && this.parentElement.id == 16|| this.id == 9 && this.parentElement.id == 16|| this.id == 10 && this.parentElement.id == 16|| this.id == 11 && this.parentElement.id == 16|| this.id == 12 && this.parentElement.id == 16|| this.id == 13 && this.parentElement.id == 16|| this.id == 14 && this.parentElement.id == 16|| this.id == 15 && this.parentElement.id == 17||  this.id == 8 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 18|| this.id == 10 && this.parentElement.id == 18|| this.id == 11 && this.parentElement.id == 18|| this.id == 12 && this.parentElement.id == 18|| this.id == 13 && this.parentElement.id == 18|| this.id == 14 && this.parentElement.id == 18|| this.id == 15 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 19|| this.id == 10 && this.parentElement.id == 19|| this.id == 11 && this.parentElement.id == 19|| this.id == 12 && this.parentElement.id == 19|| this.id == 15 && this.parentElement.id == 19) {
+                    if (this.id!=17&&this.parentElement.id != 3) {
                         tbl.setAttribute("class", "comp")
 
                         paraadam()
                         
                        tbl.style.backgroundImage = "url(img/compl/1.png)"
                         gamelev = 1
-                        lev = 1
+                        lev = 1   
                         localStorage.setItem("lev", gamelev)
 
 
                         setTimeout(() => {
                             l1()
-                        }, chap);
+                        }, chap); 
+                    }
+                 
 
 
                           
@@ -2898,8 +3061,8 @@ function newgame(params) {
     localStorage.setItem("lev", gamelev)
     cl =  0
     sxm = 0
-    
-     
+    ka=0
+    localStorage.setItem("ka",0)     
     
 adam = 40
 localStorage.setItem("adam", adam)
@@ -4239,15 +4402,27 @@ setTimeout(() => {
             
         
     dastimg.src = "img/poxs.png"
-    if (para >= 300) {
+    
+    if (ka==0) {
+        if (para >= 300) {
+          ka = 1
+            localStorage.setItem("ka",1)
+            dastcomple.src = "img/comp.png"
+            dastp2.innerHTML = "300/300"
+        }
+        else {
+            dastcomple.src = "img/d1.png"
+            dastp2.innerHTML = para + "/300"
+            }
+    }
+    else{
         dastcomple.src = "img/comp.png"
         dastp2.innerHTML = "300/300"
+
     }
 
-    else {
-    dastcomple.src = "img/d1.png"
-    dastp2.innerHTML = para + "/300"
-    }
+
+ 
  
 
     if (fla==0) {
@@ -4347,10 +4522,6 @@ function drosh2(params) {
 
     }
 }
-
-
-
-
 
 
 

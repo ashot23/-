@@ -67,7 +67,7 @@ height: 60px;
 }
 .nor:active{
 
-color: red
+color: orange
 
 }
 
@@ -423,8 +423,8 @@ background-size: cover;
 .poqr{
 
     border: 1px solid black;
-/* background-image: url("./img/l3.png"); */
-background: linear-gradient(to right,gray,limegreen);
+background-image: url("./img/bg1.jpg");
+/* background: linear-gradient(to right,gray,limegreen); */
 background-size: cover;
     background-repeat: round;
     background-attachment: fixed;
@@ -790,4 +790,52 @@ font-family: monospace;
 }
 .dastp,.dastp2{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.poqrh1{
+    color: gray;
+    font-family: 'Dancing Script', cursive;
+}
+.poqrh3{
+    color:darkorange;
+    font-family: 'Dancing Script', cursive;
+}
+.imgbrl,.imgpox{
+    width: 50px;
+    height: 50px;
+}
+.poxidiv,.brlidiv{
+    display: flex
+}
+.opshdiv{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.p1pox{
+    color:orange;
+}
+.p2pox{
+    color:aqua;
+}
+.p1pox,.p2pox{
+    font-size: 25px;
+    /* margin: 0; */
+    margin: 0;
+    align-items: center;
+    display: flex;
+
+}
+.hayt{
+    color: cadetblue;
+    
+}
+.poqr{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.imgdiv{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
 }
