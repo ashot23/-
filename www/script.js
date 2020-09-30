@@ -76,12 +76,12 @@ function tokos(params) {
     var c = 0
 var p = document.getElementById("tok")
 p.innerHTML = 0 + "%"
-var st = setInterval(zags,30)
+var st = setInterval(zags,20)
 function zags(params) {
    
     c++
     p.innerHTML = c + "%"
-    if (c==10) {
+    if (c==100) {
         p.innerHTML = "Complete"
         clearInterval(st)
         setTimeout(() => {
