@@ -44,16 +44,20 @@ var lev = localStorage.getItem("lev", gamelev)
 var cls = 0
 var click2 = localStorage.getItem("cl1", cls)
 var ka = localStorage.getItem("ka")
+var ka2 = localStorage.getItem("ka2")
+var ka3 = localStorage.getItem("ka3")
 var drosh = document.getElementsByClassName("drosh")
 var opshi = document.getElementsByClassName("opshi")
-var chap = 2500
+var chap = 3000
 var snduk = localStorage.getItem("data")
+var gumar = 300
+var zmruxt = 100
+var uroven = 10
+                   
 
-
-
-               //    0      1           2             3               4          5               6                               7     8     9                                    10                     11                 12                 13                        14
-var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ","Անցի՛ր մինչև 10-րդ մակարդակ","Հավաքի'ր 100 Բրլիանտ","Հավաքի'ր 300 փող","Դուք վաստակեցիք","Դեռ նվաճումներ չկան","Շնորհավոր դուք վաստակեցիք նոր նվաճում"]
-var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет","Перейти вплоть до на 10 уровень!","Соберите 100 бриллиантов!","Собрать 300 денег!","Вы заработали","Пока нет достижений","Поздравляю с новым достижением!"]
+               //    0      1           2             3               4          5                6                               7     8     9                                    10                     11                 12                 13                        14                                                  15                   16                      17
+var tarhy = ["Նոր խաղ", "Տարածել", "Նվաճումներ", "Շարունակել", "Մակարդակ","Շնորհավոր !!","Դուք ցանկանու՞մ եք սկսել 0-ից","Այո","Ոչ","Անցի՛ր մինչև 5-րդ մակարդակ","Հավաքի'ր  46 Բրլիանտ","Հավաքի'ր 180 փող","Դուք վաստակեցիք","Դեռ նվաճումներ չկան","Շնորհավոր դուք վաստակեցիք նոր նվաճում","Անցի՛ր մինչև 5-րդ մակարդակ","Հավաքի'ր 46 Բրլիանտ","Հավաքի'ր 180 փող"]
+var tarru = ["Новая игра", "Поделиться", "Достижение", "Продолжать", "Уровень","Поздравляю !!","Вы хотите начать с нуля ?","Да","Нет","Перейти вплоть до на 5 уровень!","Соберите 46 бриллиантов!","Собрать 180 денег!","Вы заработали","Пока нет достижений","Поздравляю с новым достижением!","Перейти вплоть до на 5 уровень!","Соберите 46 бриллиантов!","Собрать 180 денег!"]
 var h1ru = "Найди кота"
 var h1hy = "Գտի՛ր կատվին"
 
@@ -64,7 +68,9 @@ var para = localStorage.getItem("para")
 var k1 = new Audio("audio/k1.mp3")
 
 
-   
+
+// k1.mutet = false
+//    k1.load()
 function tokos(params) {
     window.open("index.html")
     var c = 0
@@ -95,6 +101,8 @@ function zags(params) {
     sxm = 0
     ka = 0
     localStorage.setItem("ka",0)
+    ka2 = 0
+    localStorage.setItem("ka2",0)
      
     
 adam = 40
@@ -767,7 +775,7 @@ sharim1.addEventListener("click",harcpatasx)
         futer.append(harc)
         harc.setAttribute("class", "harc")
         harc.src = "img/harc.png"
-    
+        harc.addEventListener("click",harcakan)
         }
 
 
@@ -914,15 +922,16 @@ sharim1.addEventListener("click",harcpatasx)
     
     }
     
-var v = document.createElement("a")
-futer.append(v)
-v.setAttribute("class","v")
-v.href = "https://www.facebook.com"
+// var v = document.createElement("a")
+// futer.append(v)
+// v.setAttribute("class","v")
+// v.href = "https://www.facebook.com"
+
     var harc = document.createElement("img")
-    v.append(harc)
+    futer.append(harc)
     harc.setAttribute("class", "harc")
     harc.src = "img/harc.png"
-    
+    harc.addEventListener("click",harcakan)
 
 
     }
@@ -945,6 +954,7 @@ function doms(params) {
     var levdiv = document.getElementsByClassName("leveldiv")
     var xaxayin = document.getElementsByClassName("xaxayin")
    var opshuc = document.getElementsByClassName("opshuc")
+   var harcdiv = document.getElementsByClassName("harcodiv")
     document.body.style.backgroundImage = "url(img/back.jpg)"
     if (levdiv[0]) {
         document.body.removeChild(levdiv[0])
@@ -954,6 +964,10 @@ function doms(params) {
     }
     else if (opshuc[0]) {
         document.body.removeChild(opshuc[0])
+    }
+    else if(harcdiv[0]){
+        document.body.removeChild(harcdiv[0])
+
     }
  poxvox = 1
     var opshi = document.createElement("div")
@@ -1132,7 +1146,7 @@ var harc = document.createElement("img")
 futer.append(harc)
 harc.setAttribute("class", "harc")
 harc.src = "img/harc.png"
-
+harc.addEventListener("click",harcakan)
 }
 }
 
@@ -1190,45 +1204,8 @@ imgb[0].style.animationName = "adam"
     var table=  document.getElementsByTagName("table") 
     var w = table[0].offsetWidth    
  var h = table[0].offsetHeight 
- var img 
- 
-               if (lev==0) {
-                img = "url(img/compl/1.png)"
-               }
-               else if (lev==1) {
-                img = "url(img/compl/1.png)"
-               }
-        
-               else if (lev==2) {
-                img = "url(img/compl/7.png)"
-               }
-               else if (lev==3) {
-                img = "url(img/compl/5.png)"
-               }
-               else if (lev==4) {
-                img = "url(img/compl/4.png)"
-               }
-               else if (lev==5) {
-                img = "url(img/compl/6.png)"
-               }
-               else if (lev==6) {
-                img = "url(img/compl/9.png)"
-               }
-               else if (lev==7) {
-                img = "url(img/compl/9.png)"
-               }
-               else if (lev==8) {
-                img = "url(img/compl/2.png)"
-               }
-               else if (lev==9) {
-                img = "url(img/compl/10.png)"
-               }
-               else if (lev==10) {
-                img = "url(img/compl/3.png)"
-               }
-               else if (lev==11) {
-                img = "url(img/compl/11.png)"
-               }
+
+
              gamediv[0].removeChild(table[0])   
             
 
@@ -1237,7 +1214,13 @@ imgb[0].style.animationName = "adam"
                 gamediv[0].append(divanc)
                  divanc.style.width = w + "px"
                 divanc.style.height = h + "px"
-                divanc.style.backgroundImage = img
+               
+            
+           
+                    divanc.style.backgroundImage ="url(img/level/"+(lev-1)+".jpg)"
+                
+                    
+                      
                 divanc.setAttribute("class","ancnel")
                
                 var poqr = document.createElement("div")
@@ -1332,7 +1315,7 @@ imgb[0].style.animationName = "adam"
                     shnhayt.setAttribute("class","shnhayt")
 
 
-                  if (lev==11||adamand==100||para==300) {
+                  if (lev==5||adamand==46&&ka2==0||para>=180&&ka==0) {
                  
                     shnhayt.style.color = "crimson"
 
@@ -1355,20 +1338,37 @@ imgb[0].style.animationName = "adam"
                     shimg.setAttribute("class","shimg")
       
 
-                   if (lev==11) {
+                   if (lev==5) {
                        
                   shimg.src = "img/lev.png"
 
 
                    }    
-                   else if (para == 300) {
+                   else if (adamand == 46) {
+            
+                    if (ka2==0) {
+              
+                        shimg.src = "img/d2.png"
+                        
+                        ka2 = 1
+                        localStorage.setItem("ka2",1)
+                                }  
+             
+               }
+               
+                   else if (para >= 180) {
                             
-                  shimg.src = "img/poxs.png"
+          if (ka==0) {
+              
+              
+            shimg.src = "img/poxs.png"
+            ka = 1
+            localStorage.setItem("ka",1)
+                    }           
+                                     
+               
                    }
-                   else if (adamand == 100) {
-                            
-                    shimg.src = "img/d2.png"
-                     }
+                 
                                
 
                   }
@@ -1493,13 +1493,9 @@ function l0(params) {
 
         var tbl = document.createElement('table')
         gamediv.appendChild(tbl)
+        tbl.style.backgroundImage = "url(img/level/0.jpg)"
         tbl.setAttribute("class", "table")
-        if (click2==1) {
-            tbl.style.backgroundImage = "url(img/klor/1.png)"
-        }
-        else  {
-            tbl.style.backgroundImage = "url(img/level/0.jpg)"
-        }
+       
        
 
 
@@ -1558,21 +1554,28 @@ var verj = tbih/28
                           
 
                     }
-                    else {
+                    else{
+                        
                         paraadamdel()
 
                         tanel(this)
-                        //   var divdel = document.createElement("div")
-                        //   divdel.setAttribute("class","del")
-                        //   this.append(divdel)
-
-
                     }
 
                 }
 
             }
         }
+     
+        if (click2==1) {
+               
+               
+            tbl.style.backgroundImage = "url(img/klor/1.png)"
+         }
+         else{
+           
+            tbl.style.backgroundImage = "url(img/level/0.jpg)"
+         }
+       
 // var td2 =  document.getElementsByTagName("td")
 // console.log(td2[115]);
 
@@ -1789,42 +1792,8 @@ else if (ancdiv[0]) {
             var tbl = document.createElement('table')
             gamedivs[0].appendChild(tbl)
             tbl.setAttribute("class", "table")
-            if (level == 1) {
-    
-               
-                tbl.style.backgroundImage = "url(img/level/1.jpg)"
-             
-                
-            }
-            else if (level == 2) {
-                tbl.style.backgroundImage = "url(img/level/3.jpg)"
-            }
-            else if (level == 3) {
-                tbl.style.backgroundImage = "url(img/level/4.jpg)"
-            }
-            else if (level == 4) {
-                tbl.style.backgroundImage = "url(img/level/5.jpg)"
-            }
-            else if (level == 5) {
-                tbl.style.backgroundImage = "url(img/level/6.jpg)"
-            }
-            else if (level == 6) {
-                tbl.style.backgroundImage = "url(img/level/7.jpg)"
-            }
-            else if (level == 7) {
-                tbl.style.backgroundImage = "url(img/level/8.jpg)"
-            }
-            else if (level == 8) {
-                tbl.style.backgroundImage = "url(img/level/9.jpg)"
-            }
-            else if (level == 9) {
-                tbl.style.backgroundImage = "url(img/level/10.jpg)"
-            }
-
-            else if (level == 10) {
-                tbl.style.backgroundImage = "url(img/level/11.jpg)"
-            } 
-
+        
+            tbl.style.backgroundImage = "url(img/level/"+lev+".jpg)"
 
             // tbl.style.margin = 'auto'
             var tbd = document.createElement('tbody')
@@ -1854,26 +1823,33 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                     td.style.width = "30px"
                     // td.style.height = h
                     td.onclick = function (params) {
+                     
                         if (level == 1) {
+
                             if (this.id == 20 && this.parentElement.id == 11 || this.id == 21 && this.parentElement.id == 11 || this.id == 22 && this.parentElement.id == 12 || this.id == 20 && this.parentElement.id == 12 || this.id == 21 && this.parentElement.id == 12 || this.id == 22 && this.parentElement.id == 12|| this.id == 23 && this.parentElement.id == 12|| this.id == 24 && this.parentElement.id == 12|| this.id == 25 && this.parentElement.id == 12|| this.id == 26 && this.parentElement.id == 12|| this.id == 27 && this.parentElement.id == 12|| this.id == 21 && this.parentElement.id == 13 || this.id == 22 && this.parentElement.id == 13|| this.id == 23 && this.parentElement.id == 13|| this.id == 24 && this.parentElement.id == 13|| this.id == 25 && this.parentElement.id == 13|| this.id == 26 && this.parentElement.id == 13|| this.id == 27 && this.parentElement.id == 13) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
+
 
                                 tbl.style.backgroundImage = "url(img/compl/7.png)"
                                 gamelev = 2
                                 lev = 2
                                 localStorage.setItem("lev", gamelev)
 
-
                                 setTimeout(() => {
                                     l3()
-                                }, 2000);
+                                }, chap);
+
 
                             }
+            
                             else {
                                 paraadamdel()
                                 tanel(this)
+                              
+                                
                             }
+
                         }
                         else if (level == 2) {
                             if (this.id == 14 && this.parentElement.id == 11||this.id == 12 && this.parentElement.id == 12||this.id == 13 && this.parentElement.id == 12||this.id == 14 && this.parentElement.id == 12||this.id == 15 && this.parentElement.id == 12||this.id == 13 && this.parentElement.id == 13||this.id == 14 && this.parentElement.id == 13||this.id == 15 && this.parentElement.id == 13||this.id == 13 && this.parentElement.id == 14||this.id == 14 && this.parentElement.id == 14||this.id == 15 && this.parentElement.id == 14||this.id == 13 && this.parentElement.id == 15||this.id == 14 && this.parentElement.id == 15||this.id == 15 && this.parentElement.id == 15) {
@@ -1890,11 +1866,13 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                     l4()
                                 }, chap);
                             }
+                    
                             else {
                                 paraadamdel()
                                 tanel(this)
                             }
                         }
+
                         else if (level == 3) {
                             if (this.id == 16 && this.parentElement.id == 7 || this.id == 17 && this.parentElement.id == 7 || this.id == 18 && this.parentElement.id == 7 || this.id == 16 && this.parentElement.id == 8 || this.id == 17 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 11|| this.id == 18 && this.parentElement.id == 11) {
                                 tbl.setAttribute("class", "comp")
@@ -1910,6 +1888,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                     l5()
                                 }, chap);
                             }
+                        
                             else {
                                 paraadamdel()
                                 tanel(this)
@@ -1942,13 +1921,13 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 paraadam()
 
                                 tbl.style.backgroundImage = "url(img/compl/9.png)"
-                                gamelev = 7
-                                lev = 7
+                                gamelev = 6
+                                lev = 6
                                 localStorage.setItem("lev", gamelev)
 
 
                                 setTimeout(() => {
-                                    l8()
+                                    l7()
                                 }, chap);
 
                             }
@@ -1958,11 +1937,11 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 6) {
-                            if (this.id == 18 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 15||this.id == 17 && this.parentElement.id == 15||this.id == 10 && this.parentElement.id == 18) {
+                            if (this.id == 17 && this.parentElement.id == 27||this.id == 18 && this.parentElement.id == 27||this.id == 19 && this.parentElement.id == 28||this.id == 17 && this.parentElement.id == 28||this.id == 18 && this.parentElement.id == 28||this.id == 19 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
-                                tbl.style.backgroundImage = "url(img/compl/8.png)"
+                                tbl.style.backgroundImage = "url(img/compl/2.png)"
                                 gamelev = 7
                                 lev = 7
                                 localStorage.setItem("lev", gamelev)
@@ -1978,12 +1957,14 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 tanel(this)
                             }
                         }
+                 
+               
                         else if (level == 7) {
-                            if (this.id == 17 && this.parentElement.id == 27||this.id == 18 && this.parentElement.id == 27||this.id == 19 && this.parentElement.id == 28||this.id == 17 && this.parentElement.id == 28||this.id == 18 && this.parentElement.id == 28||this.id == 19 && this.parentElement.id == 28) {
+                            if (this.id == 22 && this.parentElement.id == 26 || this.id == 22 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
-
                                 paraadam()
-                                tbl.style.backgroundImage = "url(img/compl/2.png)"
+
+                                tbl.style.backgroundImage = "url(img/compl/10.png)"
                                 gamelev = 8
                                 lev = 8
                                 localStorage.setItem("lev", gamelev)
@@ -1999,13 +1980,13 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 tanel(this)
                             }
                         }
-
                         else if (level == 8) {
-                            if (this.id == 22 && this.parentElement.id == 26 || this.id == 22 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 28) {
+
+                            if (this.id == 18 && this.parentElement.id == 18||this.id == 19 && this.parentElement.id == 18||this.id == 17 && this.parentElement.id == 19||this.id == 18 && this.parentElement.id == 19||this.id == 19 && this.parentElement.id == 19||this.id == 17 && this.parentElement.id == 20||this.id == 19 && this.parentElement.id == 20) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
-                                tbl.style.backgroundImage = "url(img/compl/10.png)"
+                                tbl.style.backgroundImage = "url(img/compl/3.png)"
                                 gamelev = 9
                                 lev = 9
                                 localStorage.setItem("lev", gamelev)
@@ -2022,18 +2003,42 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 9) {
-                            if (this.id == 18 && this.parentElement.id == 18||this.id == 19 && this.parentElement.id == 18||this.id == 17 && this.parentElement.id == 19||this.id == 18 && this.parentElement.id == 19||this.id == 19 && this.parentElement.id == 19||this.id == 17 && this.parentElement.id == 20||this.id == 19 && this.parentElement.id == 20) {
+
+                            if (this.id == 17 && this.parentElement.id == 13||this.id == 18 && this.parentElement.id == 13||this.id == 20 && this.parentElement.id == 13||this.id == 21 && this.parentElement.id == 13||this.id == 17 && this.parentElement.id == 14||this.id == 17 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 14||this.id == 20 && this.parentElement.id == 14||this.id == 21 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 15) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
-                                tbl.style.backgroundImage = "url(img/compl/3.png)"
+                                tbl.style.backgroundImage = "url(img/compl/11.png)"
                                 gamelev = 10
                                 lev = 10
+                                localStorage.setItem("lev", gamelev)
+                         
+                                // setTimeout(() => {
+                                //     l11()
+                                // }, chap);
+
+                            }
+                            else {
+                                paraadamdel()
+                                tanel(this)
+                            }
+                        }
+                        else if (level == 10) {
+                            if (this.id == 18 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 15||this.id == 17 && this.parentElement.id == 15||this.id == 10 && this.parentElement.id == 18) {
+                                tbl.setAttribute("class", "comp")
+                                page = 2
+                                ej = 2 
+                             localStorage.setItem("ej",page)
+                               poxvox = 2 
+                                paraadam()
+                                tbl.style.backgroundImage = "url(img/compl/8.png)"
+                                gamelev = 7
+                                lev = 7
                                 localStorage.setItem("lev", gamelev)
 
 
                                 setTimeout(() => {
-                                    l11()
+                                    l8()
                                 }, chap);
 
                             }
@@ -2042,30 +2047,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 tanel(this)
                             }
                         }
-                          else if (level == 10) {
-                            if (this.id == 17 && this.parentElement.id == 13||this.id == 18 && this.parentElement.id == 13||this.id == 20 && this.parentElement.id == 13||this.id == 21 && this.parentElement.id == 13||this.id == 17 && this.parentElement.id == 14||this.id == 17 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 14||this.id == 20 && this.parentElement.id == 14||this.id == 21 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 15) {
-                                tbl.setAttribute("class", "comp")
-                                paraadam()
-
-                                tbl.style.backgroundImage = "url(img/compl/11.png)"
-                                gamelev = 11
-                                lev = 11
-      
-                                localStorage.setItem("lev", gamelev)
-                                page = 2
-                                ej = 2 
-                             localStorage.setItem("ej",page)
-                             poxvox = 2 
-                                // setTimeout(() => {
-                                //     l10()
-                                // }, 2000);
-
-                            }
-                            else {
-                                paraadamdel()
-                                tanel(this)
-                            }
-                        }
+                       
 
                     }
 
@@ -2077,6 +2059,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
             }
         }
         else {
+           
             k1.play()
             if (ancdiv[0]) {
                 gamedivs[0].removeChild(ancdiv[0])
@@ -2095,121 +2078,8 @@ var xaxayins= document.getElementsByClassName("xaxayin")
             var tbl = document.createElement('table')
             gamediv.appendChild(tbl)
             tbl.setAttribute("class", "table")
-            if (level == 1) {
-               
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/7.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/1.jpg)"
-                 }
-            }
-            else if (level == 2) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/5.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/3.jpg)"
-                 }
-              
-            }
-            else if (level == 3) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/4.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/4.jpg)"
-                 }
-            }
-            else if (level == 4) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/6.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/5.jpg)"
-                 }
-            }
-            else if (level == 5) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/9.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/6.jpg)"
-                 }
-               
-            }
-            else if (level == 6) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/8.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/7.jpg)"
-                 }
-            }
-            else if (level == 7) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/2.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/8.jpg)"
-                 }
-            }
-            else if (level == 8) {
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/10.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/9.jpg)"
-                 }
-            }
-            else if (level == 9) {
-         
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/3.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/10.jpg)"
-                 }
-            }
-            else if (level == 10) {
-         
-                if (click2==1) {
-               
-               
-                    tbl.style.backgroundImage = "url(img/klor/11.png)"
-                 }
-                 else{
-                   
-                    tbl.style.backgroundImage = "url(img/level/11.jpg)"
-                 }
-            }
+          
+        
             // tbl.style.margin = 'auto'
             var tbd = document.createElement('tbody')
 
@@ -2259,6 +2129,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
 
 
                             }
+            
                             else {
                                 paraadamdel()
                                 tanel(this)
@@ -2282,6 +2153,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                     l4()
                                 }, chap);
                             }
+                    
                             else {
                                 paraadamdel()
                                 tanel(this)
@@ -2303,6 +2175,7 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                     l5()
                                 }, chap);
                             }
+                        
                             else {
                                 paraadamdel()
                                 tanel(this)
@@ -2335,13 +2208,13 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 paraadam()
 
                                 tbl.style.backgroundImage = "url(img/compl/9.png)"
-                                gamelev = 7
-                                lev = 7
+                                gamelev = 6
+                                lev = 6
                                 localStorage.setItem("lev", gamelev)
 
 
                                 setTimeout(() => {
-                                    l8()
+                                    l7()
                                 }, chap);
 
                             }
@@ -2351,11 +2224,11 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 6) {
-                            if (this.id == 18 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 15||this.id == 17 && this.parentElement.id == 15||this.id == 10 && this.parentElement.id == 18) {
+                            if (this.id == 17 && this.parentElement.id == 27||this.id == 18 && this.parentElement.id == 27||this.id == 19 && this.parentElement.id == 28||this.id == 17 && this.parentElement.id == 28||this.id == 18 && this.parentElement.id == 28||this.id == 19 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
-
                                 paraadam()
-                                tbl.style.backgroundImage = "url(img/compl/8.png)"
+
+                                tbl.style.backgroundImage = "url(img/compl/2.png)"
                                 gamelev = 7
                                 lev = 7
                                 localStorage.setItem("lev", gamelev)
@@ -2371,12 +2244,14 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 tanel(this)
                             }
                         }
+                 
+               
                         else if (level == 7) {
-                            if (this.id == 17 && this.parentElement.id == 27||this.id == 18 && this.parentElement.id == 27||this.id == 19 && this.parentElement.id == 28||this.id == 17 && this.parentElement.id == 28||this.id == 18 && this.parentElement.id == 28||this.id == 19 && this.parentElement.id == 28) {
+                            if (this.id == 22 && this.parentElement.id == 26 || this.id == 22 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 28) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
-                                tbl.style.backgroundImage = "url(img/compl/2.png)"
+                                tbl.style.backgroundImage = "url(img/compl/10.png)"
                                 gamelev = 8
                                 lev = 8
                                 localStorage.setItem("lev", gamelev)
@@ -2393,11 +2268,12 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                             }
                         }
                         else if (level == 8) {
-                            if (this.id == 22 && this.parentElement.id == 26 || this.id == 22 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 27 || this.id == 23 && this.parentElement.id == 28) {
+
+                            if (this.id == 18 && this.parentElement.id == 18||this.id == 19 && this.parentElement.id == 18||this.id == 17 && this.parentElement.id == 19||this.id == 18 && this.parentElement.id == 19||this.id == 19 && this.parentElement.id == 19||this.id == 17 && this.parentElement.id == 20||this.id == 19 && this.parentElement.id == 20) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
-                                tbl.style.backgroundImage = "url(img/compl/10.png)"
+                                tbl.style.backgroundImage = "url(img/compl/3.png)"
                                 gamelev = 9
                                 lev = 9
                                 localStorage.setItem("lev", gamelev)
@@ -2415,40 +2291,15 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                         }
                         else if (level == 9) {
 
-                            if (this.id == 18 && this.parentElement.id == 18||this.id == 19 && this.parentElement.id == 18||this.id == 17 && this.parentElement.id == 19||this.id == 18 && this.parentElement.id == 19||this.id == 19 && this.parentElement.id == 19||this.id == 17 && this.parentElement.id == 20||this.id == 19 && this.parentElement.id == 20) {
-                                tbl.setAttribute("class", "comp")
-                                paraadam()
-
-                                tbl.style.backgroundImage = "url(img/compl/3.png)"
-                                gamelev = 10
-                                lev = 10
-                                localStorage.setItem("lev", gamelev)
-
-
-                                setTimeout(() => {
-                                    l11()
-                                }, chap);
-
-                            }
-                            else {
-                                paraadamdel()
-                                tanel(this)
-                            }
-                        }
-                        else if (level == 10) {
-
                             if (this.id == 17 && this.parentElement.id == 13||this.id == 18 && this.parentElement.id == 13||this.id == 20 && this.parentElement.id == 13||this.id == 21 && this.parentElement.id == 13||this.id == 17 && this.parentElement.id == 14||this.id == 17 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 14||this.id == 20 && this.parentElement.id == 14||this.id == 21 && this.parentElement.id == 14||this.id == 19 && this.parentElement.id == 15) {
                                 tbl.setAttribute("class", "comp")
                                 paraadam()
 
                                 tbl.style.backgroundImage = "url(img/compl/11.png)"
-                                gamelev = 11
-                                lev = 11
+                                gamelev = 10
+                                lev = 10
                                 localStorage.setItem("lev", gamelev)
-                                page = 2
-                                ej = 2 
-                             localStorage.setItem("ej",page)
-                               poxvox = 2 
+                         
                                 // setTimeout(() => {
                                 //     l11()
                                 // }, chap);
@@ -2459,11 +2310,161 @@ var xaxayins= document.getElementsByClassName("xaxayin")
                                 tanel(this)
                             }
                         }
+                        else if (level == 10) {
+                            if (this.id == 18 && this.parentElement.id == 14||this.id == 18 && this.parentElement.id == 15||this.id == 17 && this.parentElement.id == 15||this.id == 10 && this.parentElement.id == 18) {
+                                tbl.setAttribute("class", "comp")
+                                page = 2
+                                ej = 2 
+                             localStorage.setItem("ej",page)
+                               poxvox = 2 
+                                paraadam()
+                                tbl.style.backgroundImage = "url(img/compl/8.png)"
+                                gamelev = 7
+                                lev = 7
+                                localStorage.setItem("lev", gamelev)
+
+
+                                setTimeout(() => {
+                                    l8()
+                                }, chap);
+
+                            }
+                            else {
+                                paraadamdel()
+                                tanel(this)
+                            }
+                        }
+                       
+                       
                     }
 
 
                 }
             }
+
+            // if (level == 1) {
+               
+            //     if (click2==1) {
+               
+            //         tbl.style.backgroundImage = "url(img/klor/7.png)"
+            //      }
+            //      else{
+            //         tbl.style.backgroundImage = "url(img/level/1.jpg)"
+            //      }
+                
+            // }
+            // else if (level == 2) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/5.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/3.jpg)"
+            //      }
+              
+            // }
+            // else if (level == 3) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/4.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/4.jpg)"
+            //      }
+            // }
+            // else if (level == 4) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/6.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/5.jpg)"
+            //      }
+            // }
+            // else if (level == 5) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/9.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/6.jpg)"
+            //      }
+               
+            // }
+            // else if (level == 6) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/8.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/7.jpg)"
+            //      }
+            // }
+            // else if (level == 7) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/2.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/8.jpg)"
+            //      }
+            // }
+            // else if (level == 8) {
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/10.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/9.jpg)"
+            //      }
+            // }
+            // else if (level == 9) {
+         
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/3.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/10.jpg)"
+            //      }
+            // }
+            // else if (level == 10) {
+         
+            //     if (click2==1) {
+               
+               
+            //         tbl.style.backgroundImage = "url(img/klor/11.png)"
+            //      }
+            //      else{
+                   
+            //         tbl.style.backgroundImage = "url(img/level/11.jpg)"
+            //      }
+            // }
+            if (click2==1) {
+               
+               
+                tbl.style.backgroundImage = "url(img/klor/"+lev+".png)"
+             }
+             else{
+               
+                tbl.style.backgroundImage = "url(img/level/"+lev+".jpg)"
+             }
             if (a == 1) {
                 futer()
             }
@@ -2577,13 +2578,13 @@ poxp.style.fontSize = (brl.offsetHeight-12) + "px"
     pox.style.width = (brl.offsetHeight  + 2) + "px"
     pox.style.height = (brl.offsetHeight  + 2) + "px"
 
-    var poxplus = document.createElement("img")
-    poxplus.setAttribute("src", "img/poxplus.png")
-    poxplus.setAttribute("class", "poxplus")
-    poxdiv.append(poxplus)
+    // var poxplus = document.createElement("img")
+    // poxplus.setAttribute("src", "img/poxplus.png")
+    // poxplus.setAttribute("class", "poxplus")
+    // poxdiv.append(poxplus)
 
-    poxplus.style.width = (brlplus.offsetHeight  + 2) + "px"
-    poxplus.style.height = (brlplus.offsetHeight  + 2)+ "px"
+    // poxplus.style.width = (brlplus.offsetHeight  + 2) + "px"
+    // poxplus.style.height = (brlplus.offsetHeight  + 2)+ "px"
 
 }
 
@@ -2639,96 +2640,95 @@ dom.addEventListener("click",doms)
                 
                     var pb = document.getElementsByClassName('poxp')
                     pb[0].innerHTML = para
+              
+                    
+                //         if (lev==0) {
+                  
+                    
+                //             table[0].style.backgroundImage = "url(img/klor/1.png)"
+                //             table[0].setAttribute("class",'klor')
+                         
+                //         }
+                // else if (lev==1) {
                 
-                        if (lev==0) {
-                      var v = document.getElementsByTagName("td")
-
-//   var n  = document.createElement("div")
-//      v[125].append(n)
-//      n.setAttribute("class","klors")
-
-                               
-
-                            table[0].style.backgroundImage = "url(img/klor/1.png)"
-                                table[0].setAttribute("class",'klor')
-                             
-                                  
-                        } 
-                else if (lev==1) {
-                
-                    table[0].style.backgroundImage = "url(img/klor/7.png)"
-                        table[0].setAttribute("class",'klor')
+                  
+                //     table[0].style.backgroundImage = "url(img/klor/7.png)"
+                //     table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==2) {
+                // } 
+                // else if (lev==2) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/5.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/5.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==3) {
+                // } 
+                // else if (lev==3) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/4.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/4.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==4) {
+                // } 
+                // else if (lev==4) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/6.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/6.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==5) {
+                // } 
+                // else if (lev==5) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/9.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/9.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==6) {
+                // } 
+                // else if (lev==6) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/8.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/8.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==7) {
+                // } 
+                // else if (lev==7) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/2.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/2.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==8) {
+                // } 
+                // else if (lev==8) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/10.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/10.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==9) {
+                // } 
+                // else if (lev==9) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/3.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/3.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-                else if (lev==10) {
+                // } 
+                // else if (lev==10) {
                 
-                    table[0].style.backgroundImage = "url(img/klor/11.png)"
-                        table[0].setAttribute("class",'klor')
+                //     table[0].style.backgroundImage = "url(img/klor/11.png)"
+                //         table[0].setAttribute("class",'klor')
                      
                           
-                } 
-        
+                // } 
+                table[0].style.backgroundImage = "url(img/klor/"+lev+".png)"
+                table[0].setAttribute("class",'klor')
+             
+                  
                 click2 = 1
                 cls = 1
                  localStorage.setItem("cl1", cls)
-            }
+            
+        }
             }
          
 
@@ -3039,12 +3039,12 @@ function liver(params) {
     pox.style.height = (brl.offsetHeight  + 2) + "px"
 
 
-    var poxplus = document.createElement("img")
-    poxplus.setAttribute("src", "img/poxplus.png")
-    poxplus.setAttribute("class", "poxplus")
-    poxdiv.append(poxplus)
-    poxplus.style.width = (brlplus.offsetHeight  + 2) + "px"
-    poxplus.style.height = (brlplus.offsetHeight  + 2) + "px"
+    // var poxplus = document.createElement("img")
+    // poxplus.setAttribute("src", "img/poxplus.png")
+    // poxplus.setAttribute("class", "poxplus")
+    // poxdiv.append(poxplus)
+    // poxplus.style.width = (brlplus.offsetHeight  + 2) + "px"
+    // poxplus.style.height = (brlplus.offsetHeight  + 2) + "px"
 
 }
 
@@ -3063,7 +3063,11 @@ function newgame(params) {
     sxm = 0
     ka=0
     localStorage.setItem("ka",0)     
-    
+    ka2 = 0
+    localStorage.setItem("ka2",0) 
+    // ka3 = 0
+    // localStorage.setItem("ka3",0)
+
 adam = 40
 localStorage.setItem("adam", adam)
 adamand = 40
@@ -3188,6 +3192,7 @@ localStorage.setItem("game", game)
         futer.append(harcs)
         harcs.setAttribute("class", "harc")
         harcs.src = "img/harc.png"
+        harcs.addEventListener('click',harcakan)
     
     }, 150);
 
@@ -3357,7 +3362,7 @@ function levmyus(params) {
             futer.append(harcs)
             harcs.setAttribute("class", "harc")
             harcs.src = "img/harc.png"
-        
+        harcs.addEventListener("click",harcakan)
            
               }, 150);
 
@@ -3391,24 +3396,24 @@ setTimeout(() => {
     else if (poxvox==2) {
         chancac(2,21,31,"+")
     }
-    else if (poxvox==3) {
-        chancac(3,31,41,"+")
-    }
-    else if (poxvox==1) {
-        chancac(1,11,21,"+")
-    }
-    else if (poxvox==2) {
-        chancac(2,21,31,"+")
-    }  
-     else if (poxvox==3) {
-        chancac(3,31,41,"+")
-    }
-    else if (poxvox==4) {
-        chancac(4,41,51,"+")
-    }
-    else if (poxvox==5) {
-        chancac(5,51,61,"+")
-    }
+    // else if (poxvox==3) {
+    //     chancac(3,31,41,"+")
+    // }
+    // else if (poxvox==1) {
+    //     chancac(1,11,21,"+")
+    // }
+    // else if (poxvox==2) {
+    //     chancac(2,21,31,"+")
+    // }  
+    //  else if (poxvox==3) {
+    //     chancac(3,31,41,"+")
+    // }
+    // else if (poxvox==4) {
+    //     chancac(4,41,51,"+")
+    // }
+    // else if (poxvox==5) {
+    //     chancac(5,51,61,"+")
+    // }
 
 setTimeout(() => {
     lner[0].style.animationDuration = ""
@@ -3813,96 +3818,34 @@ function sndver(params) {
     var xaxayin = document.getElementsByClassName("shahum")
 var plusdiv =document.getElementsByClassName("plusdiv") 
 
-if (xaxayin[0]) {
-    var verev = document.createElement("div")
-verev.setAttribute("class", "vererv")
-xaxayin[0].append(verev)
-
-var brldiv = document.createElement("div")
-brldiv.setAttribute("class", "brldiv")
-verev.append(brldiv)
-
-// var brlplus = document.createElement("img")
-// brlplus.setAttribute("src", "img/plus.png")
-// brlplus.setAttribute("class", "plus")
-// brldiv.append(brlplus)
-// brlplus.addEventListener("click",brlaynd)
-
-var brl = document.createElement("img")
-brl.setAttribute("src", "img/brliand.png")
-brl.setAttribute("class", "brl")
-brl.setAttribute("id", "adamans")
-brldiv.append(brl)
-
-brl.style.width = ((xaxayin[0].offsetHeight/16)+3)+"px"
-brl.style.height = ((xaxayin[0].offsetHeight/16)+3)+"px"
-// brlplus.style.width = (brl.offsetHeight-17)+"px"
-// brlplus.style.height = (brl.offsetHeight-17)+"px"
 
 
-
-var brlp = document.createElement("p")
-brlp.setAttribute("class", "brlp")
-brlp.innerHTML = adamand
-brldiv.append(brlp)
-brlp.style.fontSize = (brl.offsetHeight-12) + "px"
-
-var poxdiv = document.createElement("div")
-poxdiv.setAttribute("class", "poxdiv")
-verev.append(poxdiv)
-
-var poxp = document.createElement("p")
-poxp.setAttribute("class", "poxp")
-poxp.innerHTML = para
-poxdiv.append(poxp)
-poxp.style.fontSize = (brl.offsetHeight-12) + "px"
-
-
-var pox = document.createElement("img")
-pox.setAttribute("src", "img/pox.png")
-pox.setAttribute("class", "pox")
-poxdiv.append(pox)
-// var poxplus = document.createElement("img")
-// poxplus.setAttribute("src", "img/poxplus.png")
-// poxplus.setAttribute("class", "poxplus")
-// poxdiv.append(poxplus)
-
-
-pox.style.width = ((brl.offsetHeight+3))+"px"
-pox.style.height = ((brl.offsetHeight+3))+"px"
-// poxplus.style.width = (brlplus.offsetHeight+3)+"px"
-// poxplus.style.height = (brlplus.offsetHeight+3)+"px"
-
-
-}
-
-else if (plusdiv[0]) {
     var verev = document.createElement("div")
     verev.setAttribute("class", "vererv")
-    plusdiv[0].append(verev)
+
     
+if (plusdiv[0]) {
+    plusdiv[0].append(verev)
+
+}
+else{
+    xaxayin[0].append(verev)
+}
+
     var brldiv = document.createElement("div")
     brldiv.setAttribute("class", "brldiv")
     verev.append(brldiv)
     
-    var brlplus = document.createElement("img")
-    brlplus.setAttribute("src", "img/plus.png")
-    brlplus.setAttribute("class", "plus")
-    brldiv.append(brlplus)
-    brlplus.addEventListener("click",brlaynd)
-    
+
     var brl = document.createElement("img")
     brl.setAttribute("src", "img/brliand.png")
     brl.setAttribute("class", "brl")
     brl.setAttribute("id", "adamans")
     brldiv.append(brl)
     
-    brl.style.width = ((plusdiv[0].offsetHeight/16)+3)+"px"
-    brl.style.height = ((plusdiv[0].offsetHeight/16)+3)+"px"
-    brlplus.style.width = (brl.offsetHeight-17)+"px"
-    brlplus.style.height = (brl.offsetHeight-17)+"px"
-    
-    
+    brl.style.width = ((verev.parentElement.offsetHeight/16)+3)+"px"
+    brl.style.height = ((verev.parentElement.offsetHeight/16)+3)+"px"
+
     
     var brlp = document.createElement("p")
     brlp.setAttribute("class", "brlp")
@@ -3925,19 +3868,14 @@ else if (plusdiv[0]) {
     pox.setAttribute("src", "img/pox.png")
     pox.setAttribute("class", "pox")
     poxdiv.append(pox)
-    var poxplus = document.createElement("img")
-    poxplus.setAttribute("src", "img/poxplus.png")
-    poxplus.setAttribute("class", "poxplus")
-    poxdiv.append(poxplus)
+  
     
     
     pox.style.width = ((brl.offsetHeight+3))+"px"
     pox.style.height = ((brl.offsetHeight+3))+"px"
-    poxplus.style.width = (brlplus.offsetHeight+3)+"px"
-    poxplus.style.height = (brlplus.offsetHeight+3)+"px"
 }
 
-}
+
 
 
 function brlaynd(params) {
@@ -3964,6 +3902,10 @@ plusmej.setAttribute("class","plusmej")
 plusmej.style.width = plusdiv.parentElement.offsetWidth-100 + "px"
 plusmej.style.height = plusdiv.parentElement.offsetHeight-200  + "px"
 
+// var h1idiv = document.createElement("h1")
+// plusmej.append(h1idiv)
+// h1idiv.setAttribute("class","hidiv")
+// h1idiv.innerHTML = "Գնեք բրլիանտներ գումարով"
 
 var plusmejimej = document.createElement("div")
 plusmej.append(plusmejimej)
@@ -3973,6 +3915,8 @@ plusmejimej.setAttribute("class","plusmejimej")
 
 var hognbrl = [1,10,100,150,200]
 var hognpox = [10,80,700,800,1000]
+
+
 
 
 for (let k = 0; k < 5; k++) {
@@ -4004,17 +3948,23 @@ pl1.append(poxp)
 poxp.setAttribute("class","para")
 // poxp.innerHTML = 10 
 
+var poxdivplus = document.createElement("div")
+pl1.append(poxdivplus)
+poxdivplus.setAttribute("class","poxdivplus")
+
 
 var poxi = document.createElement("img")
-pl1.append(poxi)
+poxdivplus.append(poxi)
 poxi.setAttribute("class","poxi")
 poxi.src = "img/pox.png"
+poxi.style.width = (plusmej.offsetHeight/10) + "px"
 
 var pluss = document.createElement("img")
-pl1.append(pluss)
+poxdivplus.append(pluss)
 pluss.setAttribute("class","pluss")
 pluss.src = "img/plus.png"
 pluss.id = k
+pluss.style.width = (plusmej.offsetHeight/10) + "px"
 pluss.onclick =function (params) {
     var bb = document.getElementsByClassName('brlp2')
     var pb = document.getElementsByClassName('poxp2')
@@ -4216,9 +4166,17 @@ var plusdiv =document.getElementsByClassName("plusdiv")
 
 function futer2(params) {
       var opshi = document.getElementsByClassName("opshuc")[0]
-        
+      var harcdividiv =  document.getElementsByClassName("harcdividiv")[0] 
+
+
     var futer = document.createElement("div")
-    opshi.append(futer)
+    if (opshi) {
+        opshi.append(futer)
+    }
+    else if (harcdividiv) {
+        harcdividiv.append(futer)
+    }
+   
     futer.setAttribute("class", "futer")
 
 
@@ -4342,22 +4300,25 @@ setTimeout(() => {
                     dastp.style.color = "brown"
                     dast.style.backgroundColor = "beige"
                     dastp2.style.color = "brown"
-                    if (lev >= 11) {
-                        dastcomple.src = "img/comp.png"
-                        dastp2.innerHTML = "10/10"
-                        
-                    }
-                    else {
-                    dastcomple.src = "img/d1.png"
-                    if (lev==0) {
-                        dastp2.innerHTML = lev + "/10"
-                    }
-                    else{
-                        dastp2.innerHTML = lev-1 + "/10"
-                    }
-                  
-                    }
-                 
+                
+                        if (lev >= 5) {
+                      
+                            dastcomple.src = "img/comp.png"
+                            dastp2.innerHTML = "5/5"
+                            
+                        }
+                        else {
+                        dastcomple.src = "img/d1.png"
+                        if (lev==0) {
+                            dastp2.innerHTML = lev + "/5"
+                        }
+                        else{
+                            dastp2.innerHTML = lev-1 + "/5"
+                        }
+                      
+                        } 
+                    
+        
            
                     if (fla==0) {
                               dastp.innerHTML = tarhy[9]
@@ -4375,23 +4336,31 @@ setTimeout(() => {
                     dast.style.backgroundColor = "aquamarine"
             
                     dastimg.src = "img/d2.png"
-                    if (adamand >= 100) {
-                        dastcomple.src = "img/comp.png"
-                        dastp2.innerHTML = "100/100"
+                    if (ka2==0) {
+                        if (adamand >= 46) {
+                            ka2 = 1
+                            localStorage.setItem("ka2",1)
+                            dastcomple.src = "img/comp.png"
+                            dastp2.innerHTML = "46/46"
+                        }
+                        else {
+                        dastcomple.src = "img/d1.png"
+                        dastp2.innerHTML = adamand + "/46"
+                        }
+                     
+               
+                     
                     }
-                    else {
-                    dastcomple.src = "img/d1.png"
-                    dastp2.innerHTML = adamand + "/100"
-                    }
-                 
-           
-                    if (fla==0) {
-                              dastp.innerHTML = tarhy[10]
-                       }
-                       else{
-                        dastp.innerHTML = tarru[10]
-                       }
-
+              else{
+                dastcomple.src = "img/comp.png"
+                dastp2.innerHTML = "46/46"
+              }
+              if (fla==0) {
+                dastp.innerHTML = tarhy[10]
+         }
+         else{
+          dastp.innerHTML = tarru[10]
+         }
 
 }   
       else if(dast.id==2){
@@ -4404,20 +4373,20 @@ setTimeout(() => {
     dastimg.src = "img/poxs.png"
     
     if (ka==0) {
-        if (para >= 300) {
+        if (para >= 180) {
           ka = 1
             localStorage.setItem("ka",1)
             dastcomple.src = "img/comp.png"
-            dastp2.innerHTML = "300/300"
+            dastp2.innerHTML = "180/180"
         }
         else {
             dastcomple.src = "img/d1.png"
-            dastp2.innerHTML = para + "/300"
+            dastp2.innerHTML = para + "/180"
             }
     }
     else{
         dastcomple.src = "img/comp.png"
-        dastp2.innerHTML = "300/300"
+        dastp2.innerHTML = "180/180"
 
     }
 
@@ -4446,9 +4415,7 @@ else if(dast.id==3){
       
     dastimg.style.border = "1px solid black"
     dastimg.style.borderRadius =  "52%";
-    dastimg.onclick = function (params) {
-        k1.play()
-    }
+ 
 
 
 
@@ -4524,6 +4491,109 @@ function drosh2(params) {
 }
 
 
+function harcakan(){
+    k1.play()
+document.body.removeChild(document.body.children[1])
+  document.body.style.backgroundImage = "url()"      
+  document.body.style.backgroundColor= "antiquewhite"  
+  
+
+
+
+
+var harcopshidiv = document.createElement("div")
+document.body.append(harcopshidiv)
+ harcopshidiv.setAttribute("class","harcodiv")
+ harcopshidiv.style.width = window.innerWidth + "px"
+ harcopshidiv.style.height = window.innerHeight + "px"
+
+ 
+var harcdividiv = document.createElement("div")
+harcopshidiv.append(harcdividiv)
+harcdividiv.setAttribute("class","harcdividiv")
+harcdividiv.style.width = window.innerWidth + "px"
+harcdividiv.style.height = window.innerHeight + "px"
+
+
+var hndiv = document.createElement("div")
+hndiv.setAttribute("class",'hndiv')
+harcdividiv.appendChild(hndiv)
+
+
+
+var hn = document.createElement("h1")
+hndiv.append(hn)
+hn.setAttribute("class","harch1")
+hn.innerHTML = "Կանոններ"
+hn.setAttribute("align","center")
+
+ var harcdiv = document.createElement("div")
+ harcdividiv.append(harcdiv)
+ harcdiv.setAttribute("class","harcdiv")
+ harcdiv.style.width =   harcopshidiv.offsetWidth-100 +"px"
+ harcdiv.style.height =   harcopshidiv.offsetHeight-200 +"px"
+
+ var divichap = Math.floor(harcdiv.offsetHeight/22)
+
+ var p1 = document.createElement("p")
+ harcdiv.append(p1)
+ p1.setAttribute("class","p1kanon")
+ p1.innerHTML = "Խաղի նպատակն է գտնել կատվին"
+ p1.setAttribute("align","center")
+ p1.style.fontSize =  + divichap + "px"
+
+
+ var p3 = document.createElement("p")
+ harcdiv.append(p3)
+ p3.setAttribute("class","p3kanon")
+ p3.innerHTML = "Այս խաղը գրված է միայն javascript-ով"
+ p3.setAttribute("align","center")
+ p3.style.fontSize = divichap-1 + "px"
+
+
+ var p2 = document.createElement("p")
+ harcdiv.append(p2)
+ p2.setAttribute("class","p2kanon")
+ p2.innerHTML = "Անձնակազմ"
+ p2.setAttribute("align","center")
+ p2.style.fontSize = divichap+9 + "px"
+
+
+ var p4 = document.createElement("p")
+ harcdiv.append(p4)
+ p4.setAttribute("class","p4kanon")
+ p4.innerHTML = "Նկարներ - A.Mkrtchyan "
+ p4.setAttribute("align","center")
+  p4.style.fontSize = divichap+1 + "px"
+//  var p5 = document.createElement("p")
+//  harcdiv.append(p5)
+//  p5.setAttribute("class","p5kanon")
+//  p5.innerHTML = "Դիզայն - H.Martirosyan"
+//  p5.setAttribute("align","center")
+ 
+ var p6 = document.createElement("p")
+ harcdiv.append(p6)
+ p6.setAttribute("class","p6kanon")
+ p6.innerHTML = "կոդ - A.Sargsyan "
+ p6.setAttribute("align","center")
+ p4.style.fontSize = divichap+1 + "px"
+ //p5.style.fontSize = divichap+1 + "px"
+ p6.style.fontSize = divichap+1 + "px"
+//  var p7 = document.createElement("p")
+//  harcdiv.append(p7)
+//  p7.setAttribute("class","p7kanon")
+//  p7.innerHTML = "Բոլոր կաննոնները պաշպանված են"
+//  p7.setAttribute("align","center")
+ 
+ 
+ 
+
+futer2()
+
+
+}
+
+
 
 
 
@@ -4541,3 +4611,187 @@ function drosh2(params) {
 // flay	1	
 // tetev	1	
 // ej	1	
+
+
+
+ function ognutyun(level) {
+    var v = document.getElementsByTagName("td")
+    var ga = document.getElementsByClassName("gamediv")[0]
+    var ogndiv  = document.createElement("div")
+    var b
+    for (let f = 0; f < v.length; f++) {
+        if (v[f].id==20-10&&v[f].parentElement.id==11-3) {
+          b=v[f]  
+          
+          break
+        }
+        
+    }
+    if (level==0) {
+     
+        v[152].append(ogndiv)
+    }
+   else if (level== 1) {
+
+    b.append(ogndiv)
+
+    }
+    else if (level== 2) {
+        v[156].append(ogndiv)
+    }
+    else if (level== 3) {
+        v[190].append(ogndiv)
+    }
+  
+  
+ 
+    ogndiv.setAttribute("class","klors")
+//   ogndiv.style.width = ga.offsetWidth/1.5-2 + "px"
+//   ogndiv.style.height = ga.offsetWidth/1.5-2  + "px"
+       var tbl = document.createElement('table')
+       ogndiv.appendChild(tbl)
+       tbl.setAttribute("class", "table2")
+  
+       var tbd = document.createElement('tbody')
+  
+       tbl.appendChild(tbd)
+       var m = 20
+       var n = 20
+  
+       var chap1 = ga.offsetHeight
+  
+  var verj = ga.offsetWidth/32
+       
+       for (let i = 0; i < m; i++) {
+           var tr = document.createElement('tr')
+           tbd.appendChild(tr)
+           tr.setAttribute("id", i)
+  
+        //    tr.style.height = verj-2 + 'px'
+        tr.style.height = verj + 'px'
+           for (let j = 0; j < n; j++) {
+               var td = document.createElement('td')
+               tr.appendChild(td)
+               td.setAttribute("class", "td")
+               td.setAttribute("id", j)
+               td.style.backgroundColor = "transparent"
+td.style.width = verj   + "px"
+              //  td.style.width = 30 + 'px'
+               // td.style.height = 42 + 'px'
+
+    td.onclick = function (params) {
+        if (level==0) {
+        if (this.id == 7 && this.parentElement.id == 0 || this.id == 8 && this.parentElement.id == 0 || this.id == 6 && this.parentElement.id == 1 || this.id == 7 && this.parentElement.id == 1 || this.id == 8 && this.parentElement.id == 1 || this.id == 9 && this.parentElement.id == 1 || this.id == 6 && this.parentElement.id == 2 || this.id == 7 && this.parentElement.id == 2 || this.id == 8 && this.parentElement.id == 2 || this.id == 9 && this.parentElement.id == 2 || this.id == 10 && this.parentElement.id == 2 || this.id == 12 && this.parentElement.id == 2 || this.id == 13 && this.parentElement.id == 2 || this.id == 5 && this.parentElement.id == 3 || this.id == 6 && this.parentElement.id == 3 || this.id == 7 && this.parentElement.id == 3|| this.id == 8 && this.parentElement.id == 3|| this.id ==9 && this.parentElement.id == 3|| this.id == 10 && this.parentElement.id == 3|| this.id == 12 && this.parentElement.id == 3|| this.id == 13 && this.parentElement.id == 3|| this.id == 5 && this.parentElement.id == 4|| this.id == 6 && this.parentElement.id == 4|| this.id ==7 && this.parentElement.id == 4|| this.id == 8 && this.parentElement.id == 4|| this.id == 9 && this.parentElement.id == 4|| this.id == 10 && this.parentElement.id == 4|| this.id == 11 && this.parentElement.id == 4|| this.id == 12 && this.parentElement.id == 4|| this.id == 13 && this.parentElement.id == 4|| this.id == 5 && this.parentElement.id == 5|| this.id == 6 && this.parentElement.id == 5|| this.id == 7 && this.parentElement.id == 5|| this.id == 8 && this.parentElement.id == 5|| this.id == 9 && this.parentElement.id == 5|| this.id == 10 && this.parentElement.id == 5|| this.id == 11 && this.parentElement.id == 5|| this.id == 12 && this.parentElement.id == 5|| this.id == 5 && this.parentElement.id == 6|| this.id == 6 && this.parentElement.id == 6|| this.id == 7 && this.parentElement.id == 6|| this.id == 8 && this.parentElement.id == 6|| this.id == 9 && this.parentElement.id == 6|| this.id == 10 && this.parentElement.id == 6|| this.id == 11 && this.parentElement.id == 6|| this.id==12 && this.parentElement.id == 6|| this.id == 13 && this.parentElement.id == 6|| this.id == 14 && this.parentElement.id == 6|| this.id == 4 && this.parentElement.id == 7|| this.id == 5 && this.parentElement.id == 7|| this.id == 6 && this.parentElement.id == 7|| this.id == 7 && this.parentElement.id == 7|| this.id == 8 && this.parentElement.id == 7|| this.id == 9 && this.parentElement.id == 7|| this.id == 10 && this.parentElement.id == 7|| this.id == 11 && this.parentElement.id == 7|| this.id == 12 && this.parentElement.id == 7|| this.id == 13 && this.parentElement.id == 7|| this.id == 14 && this.parentElement.id == 7|| this.id == 4 && this.parentElement.id == 8|| this.id == 5 && this.parentElement.id == 8|| this.id == 6 && this.parentElement.id == 8|| this.id == 7 && this.parentElement.id == 8|| this.id == 9 && this.parentElement.id == 8|| this.id == 10 && this.parentElement.id == 8|| this.id == 11 && this.parentElement.id == 8|| this.id == 12 && this.parentElement.id == 8|| this.id == 13 && this.parentElement.id == 8|| this.id == 14 && this.parentElement.id == 8|| this.id == 4 && this.parentElement.id == 9|| this.id == 5 && this.parentElement.id == 9|| this.id == 6 && this.parentElement.id == 9|| this.id == 7 && this.parentElement.id == 9|| this.id == 8 && this.parentElement.id == 9|| this.id == 10 && this.parentElement.id == 9|| this.id == 11 && this.parentElement.id == 9|| this.id == 12 && this.parentElement.id == 9|| this.id == 13 && this.parentElement.id == 9|| this.id == 14 && this.parentElement.id == 9|| this.id == 15 && this.parentElement.id == 9|| this.id == 3 && this.parentElement.id == 10|| this.id == 4 && this.parentElement.id == 10|| this.id == 5 && this.parentElement.id == 10|| this.id == 6 && this.parentElement.id == 10|| this.id == 7 && this.parentElement.id == 10|| this.id == 8 && this.parentElement.id == 10|| this.id == 9 && this.parentElement.id == 10|| this.id == 10 && this.parentElement.id == 10|| this.id == 11 && this.parentElement.id == 10|| this.id == 12 && this.parentElement.id == 10|| this.id == 13 && this.parentElement.id == 10|| this.id == 14 && this.parentElement.id == 10|| this.id == 15 && this.parentElement.id == 10|| this.id == 3 && this.parentElement.id == 11|| this.id == 4 && this.parentElement.id == 11|| this.id == 5 && this.parentElement.id == 11|| this.id == 6 && this.parentElement.id == 11|| this.id == 7 && this.parentElement.id == 11|| this.id == 8|| this.id == 11 && this.parentElement.id == 9|| this.id == 11 && this.parentElement.id == 10|| this.id == 11&& this.parentElement.id == 11|| this.id == 12 && this.parentElement.id == 11|| this.id == 13 && this.parentElement.id == 11|| this.id == 14 && this.parentElement.id == 11|| this.id == 3 && this.parentElement.id == 12|| this.id == 4 && this.parentElement.id == 12|| this.id == 5 && this.parentElement.id == 12|| this.id == 6 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 12||  this.id == 8 && this.parentElement.id == 12|| this.id == 9 && this.parentElement.id == 12|| this.id == 10 && this.parentElement.id == 12|| this.id == 11 && this.parentElement.id == 12|| this.id == 12 && this.parentElement.id == 12|| this.id == 13 && this.parentElement.id == 12|| this.id ==3 && this.parentElement.id == 13|| this.id == 4 && this.parentElement.id == 13|| this.id == 5 && this.parentElement.id == 13|| this.id == 6 && this.parentElement.id == 13|| this.id == 7 && this.parentElement.id == 13|| this.id == 8 && this.parentElement.id == 13|| this.id == 10 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 13 && this.parentElement.id == 13|| this.id == 4 && this.parentElement.id == 14|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 11 && this.parentElement.id == 13|| this.id == 12 && this.parentElement.id == 13|| this.id == 13 && this.parentElement.id == 13|| this.id == 4 && this.parentElement.id == 14|| this.id == 5 && this.parentElement.id == 14|| this.id == 6 && this.parentElement.id == 14|| this.id == 7 && this.parentElement.id == 14|| this.id == 8 && this.parentElement.id == 14|| this.id == 9 && this.parentElement.id == 14|| this.id == 10 && this.parentElement.id == 14|| this.id == 11 && this.parentElement.id == 14|| this.id == 12 && this.parentElement.id == 14|| this.id == 4 && this.parentElement.id == 15|| this.id == 5 && this.parentElement.id == 15|| this.id == 6 && this.parentElement.id == 15|| this.id == 7 && this.parentElement.id == 15|| this.id == 8 && this.parentElement.id == 15|| this.id == 9 && this.parentElement.id == 15|| this.id == 10 && this.parentElement.id == 15|| this.id == 11 && this.parentElement.id == 15|| this.id == 4 && this.parentElement.id == 16||this.id == 5 && this.parentElement.id == 16|| this.id == 6 && this.parentElement.id == 16|| this.id == 7 && this.parentElement.id == 16|| this.id == 8&& this.parentElement.id == 16|| this.id == 9 && this.parentElement.id == 16|| this.id == 10 && this.parentElement.id == 16|| this.id == 11 && this.parentElement.id == 16|| this.id == 6 && this.parentElement.id == 17|| this.id == 7 && this.parentElement.id == 17|| this.id == 8 && this.parentElement.id == 17|| this.id == 9 && this.parentElement.id == 17|| this.id == 10 && this.parentElement.id == 17|| this.id == 11 && this.parentElement.id == 17|| this.id == 6 && this.parentElement.id == 18|| this.id == 7 && this.parentElement.id == 18|| this.id == 8 && this.parentElement.id == 18|| this.id == 9 && this.parentElement.id == 18|| this.id == 11 && this.parentElement.id == 18) {
+            var ts = document.getElementsByClassName("table")[0]
+    
+        
+            ts.classList.add("comp")
+                
+            
+                ts.style.backgroundImage = "url(img/compl/1.png)"
+                paraadam()
+                gamelev = 1
+                lev = 1
+                localStorage.setItem("lev", gamelev)
+
+
+                setTimeout(() => {
+                    
+                    l1()
+                }, chap); 
+            
+       }
+       else{
+        paraadamdel()
+
+        tanel(this)
+       }
+
+     }
+     else if (level==1) {
+        if (this.id == 12 && this.parentElement.id == 7 || this.id == 13 && this.parentElement.id == 7 || this.id == 14 && this.parentElement.id == 7 || this.id == 12 && this.parentElement.id == 8 || this.id == 13 && this.parentElement.id == 8 || this.id == 14 && this.parentElement.id == 8|| this.id == 15 && this.parentElement.id == 8|| this.id == 16 && this.parentElement.id == 8|| this.id == 17 && this.parentElement.id == 8|| this.id == 18 && this.parentElement.id == 8|| this.id == 13 && this.parentElement.id == 9|| this.id == 14 && this.parentElement.id == 9 || this.id == 15 && this.parentElement.id == 9|| this.id == 16 && this.parentElement.id == 9|| this.id == 17 && this.parentElement.id == 9|| this.id == 18 && this.parentElement.id == 19|| this.id == 13 && this.parentElement.id == 10|| this.id == 14 && this.parentElement.id == 10|| this.id == 15 && this.parentElement.id == 10|| this.id == 16 && this.parentElement.id == 10|| this.id == 17 && this.parentElement.id == 10|| this.id == 18 && this.parentElement.id == 10|| this.id == 19 && this.parentElement.id == 10) {
+            var ts = document.getElementsByClassName("table")[0]
+    
+        
+            ts.classList.add("comp")
+                 paraadam()
+            
+                ts.style.backgroundImage = "url(img/compl/7.png)"
+            gamelev = 2
+            lev = 2
+            localStorage.setItem("lev", gamelev)
+
+
+            setTimeout(() => {
+                l3()
+            }, 2000);
+
+        }
+        else {
+            paraadamdel()
+            tanel(this)
+        }
+     }
+     else if (level==2) {
+        if (this.id == 6 && this.parentElement.id == 7 || this.id == 7 && this.parentElement.id == 7 || this.id == 5 && this.parentElement.id == 8 || this.id == 6 && this.parentElement.id == 8 || this.id == 7 && this.parentElement.id == 8 || this.id == 8 && this.parentElement.id == 8|| this.id == 5 && this.parentElement.id == 9|| this.id == 6 && this.parentElement.id == 9|| this.id == 7 && this.parentElement.id == 9|| this.id == 8 && this.parentElement.id == 9|| this.id == 5 && this.parentElement.id == 10|| this.id == 6 && this.parentElement.id == 10 || this.id == 7 && this.parentElement.id == 10|| this.id == 8 && this.parentElement.id == 10|| this.id == 6 && this.parentElement.id == 11|| this.id == 7 && this.parentElement.id == 11|| this.id == 6 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 12|| this.id == 8 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 13) {
+            var ts = document.getElementsByClassName("table")[0]
+    
+        
+            ts.classList.add("comp")
+                 paraadam()
+            
+                ts.style.backgroundImage = "url(img/compl/5.png)"
+            gamelev = 3
+            lev = 3
+            localStorage.setItem("lev", gamelev)
+
+
+            setTimeout(() => {
+                l4()
+            }, chap);
+
+        }
+        else {
+            paraadamdel()
+            tanel(this)
+        }
+     }
+     else if (level==3) {
+        if (this.id == 6 && this.parentElement.id == 7 || this.id == 7 && this.parentElement.id == 7 || this.id == 5 && this.parentElement.id == 8 || this.id == 6 && this.parentElement.id == 8 || this.id == 7 && this.parentElement.id == 8 || this.id == 8 && this.parentElement.id == 8|| this.id == 5 && this.parentElement.id == 9|| this.id == 6 && this.parentElement.id == 9|| this.id == 7 && this.parentElement.id == 9|| this.id == 8 && this.parentElement.id == 9|| this.id == 5 && this.parentElement.id == 10|| this.id == 6 && this.parentElement.id == 10 || this.id == 7 && this.parentElement.id == 10|| this.id == 8 && this.parentElement.id == 10|| this.id == 6 && this.parentElement.id == 11|| this.id == 7 && this.parentElement.id == 11|| this.id == 6 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 12|| this.id == 8 && this.parentElement.id == 12|| this.id == 7 && this.parentElement.id == 13) {
+            var ts = document.getElementsByClassName("table")[0]
+    
+        
+            ts.classList.add("comp")
+                 paraadam()
+            
+                ts.style.backgroundImage = "url(img/compl/4.png)"
+            gamelev = 4
+            lev = 4
+            localStorage.setItem("lev", gamelev)
+
+
+            setTimeout(() => {
+                l5()
+            }, chap);
+
+        }
+        else {
+            paraadamdel()
+            tanel(this)
+        }
+     }
+}
+
+           
+       }
+    
+  
+    }
+    ogndiv.style.width = 10*20 + "px"
+    ogndiv.style.height = 10*20  + "px"
+
+}
+
+
+
+

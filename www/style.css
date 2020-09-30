@@ -616,14 +616,15 @@ font-family: monospace;
         position: absolute;
         /* align-items: center; */
         flex-direction: column;
-        background-color: blueviolet;
+        background-color: mediumaquamarine;
         justify-content: space-between;
 
     }
     .plusmej{
-        background-color: orangered;
+        background-color: cadetblue;
         /* display: flex; */
         align-items: center;
+        border-radius: 20px;
         display: flex;
     justify-content: center;
     
@@ -749,10 +750,10 @@ font-family: monospace;
 
     height: 408px;
 }
-.dastimg{
+/* .dastimg{
     margin-right: 13px;
  
-}
+} */
 .dastimg,.dastcomple,.dastimg2{
     width: 80px;
     height: 80px;
@@ -761,8 +762,10 @@ font-family: monospace;
     display: flex;
     align-items: center;
     background-repeat: round;
-
+    display: flex;
+    justify-content: space-between;
 }
+
 
 
 .dastpdiv,.dastpdiv2{
@@ -839,3 +842,44 @@ font-family: monospace;
     /* align-items: center; */
     justify-content: center;
 }
+.harcdiv{
+    border: 1px solid;
+    margin: 0 auto;
+    background-color: aliceblue;
+}
+.harcdividiv{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    justify-content: space-between;
+}
+.plusdiv{
+
+    background-color: mediumaquamarine;
+}
+
+.p1kanon{
+    color: cornflowerblue;
+    font-size: 21px;
+}
+.p3kanon{
+    color: darkorange;
+    font-size: 20px;
+}
+.p2kanon{
+    color: mediumseagreen;
+    font-size: 30px;
+}
+.p4kanon,.p5kanon,.p6kanon{
+    font-size: 22px;
+}
+.p4kanon{
+    color: chocolate;
+}
+.p5kanon{
+    color: cornflowerblue;
+}
+.p6kanon{
+    color: midnightblue;
+}
+
