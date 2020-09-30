@@ -81,7 +81,7 @@ function zags(params) {
    
     c++
     p.innerHTML = c + "%"
-    if (c==100) {
+    if (c==1) {
         p.innerHTML = "Complete"
         clearInterval(st)
         setTimeout(() => {
